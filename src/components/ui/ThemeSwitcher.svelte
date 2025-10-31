@@ -310,9 +310,9 @@
     background-color: var(--color-bg-primary);
     border: 1px solid var(--color-border);
     border-radius: 0.75rem;
-    box-shadow: 0 8px 24px var(--color-shadow);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
     overflow: hidden;
-    z-index: 1000;
+    z-index: 9999;
     animation: slideDown 0.2s ease;
   }
 

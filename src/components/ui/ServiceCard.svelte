@@ -1,39 +1,39 @@
 <script lang="ts">
-/**
- * ServiceCard Component
- * Display service offerings with icon, title, and description
- *
- * Features:
- * - Uses Card component internally
- * - Icon or image display
- * - Entire card clickable
- * - Hover animations
- * - Container query responsive layout
- * - Theme-aware styling
- *
- * Phase 4.3: ServiceCard Component
- */
+  /**
+   * ServiceCard Component
+   * Display service offerings with icon, title, and description
+   *
+   * Features:
+   * - Uses Card component internally
+   * - Icon or image display
+   * - Entire card clickable
+   * - Hover animations
+   * - Container query responsive layout
+   * - Theme-aware styling
+   *
+   * Phase 4.3: ServiceCard Component
+   */
 
-import Card from './Card.svelte';
-import Icon from './Icon.svelte';
-import type { icons } from './Icon.svelte';
+  import Card from './Card.svelte';
+  import Icon from './Icon.svelte';
+  import type { icons } from './Icon.svelte';
 
-// Props
-let {
-  title: serviceTitle,
-  description,
-  icon,
-  href,
-  image,
-  class: className = '',
-}: {
-  title: string;
-  description: string;
-  icon?: keyof typeof icons;
-  href: string;
-  image?: string;
-  class?: string;
-} = $props();
+  // Props
+  let {
+    title: serviceTitle,
+    description,
+    icon,
+    href,
+    image,
+    class: className = '',
+  }: {
+    title: string;
+    description: string;
+    icon?: keyof typeof icons;
+    href: string;
+    image?: string;
+    class?: string;
+  } = $props();
 </script>
 
 <Card {href} clickable class="service-card {className}">
@@ -51,7 +51,7 @@ let {
       <h3 class="service-title">{serviceTitle}</h3>
     </div>
   {/snippet}
-  
+
   <p class="service-description">{description}</p>
 </Card>
 
@@ -158,4 +158,3 @@ let {
     }
   }
 </style>
-

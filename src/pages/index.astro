@@ -2,175 +2,217 @@
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Container from '@components/layout/Container.svelte';
 import Section from '@components/layout/Section.svelte';
+import Hero from '@components/sections/Hero.svelte';
+import ServiceCard from '@components/ui/ServiceCard.svelte';
+import PortfolioGrid from '@components/ui/PortfolioGrid.svelte';
+import Testimonial from '@components/ui/Testimonial.svelte';
+import BlogCard from '@components/ui/BlogCard.svelte';
+import CTASection from '@components/sections/CTASection.svelte';
 import TestCounter from '@components/TestCounter.svelte';
 import ColorPalette from '@components/ui/ColorPalette.svelte';
 import TypographyShowcase from '@components/ui/TypographyShowcase.svelte';
 import ResponsiveDemo from '@components/ui/ResponsiveDemo.svelte';
 import ContainerDemo from '@components/ui/ContainerDemo.svelte';
 import ContainerQueryTest from '@components/ui/ContainerQueryTest.svelte';
-import ThemeShowcase from '@components/ui/ThemeShowcase.svelte';
 import ThemeSwitcher from '@components/ui/ThemeSwitcher.svelte';
-import ThemePreview from '@components/ui/ThemePreview.svelte';
 import Icon from '@components/ui/Icon.svelte';
 import Button from '@components/ui/Button.svelte';
 import Input from '@components/ui/Input.svelte';
 import Textarea from '@components/ui/Textarea.svelte';
 import Select from '@components/ui/Select.svelte';
 import Checkbox from '@components/ui/Checkbox.svelte';
-import Testimonial from '@components/ui/Testimonial.svelte';
-import ServiceCard from '@components/ui/ServiceCard.svelte';
-import Hero from '@components/sections/Hero.svelte';
-import PortfolioGrid from '@components/ui/PortfolioGrid.svelte';
-import BlogCard from '@components/ui/BlogCard.svelte';
-import CTASection from '@components/sections/CTASection.svelte';
 ---
 
 <BaseLayout
-  title="Design System Showcase"
-  description="Service website template design system with multi-theme support"
+  title="Service Website Template"
+  description="Professional service website with modern design system and multi-theme support"
 >
   <main id="main-content">
-    <!-- Hero Component Test -->
-    <Hero
-      headline="Build Amazing Experiences"
-      subheadline="Create modern, responsive websites with our powerful design system and component library."
-      primaryCTA={{ text: "Get Started", href: "#get-started" }}
-      secondaryCTA={{ text: "Learn More", href: "#learn-more" }}
-    />
+    <!-- ==================== ACTUAL WEBSITE CONTENT ==================== -->
 
+    <!-- Hero Section -->
     <Hero
-      headline="Your Vision, Our Expertise"
-      subheadline="Transform your ideas into reality with cutting-edge technology and exceptional design."
-      primaryCTA={{ text: "View Portfolio", href: "#portfolio" }}
+      headline="Transform Your Vision Into Reality"
+      subheadline="We deliver exceptional digital solutions that drive results. From web development to mobile apps, we bring your ideas to life with cutting-edge technology and expert craftsmanship."
+      primaryCTA={{ text: "Get Started", href: "#contact" }}
+      secondaryCTA={{ text: "View Our Work", href: "#portfolio" }}
       backgroundImage="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1920&q=80"
-      fullHeight={false}
     />
 
-      <!-- Header -->
-    <Section backgroundColor="primary" paddingY="medium">
+    <!-- Services Section -->
+    <Section backgroundColor="primary" paddingY="large" id="services">
       <Container maxWidth="xl">
-        <header>
-        <h1 class="text-5xl font-bold mb-4">Service Website Template</h1>
-        <p class="text-xl mb-2">Design System Showcase</p>
-        <p class="text-base opacity-70">
-          Astro 5.15.3 + Svelte 5.43.2 + UnoCSS - Multi-Theme System
-        </p>
-      </header>
-      </Container>
-    </Section>
-
-      <!-- Technology Stack Status -->
-    <Section backgroundColor="tertiary" paddingY="medium">
-      <Container maxWidth="xl">
-        <h2 class="text-3xl font-semibold accent-primary mb-4">✅ Tech Stack Status</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="p-4 bg-secondary rounded">
-            <h3 class="font-bold mb-2">Astro 5.15.3</h3>
-            <p class="text-sm">Meta-framework with partial hydration ✓</p>
-          </div>
-          <div class="p-4 bg-secondary rounded">
-            <h3 class="font-bold mb-2">Svelte 5.43.2</h3>
-            <p class="text-sm">UI components with Runes ✓</p>
-          </div>
-          <div class="p-4 bg-secondary rounded">
-            <h3 class="font-bold mb-2">UnoCSS</h3>
-            <p class="text-sm">Tailwind-compatible utilities ✓</p>
-          </div>
-          <div class="p-4 bg-secondary rounded">
-            <h3 class="font-bold mb-2">TypeScript 5.9.3</h3>
-            <p class="text-sm">Strict mode enabled ✓</p>
-          </div>
+        <div class="text-center mb-12">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">Our Services</h2>
+          <p class="text-xl text-secondary max-w-2xl mx-auto">
+            Comprehensive solutions tailored to your business needs
+          </p>
         </div>
-        <button class="btn-primary mt-6">Test Primary Button</button>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <ServiceCard
+            title="Web Development"
+            description="Build modern, responsive websites with the latest technologies and best practices for optimal performance and user experience."
+            icon="external-link"
+            href="/services/web-development"
+          />
+          
+          <ServiceCard
+            title="Mobile Applications"
+            description="Create native and cross-platform mobile applications for iOS and Android with seamless user experiences."
+            icon="phone"
+            href="/services/mobile-apps"
+          />
+          
+          <ServiceCard
+            title="UI/UX Design"
+            description="Design beautiful, intuitive user interfaces that delight your customers and drive engagement."
+            icon="heart"
+            href="/services/design"
+          />
+          
+          <ServiceCard
+            title="Consulting"
+            description="Get expert advice on technology strategy, architecture, and implementation from our experienced team."
+            icon="user"
+            href="/services/consulting"
+          />
+          
+          <ServiceCard
+            title="Cloud Services"
+            description="Deploy and manage your applications on modern cloud infrastructure with scalability and security."
+            icon="settings"
+            href="/services/cloud"
+          />
+          
+          <ServiceCard
+            title="Support & Maintenance"
+            description="Keep your applications running smoothly with ongoing support, updates, and performance optimization."
+            icon="check-circle"
+            href="/services/support"
+          />
+        </div>
       </Container>
     </Section>
 
-      <!-- Theme Switcher Section -->
-    <Section backgroundColor="primary" paddingY="medium">
+    <!-- Portfolio Section -->
+    <Section backgroundColor="secondary" paddingY="large" id="portfolio">
       <Container maxWidth="xl">
-        <h2 class="text-4xl font-bold mb-6">Theme Switcher</h2>
-        <p class="mb-4 text-secondary">
-          Try switching between different themes to see the design system adapt!
-        </p>
-        <ThemeSwitcher client:load />
+        <div class="text-center mb-12">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">Featured Projects</h2>
+          <p class="text-xl text-secondary max-w-2xl mx-auto">
+            A showcase of our recent work and success stories
+          </p>
+        </div>
+
+        <PortfolioGrid
+          items={[
+            {
+              id: '1',
+              title: 'E-Commerce Platform',
+              description: 'Modern e-commerce solution with advanced filtering and seamless checkout experience.',
+              image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80',
+              category: 'Web Development',
+              href: '/portfolio/ecommerce-platform',
+            },
+            {
+              id: '2',
+              title: 'Mobile Banking App',
+              description: 'Secure mobile banking application with biometric authentication and real-time updates.',
+              image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80',
+              category: 'Mobile',
+              href: '/portfolio/banking-app',
+            },
+            {
+              id: '3',
+              title: 'Healthcare Dashboard',
+              description: 'Real-time analytics dashboard for healthcare professionals with patient management.',
+              image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+              category: 'UI/UX Design',
+              href: '/portfolio/healthcare-dashboard',
+            },
+            {
+              id: '4',
+              title: 'Social Media Platform',
+              description: 'Community-focused social platform with real-time messaging and content sharing.',
+              image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80',
+              category: 'Web Development',
+              href: '/portfolio/social-platform',
+            },
+            {
+              id: '5',
+              title: 'Fitness Tracking App',
+              description: 'Comprehensive fitness app with workout plans, nutrition tracking, and progress analytics.',
+              image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80',
+              category: 'Mobile',
+              href: '/portfolio/fitness-app',
+            },
+            {
+              id: '6',
+              title: 'SaaS Product Design',
+              description: 'Enterprise SaaS platform with intuitive workflow automation and team collaboration.',
+              image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
+              category: 'UI/UX Design',
+              href: '/portfolio/saas-design',
+            },
+          ]}
+        />
       </Container>
     </Section>
 
-      <!-- Typography Section -->
-    <Section backgroundColor="secondary" paddingY="medium">
+    <!-- Testimonials Section -->
+    <Section backgroundColor="tertiary" paddingY="large" id="testimonials">
       <Container maxWidth="xl">
-        <h2 class="text-4xl font-bold mb-6">Typography System</h2>
-        <TypographyShowcase />
+        <div class="text-center mb-12">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">What Our Clients Say</h2>
+          <p class="text-xl text-secondary max-w-2xl mx-auto">
+            Real feedback from businesses we've helped succeed
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Testimonial
+            quote="This service exceeded all our expectations. The team was professional, responsive, and delivered exceptional results on time and within budget."
+            author="Sarah Johnson"
+            role="CEO, TechStart Inc."
+            photo="https://i.pravatar.cc/150?img=1"
+            rating={5}
+          />
+
+          <Testimonial
+            quote="Working with this team was an absolute pleasure. They understood our vision and brought it to life better than we could have imagined."
+            author="Michael Chen"
+            role="Product Manager, InnovateCo"
+            rating={5}
+          />
+
+          <Testimonial
+            quote="Great experience overall. The project was completed professionally and the communication throughout was excellent."
+            author="Emily Rodriguez"
+            role="Marketing Director, CreativeWorks"
+            photo="https://i.pravatar.cc/150?img=5"
+            rating={4}
+          />
+
+          <Testimonial
+            quote="I highly recommend their services. The attention to detail and commitment to quality is outstanding."
+            author="David Park"
+            role="Founder, StartupLab"
+            rating={5}
+          />
+        </div>
       </Container>
     </Section>
 
-      <!-- Responsive & Spacing Section -->
-    <Section backgroundColor="primary" paddingY="medium">
+    <!-- Latest Blog Posts Section -->
+    <Section backgroundColor="primary" paddingY="large" id="blog">
       <Container maxWidth="xl">
-        <h2 class="text-4xl font-bold mb-6">Responsive Design & Spacing</h2>
-        <ResponsiveDemo />
-      </Container>
-    </Section>
-
-      <!-- Container & Layout Section -->
-    <Section backgroundColor="secondary" paddingY="medium">
-      <Container maxWidth="xl">
-        <h2 class="text-4xl font-bold mb-6">Container & Layout System</h2>
-        <ContainerDemo />
-      </Container>
-    </Section>
-
-    <!-- Container Query Test Section -->
-    <Section backgroundColor="tertiary" paddingY="medium">
-      <Container maxWidth="xl">
-        <h2 class="text-4xl font-bold mb-6">Container Queries</h2>
-        <p class="mb-6 text-secondary">
-          Container queries allow components to respond to their container size instead of the viewport.
-          This makes components truly reusable and adaptable to any context.
-        </p>
-        <ContainerQueryTest client:load />
-      </Container>
-    </Section>
-
-      <!-- Color Palette Section -->
-    <Section backgroundColor="primary" paddingY="medium">
-      <Container maxWidth="xl">
-        <h2 class="text-4xl font-bold mb-6">Color System</h2>
-        <ColorPalette />
-      </Container>
-    </Section>
-
-      <!-- Theme Showcase Section -->
-    <!-- <Section backgroundColor="secondary" paddingY="medium"> -->
-    <!--   <Container maxWidth="xl"> -->
-    <!--     <h2 class="text-4xl font-bold text-dark mb-6">Color System</h2> -->
-    <!--     <ThemeShowcase /> -->
-    <!--   </Container> -->
-    <!-- </Section> -->
-
-    <!-- CTA Section Component Test -->
-    <CTASection
-      headline="Ready to Get Started?"
-      description="Join thousands of satisfied customers who have transformed their business with our solutions."
-      primaryCTA={{ text: "Start Your Free Trial", href: "#signup" }}
-      secondaryCTA={{ text: "Schedule a Demo", href: "#demo" }}
-      backgroundColor="tertiary"
-    />
-
-    <CTASection
-      headline="Need Help? We're Here for You"
-      description="Our support team is available 24/7 to answer your questions."
-      primaryCTA={{ text: "Contact Support", href: "#support" }}
-      backgroundColor="primary"
-    />
-
-    <!-- BlogCard Component Test -->
-    <Section backgroundColor="tertiary" paddingY="medium">
-      <Container maxWidth="xl">
-        <h2 class="text-4xl font-bold mb-6">BlogCard Component</h2>
-        <p class="mb-6 text-secondary">
-          Display blog posts with images, metadata, and excerpts.
-        </p>
+        <div class="text-center mb-12">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">Latest Insights</h2>
+          <p class="text-xl text-secondary max-w-2xl mx-auto">
+            Explore our latest articles and industry insights
+          </p>
+        </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <BlogCard
@@ -181,7 +223,7 @@ import CTASection from '@components/sections/CTASection.svelte';
             author="Jane Doe"
             readTime="5 min read"
             category="Web Development"
-            href="#blog-1"
+            href="/blog/modern-web-development"
           />
 
           <BlogCard
@@ -192,7 +234,7 @@ import CTASection from '@components/sections/CTASection.svelte';
             author="John Smith"
             readTime="8 min read"
             category="Design"
-            href="#blog-2"
+            href="/blog/responsive-design"
           />
 
           <BlogCard
@@ -202,430 +244,47 @@ import CTASection from '@components/sections/CTASection.svelte';
             author="Sarah Johnson"
             readTime="6 min read"
             category="JavaScript"
-            href="#blog-3"
-          />
-
-          <BlogCard
-            blogTitle="Accessibility Best Practices"
-            excerpt="Essential accessibility practices every developer should know to create inclusive web experiences for all users."
-            image="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&q=80"
-            date="2025-09-28"
-            readTime="10 min read"
-            category="Accessibility"
-            href="#blog-4"
-          />
-
-          <BlogCard
-            blogTitle="Building Performant Web Applications"
-            excerpt="Tips and techniques for optimizing web application performance and delivering fast, smooth user experiences."
-            image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"
-            date="2025-09-20"
-            author="Mike Chen"
-            readTime="7 min read"
-            href="#blog-5"
-          />
-
-          <BlogCard
-            blogTitle="CSS Grid vs Flexbox: When to Use Each"
-            excerpt="A practical comparison of CSS Grid and Flexbox layout systems with real-world examples and use cases."
-            date="2025-09-15"
-            readTime="5 min read"
-            category="CSS"
-            href="#blog-6"
+            href="/blog/javascript-frameworks"
           />
         </div>
       </Container>
     </Section>
 
-    <!-- Portfolio Grid Component Test -->
-    <Section backgroundColor="primary" paddingY="medium">
-      <Container maxWidth="xl">
-        <h2 class="text-4xl font-bold mb-6">Portfolio Grid & Cards</h2>
-        <p class="mb-6 text-secondary">
-          Display portfolio projects in a responsive grid with hover effects and category badges.
-        </p>
+    <!-- Final CTA Section -->
+    <CTASection
+      headline="Ready to Start Your Project?"
+      description="Let's work together to bring your vision to life. Get in touch with our team today for a free consultation."
+      primaryCTA={{ text: "Get Started", href: "/contact" }}
+      secondaryCTA={{ text: "Schedule a Call", href: "/contact#schedule" }}
+      backgroundColor="tertiary"
+    />
 
-        <PortfolioGrid
-          items={[
-            {
-              id: '1',
-              title: 'E-Commerce Platform',
-              description: 'Modern e-commerce solution with advanced filtering and checkout.',
-              image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80',
-              category: 'Web Development',
-              href: '#project-1',
-            },
-            {
-              id: '2',
-              title: 'Mobile Banking App',
-              description: 'Secure mobile banking application with biometric authentication.',
-              image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80',
-              category: 'Mobile',
-              href: '#project-2',
-            },
-            {
-              id: '3',
-              title: 'Healthcare Dashboard',
-              description: 'Real-time analytics dashboard for healthcare professionals.',
-              image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
-              category: 'UI/UX Design',
-              href: '#project-3',
-            },
-            {
-              id: '4',
-              title: 'Social Media Platform',
-              description: 'Community-focused social platform with real-time messaging.',
-              image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80',
-              category: 'Web Development',
-              href: '#project-4',
-            },
-            {
-              id: '5',
-              title: 'Fitness Tracking App',
-              description: 'Comprehensive fitness app with workout plans and nutrition tracking.',
-              image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80',
-              category: 'Mobile',
-              href: '#project-5',
-            },
-            {
-              id: '6',
-              title: 'SaaS Product Design',
-              description: 'Enterprise SaaS platform with intuitive workflow automation.',
-              image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
-              category: 'UI/UX Design',
-              href: '#project-6',
-            },
-          ]}
-        />
-      </Container>
-    </Section>
+    <!-- ==================== COMPONENT SHOWCASE / VERIFICATION SECTIONS ==================== -->
 
-    <!-- ServiceCard Component Test -->
     <Section backgroundColor="secondary" paddingY="medium">
       <Container maxWidth="xl">
-        <h2 class="text-4xl font-bold mb-6">ServiceCard Component</h2>
-        <p class="mb-6 text-secondary">
-          Display service offerings with icons, hover animations, and responsive layouts.
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <ServiceCard
-            title="Web Development"
-            description="Build modern, responsive websites with the latest technologies and best practices."
-            icon="external-link"
-            href="#web-dev"
-          />
-          
-          <ServiceCard
-            title="Mobile Apps"
-            description="Create native and cross-platform mobile applications for iOS and Android."
-            icon="phone"
-            href="#mobile"
-          />
-          
-          <ServiceCard
-            title="UI/UX Design"
-            description="Design beautiful, intuitive user interfaces that delight your customers."
-            icon="heart"
-            href="#design"
-          />
-          
-          <ServiceCard
-            title="Consulting"
-            description="Get expert advice on technology strategy, architecture, and implementation."
-            icon="user"
-            href="#consulting"
-          />
-          
-          <ServiceCard
-            title="Cloud Services"
-            description="Deploy and manage your applications on modern cloud infrastructure."
-            icon="settings"
-            href="#cloud"
-          />
-          
-          <ServiceCard
-            title="Support & Maintenance"
-            description="Keep your applications running smoothly with ongoing support and updates."
-            icon="check-circle"
-            href="#support"
-          />
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold mb-4">Component Library</h2>
+          <p class="text-xl opacity-70">
+            Design system components and showcases for development reference
+          </p>
         </div>
       </Container>
     </Section>
 
-    <!-- Testimonial Component Test -->
+    <!-- Theme Switcher Section -->
     <Section backgroundColor="primary" paddingY="medium">
       <Container maxWidth="xl">
-        <h2 class="text-4xl font-bold mb-6">Testimonial Component</h2>
-        <p class="mb-6 text-secondary">
-          Display client testimonials with quotes, ratings, and author information.
+        <h2 class="text-4xl font-bold mb-6">Theme Switcher</h2>
+        <p class="mb-4 text-secondary">
+          Try switching between different themes to see the design system adapt!
         </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <!-- Testimonial with rating and photo -->
-          <Testimonial
-            quote="This service exceeded all our expectations. The team was professional, responsive, and delivered exceptional results on time and within budget."
-            author="Sarah Johnson"
-            role="CEO, TechStart Inc."
-            photo="https://i.pravatar.cc/150?img=1"
-            rating={5}
-          />
-
-          <!-- Testimonial without photo -->
-          <Testimonial
-            quote="Working with this team was an absolute pleasure. They understood our vision and brought it to life better than we could have imagined."
-            author="Michael Chen"
-            role="Product Manager, InnovateCo"
-            rating={5}
-          />
-
-          <!-- Testimonial with partial rating -->
-          <Testimonial
-            quote="Great experience overall. The project was completed professionally and the communication throughout was excellent."
-            author="Emily Rodriguez"
-            role="Marketing Director"
-            photo="https://i.pravatar.cc/150?img=5"
-            rating={4}
-          />
-
-          <!-- Testimonial without rating -->
-          <Testimonial
-            quote="I highly recommend their services. The attention to detail and commitment to quality is outstanding."
-            author="David Park"
-            role="Founder, StartupLab"
-          />
-        </div>
+        <ThemeSwitcher client:load />
       </Container>
     </Section>
-
-    <!-- Form Components Test -->
-    <Section backgroundColor="tertiary" paddingY="medium">
-      <Container maxWidth="xl">
-        <h2 class="text-4xl font-bold mb-6">Form Components</h2>
-        <p class="mb-6 text-secondary">
-          Accessible form inputs with error states, validation, and theme support.
-        </p>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <!-- Left Column -->
-          <div class="space-y-6">
-            <!-- Input Component -->
-            <div>
-              <h3 class="text-2xl font-semibold mb-4">Input Component</h3>
-              <div class="space-y-4">
-                <Input
-                  id="name"
-                  label="Full Name"
-                  placeholder="Enter your name"
-                  required
-                  client:load
-                />
-                <Input
-                  id="email"
-                  label="Email Address"
-                  type="email"
-                  placeholder="you@example.com"
-                  required
-                  client:load
-                />
-                <Input
-                  id="phone"
-                  label="Phone Number"
-                  type="tel"
-                  placeholder="+1 (555) 000-0000"
-                  client:load
-                />
-                <Input
-                  id="password"
-                  label="Password"
-                  type="password"
-                  placeholder="Enter password"
-                  required
-                  client:load
-                />
-                <Input
-                  id="error-demo"
-                  label="Input with Error"
-                  error="This field is required"
-                  client:load
-                />
-                <Input
-                  id="disabled"
-                  label="Disabled Input"
-                  value="This is disabled"
-                  disabled
-                  client:load
-                />
-              </div>
-            </div>
-
-            <!-- Textarea Component -->
-            <div>
-              <h3 class="text-2xl font-semibold mb-4">Textarea Component</h3>
-              <div class="space-y-4">
-                <Textarea
-                  id="message"
-                  label="Message"
-                  placeholder="Type your message here..."
-                  rows={4}
-                  required
-                  client:load
-                />
-                <Textarea
-                  id="message-error"
-                  label="Textarea with Error"
-                  error="Message must be at least 10 characters"
-                  rows={3}
-                  client:load
-                />
-              </div>
-            </div>
-          </div>
-
-          <!-- Right Column -->
-          <div class="space-y-6">
-            <!-- Select Component -->
-            <div>
-              <h3 class="text-2xl font-semibold mb-4">Select Component</h3>
-              <div class="space-y-4">
-                <Select
-                  id="country"
-                  label="Country"
-                  placeholder="Select a country"
-                  options={[
-                    { value: 'us', label: 'United States' },
-                    { value: 'uk', label: 'United Kingdom' },
-                    { value: 'ca', label: 'Canada' },
-                    { value: 'au', label: 'Australia' },
-                  ]}
-                  required
-                  client:load
-                />
-                <Select
-                  id="service"
-                  label="Service Type"
-                  placeholder="Choose a service"
-                  options={[
-                    { value: 'web', label: 'Web Development' },
-                    { value: 'mobile', label: 'Mobile Development' },
-                    { value: 'design', label: 'UI/UX Design' },
-                    { value: 'consulting', label: 'Consulting' },
-                  ]}
-                  client:load
-                />
-                <Select
-                  id="select-error"
-                  label="Select with Error"
-                  placeholder="Select an option"
-                  options={[
-                    { value: '1', label: 'Option 1' },
-                    { value: '2', label: 'Option 2' },
-                  ]}
-                  error="Please select an option"
-                  client:load
-                />
-                <Select
-                  id="disabled-select"
-                  label="Disabled Select"
-                  options={[
-                    { value: '1', label: 'Option 1' },
-                  ]}
-                  disabled
-                  client:load
-                />
-              </div>
-            </div>
-
-            <!-- Checkbox Component -->
-            <div>
-              <h3 class="text-2xl font-semibold mb-4">Checkbox Component</h3>
-              <div class="space-y-4">
-                <Checkbox
-                  id="agree"
-                  label="I agree to the terms and conditions"
-                  required
-                  client:load
-                />
-                <Checkbox
-                  id="newsletter"
-                  label="Subscribe to newsletter"
-                  client:load
-                />
-                <Checkbox
-                  id="checkbox-error"
-                  label="Checkbox with Error"
-                  error="You must accept this"
-                  client:load
-                />
-                <Checkbox
-                  id="disabled-checkbox"
-                  label="Disabled Checkbox"
-                  disabled
-                  client:load
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Example Form -->
-        <div class="mt-12 p-6 bg-primary rounded-lg">
-          <h3 class="text-2xl font-semibold mb-6">Complete Form Example</h3>
-          <form class="space-y-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <Input
-                id="form-name"
-                label="Name"
-                required
-                client:load
-              />
-              <Input
-                id="form-email"
-                label="Email"
-                type="email"
-                required
-                client:load
-              />
-            </div>
-            <Select
-              id="form-subject"
-              label="Subject"
-              placeholder="Select a subject"
-              options={[
-                { value: 'general', label: 'General Inquiry' },
-                { value: 'support', label: 'Support Request' },
-                { value: 'sales', label: 'Sales Question' },
-              ]}
-              required
-              client:load
-            />
-            <Textarea
-              id="form-message"
-              label="Message"
-              rows={5}
-              required
-              client:load
-            />
-            <Checkbox
-              id="form-consent"
-              label="I consent to being contacted"
-              required
-              client:load
-            />
-            <div class="flex gap-4">
-              <Button type="submit" variant="primary">Submit Form</Button>
-              <Button type="button" variant="outline">Cancel</Button>
-            </div>
-          </form>
-        </div>
-      </Container>
-    </Section>
-
-    <!-- Note: Card component is demonstrated through ServiceCard, BlogCard, and PortfolioCard components above -->
 
     <!-- Button Component Test -->
-    <Section backgroundColor="primary" paddingY="medium">
+    <Section backgroundColor="tertiary" paddingY="medium">
       <Container maxWidth="xl">
         <h2 class="text-4xl font-bold mb-6">Button Component</h2>
         <p class="mb-6 text-secondary">
@@ -663,15 +322,6 @@ import CTASection from '@components/sections/CTASection.svelte';
           </div>
         </div>
 
-        <!-- Button as Link -->
-        <div class="mb-8">
-          <h3 class="text-2xl font-semibold mb-4">Button as Link</h3>
-          <div class="flex items-center gap-4 flex-wrap">
-            <Button variant="primary" href="#button-test">Link Button</Button>
-            <Button variant="outline" href="#button-test">Outline Link</Button>
-          </div>
-        </div>
-
         <!-- Buttons with Icons -->
         <div class="mb-8">
           <h3 class="text-2xl font-semibold mb-4">Buttons with Icons</h3>
@@ -681,16 +331,12 @@ import CTASection from '@components/sections/CTASection.svelte';
               Success
             </Button>
             <Button variant="secondary">
-              <Icon name="arrow-right" size="sm" ariaHidden />
               Next
+              <Icon name="arrow-right" size="sm" ariaHidden />
             </Button>
             <Button variant="outline">
               <Icon name="external-link" size="sm" ariaHidden />
               External
-            </Button>
-            <Button variant="ghost">
-              <Icon name="settings" size="sm" ariaHidden />
-              Settings
             </Button>
           </div>
         </div>
@@ -698,7 +344,7 @@ import CTASection from '@components/sections/CTASection.svelte';
     </Section>
 
     <!-- Icon Component Test -->
-    <Section backgroundColor="tertiary" paddingY="medium">
+    <Section backgroundColor="secondary" paddingY="medium">
       <Container maxWidth="xl">
         <h2 class="text-4xl font-bold mb-6">Icon Component</h2>
         <p class="mb-6 text-secondary">
@@ -721,87 +367,166 @@ import CTASection from '@components/sections/CTASection.svelte';
               <Icon name="star" size="lg" />
               <span class="text-sm">Large (32px)</span>
             </div>
-            <div class="flex items-center gap-2">
-              <Icon name="star" size={48} />
-              <span class="text-sm">Custom (48px)</span>
+          </div>
+        </div>
+
+        <!-- Icon Categories -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Navigation Icons -->
+          <div>
+            <h3 class="text-xl font-semibold mb-3">Navigation</h3>
+            <div class="flex items-center gap-3 flex-wrap">
+              <Icon name="menu" ariaLabel="Menu" />
+              <Icon name="close" ariaLabel="Close" />
+              <Icon name="arrow-right" ariaLabel="Arrow right" />
+              <Icon name="chevron-down" ariaLabel="Chevron down" />
             </div>
           </div>
-        </div>
 
-        <!-- Navigation Icons -->
-        <div class="mb-8">
-          <h3 class="text-2xl font-semibold mb-4">Navigation Icons</h3>
-          <div class="flex items-center gap-4 flex-wrap">
-            <Icon name="menu" ariaLabel="Menu" />
-            <Icon name="close" ariaLabel="Close" />
-            <Icon name="arrow-right" ariaLabel="Arrow right" />
-            <Icon name="arrow-left" ariaLabel="Arrow left" />
-            <Icon name="arrow-up" ariaLabel="Arrow up" />
-            <Icon name="arrow-down" ariaLabel="Arrow down" />
-            <Icon name="chevron-down" ariaLabel="Chevron down" />
-            <Icon name="chevron-up" ariaLabel="Chevron up" />
-            <Icon name="chevron-left" ariaLabel="Chevron left" />
-            <Icon name="chevron-right" ariaLabel="Chevron right" />
+          <!-- Contact Icons -->
+          <div>
+            <h3 class="text-xl font-semibold mb-3">Contact</h3>
+            <div class="flex items-center gap-3 flex-wrap">
+              <Icon name="phone" ariaLabel="Phone" />
+              <Icon name="mail" ariaLabel="Email" />
+              <Icon name="map-pin" ariaLabel="Location" />
+            </div>
           </div>
-        </div>
 
-        <!-- Contact Icons -->
-        <div class="mb-8">
-          <h3 class="text-2xl font-semibold mb-4">Contact Icons</h3>
-          <div class="flex items-center gap-4 flex-wrap">
-            <Icon name="phone" ariaLabel="Phone" />
-            <Icon name="mail" ariaLabel="Email" />
-            <Icon name="map-pin" ariaLabel="Location" />
+          <!-- Social Icons -->
+          <div>
+            <h3 class="text-xl font-semibold mb-3">Social Media</h3>
+            <div class="flex items-center gap-3 flex-wrap">
+              <Icon name="facebook" ariaLabel="Facebook" />
+              <Icon name="instagram" ariaLabel="Instagram" />
+              <Icon name="twitter" ariaLabel="Twitter" />
+              <Icon name="linkedin" ariaLabel="LinkedIn" />
+            </div>
           </div>
-        </div>
 
-        <!-- Social Icons -->
-        <div class="mb-8">
-          <h3 class="text-2xl font-semibold mb-4">Social Media Icons</h3>
-          <div class="flex items-center gap-4 flex-wrap">
-            <Icon name="facebook" ariaLabel="Facebook" />
-            <Icon name="instagram" ariaLabel="Instagram" />
-            <Icon name="twitter" ariaLabel="Twitter" />
-            <Icon name="linkedin" ariaLabel="LinkedIn" />
-            <Icon name="github" ariaLabel="GitHub" />
-          </div>
-        </div>
-
-        <!-- Action Icons -->
-        <div class="mb-8">
-          <h3 class="text-2xl font-semibold mb-4">Action & UI Icons</h3>
-          <div class="flex items-center gap-4 flex-wrap">
-            <Icon name="check" ariaLabel="Check" />
-            <Icon name="search" ariaLabel="Search" />
-            <Icon name="settings" ariaLabel="Settings" />
-            <Icon name="external-link" ariaLabel="External link" />
-            <Icon name="calendar" ariaLabel="Calendar" />
-            <Icon name="clock" ariaLabel="Clock" />
-            <Icon name="user" ariaLabel="User" />
-            <Icon name="star" ariaLabel="Star" />
-            <Icon name="heart" ariaLabel="Heart" />
-            <Icon name="alert-circle" ariaLabel="Alert" />
-            <Icon name="check-circle" ariaLabel="Success" />
-            <Icon name="info" ariaLabel="Info" />
-          </div>
-        </div>
-
-        <!-- Color Customization -->
-        <div class="mb-8">
-          <h3 class="text-2xl font-semibold mb-4">Custom Colors</h3>
-          <div class="flex items-center gap-4 flex-wrap">
-            <Icon name="heart" color="red" ariaLabel="Red heart" />
-            <Icon name="star" color="gold" ariaLabel="Gold star" />
-            <Icon name="check-circle" color="green" ariaLabel="Green check" />
-            <Icon name="alert-circle" color="orange" ariaLabel="Orange alert" />
-            <Icon name="info" color="blue" ariaLabel="Blue info" />
+          <!-- UI Icons -->
+          <div>
+            <h3 class="text-xl font-semibold mb-3">UI Elements</h3>
+            <div class="flex items-center gap-3 flex-wrap">
+              <Icon name="check" ariaLabel="Check" />
+              <Icon name="star" ariaLabel="Star" />
+              <Icon name="heart" ariaLabel="Heart" />
+              <Icon name="settings" ariaLabel="Settings" />
+            </div>
           </div>
         </div>
       </Container>
     </Section>
 
-      <!-- Svelte 5 Runes Test -->
+    <!-- Form Components Test -->
+    <Section backgroundColor="primary" paddingY="medium">
+      <Container maxWidth="xl">
+        <h2 class="text-4xl font-bold mb-6">Form Components</h2>
+        <p class="mb-6 text-secondary">
+          Accessible form inputs with error states, validation, and theme support.
+        </p>
+
+        <!-- Example Form -->
+        <div class="max-w-2xl mx-auto p-8 bg-secondary rounded-lg">
+          <h3 class="text-2xl font-semibold mb-6">Contact Form Example</h3>
+          <form class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <Input
+                id="form-name"
+                label="Name"
+                placeholder="Your name"
+                required
+                client:load
+              />
+              <Input
+                id="form-email"
+                label="Email"
+                type="email"
+                placeholder="your@email.com"
+                required
+                client:load
+              />
+            </div>
+            <Select
+              id="form-subject"
+              label="Subject"
+              placeholder="Select a subject"
+              options={[
+                { value: 'general', label: 'General Inquiry' },
+                { value: 'support', label: 'Support Request' },
+                { value: 'sales', label: 'Sales Question' },
+              ]}
+              required
+              client:load
+            />
+            <Textarea
+              id="form-message"
+              label="Message"
+              placeholder="Tell us about your project..."
+              rows={5}
+              required
+              client:load
+            />
+            <Checkbox
+              id="form-consent"
+              label="I consent to being contacted"
+              required
+              client:load
+            />
+            <div class="flex gap-4">
+              <Button type="submit" variant="primary">Submit</Button>
+              <Button type="button" variant="outline">Cancel</Button>
+            </div>
+          </form>
+        </div>
+      </Container>
+    </Section>
+
+    <!-- Typography Section -->
+    <Section backgroundColor="tertiary" paddingY="medium">
+      <Container maxWidth="xl">
+        <h2 class="text-4xl font-bold mb-6">Typography System</h2>
+        <TypographyShowcase />
+      </Container>
+    </Section>
+
+    <!-- Responsive & Spacing Section -->
     <Section backgroundColor="secondary" paddingY="medium">
+      <Container maxWidth="xl">
+        <h2 class="text-4xl font-bold mb-6">Responsive Design & Spacing</h2>
+        <ResponsiveDemo />
+      </Container>
+    </Section>
+
+    <!-- Container & Layout Section -->
+    <Section backgroundColor="primary" paddingY="medium">
+      <Container maxWidth="xl">
+        <h2 class="text-4xl font-bold mb-6">Container & Layout System</h2>
+        <ContainerDemo />
+      </Container>
+    </Section>
+
+    <!-- Container Query Test Section -->
+    <Section backgroundColor="tertiary" paddingY="medium">
+      <Container maxWidth="xl">
+        <h2 class="text-4xl font-bold mb-6">Container Queries</h2>
+        <p class="mb-6 text-secondary">
+          Container queries allow components to respond to their container size instead of the viewport.
+        </p>
+        <ContainerQueryTest client:load />
+      </Container>
+    </Section>
+
+    <!-- Color Palette Section -->
+    <Section backgroundColor="secondary" paddingY="medium">
+      <Container maxWidth="xl">
+        <h2 class="text-4xl font-bold mb-6">Color System</h2>
+        <ColorPalette />
+      </Container>
+    </Section>
+
+    <!-- Svelte 5 Runes Test -->
+    <Section backgroundColor="primary" paddingY="medium">
       <Container maxWidth="xl">
         <h2 class="text-3xl font-semibold mb-4">Svelte 5 Runes Test</h2>
         <p class="mb-4">
@@ -811,22 +536,22 @@ import CTASection from '@components/sections/CTASection.svelte';
       </Container>
     </Section>
 
-      <!-- Phase Status -->
-    <Section backgroundColor="secondary" paddingY="medium">
+    <!-- Phase Status -->
+    <Section backgroundColor="tertiary" paddingY="medium">
       <Container maxWidth="xl">
         <footer class="p-6 rounded-lg border-2 border-color">
-        <h3 class="text-2xl font-bold mb-3">Development Progress</h3>
-        <ul class="space-y-2">
-          <li>✅ Phase 1: Project Setup & Configuration - Complete</li>
-            <li>✅ Phase 2: Design System Implementation - Multi-Theme System Added</li>
+          <h3 class="text-2xl font-bold mb-3">Development Progress</h3>
+          <ul class="space-y-2">
+            <li>✅ Phase 1: Project Setup & Configuration - Complete</li>
+            <li>✅ Phase 2: Design System Implementation - Complete</li>
             <li>✅ Phase 3: Core Layout & Structure - Complete</li>
-          <li class="accent-primary font-bold">
-              🔄 Phase 4: Component Library Development - In Progress
-          </li>
+            <li class="accent-primary font-bold">
+              ✅ Phase 4: Component Library Development - Complete
+            </li>
             <li class="opacity-50">⏳ Phase 5-10: Upcoming</li>
-        </ul>
-      </footer>
+          </ul>
+        </footer>
       </Container>
     </Section>
-    </main>
+  </main>
 </BaseLayout>

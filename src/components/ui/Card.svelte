@@ -1,45 +1,46 @@
 <script lang="ts">
-/**
- * Card Component
- * Flexible card container with optional slots and container query support
- *
- * Features:
- * - Multiple slots (image, title, default, footer)
- * - Clickable variant (entire card as link)
- * - Container queries for responsive layout
- * - Configurable padding
- * - Theme-aware styling
- * - Hover effects for clickable cards
- *
- * Phase 4.2: Card Component
- */
+  /**
+   * Card Component
+   * Flexible card container with optional slots and container query support
+   *
+   * Features:
+   * - Multiple slots (image, title, default, footer)
+   * - Clickable variant (entire card as link)
+   * - Container queries for responsive layout
+   * - Configurable padding
+   * - Theme-aware styling
+   * - Hover effects for clickable cards
+   *
+   * Phase 4.2: Card Component
+   */
 
-// Props
-let {
-  clickable = false,
-  href,
-  padding = 'md',
-  class: className = '',
-  children,
-  cardImage,
-  cardTitle,
-  cardFooter,
-}: {
-  clickable?: boolean;
-  href?: string;
-  padding?: 'sm' | 'md' | 'lg';
-  class?: string;
-  children?: any;
-  cardImage?: any;
-  cardTitle?: any;
-  cardFooter?: any;
-} = $props();
+  // Props
+  let {
+    clickable = false,
+    href,
+    padding = 'md',
+    class: className = '',
+    children,
+    cardImage,
+    cardTitle,
+    cardFooter,
+  }: {
+    clickable?: boolean;
+    href?: string;
+    padding?: 'sm' | 'md' | 'lg';
+    class?: string;
+    children?: any;
+    cardImage?: any;
+    cardTitle?: any;
+    cardFooter?: any;
+  } = $props();
 
-// Determine if card should be clickable
-const isClickable = clickable || !!href;
+  // Determine if card should be clickable
+  const isClickable = clickable || !!href;
 
-// Build class names
-const cardClasses = `card card-padding-${padding} ${isClickable ? 'card-clickable' : ''} ${className}`.trim();
+  // Build class names
+  const cardClasses =
+    `card card-padding-${padding} ${isClickable ? 'card-clickable' : ''} ${className}`.trim();
 </script>
 
 {#if href && isClickable}
@@ -255,4 +256,3 @@ const cardClasses = `card card-padding-${padding} ${isClickable ? 'card-clickabl
     }
   }
 </style>
-
