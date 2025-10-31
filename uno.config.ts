@@ -73,5 +73,11 @@ export default defineConfig({
     'section-sm': 'py-12 md:py-16',
     'section-md': 'py-16 md:py-20 lg:py-24',
     'section-lg': 'py-20 md:py-24 lg:py-32',
+
+    // Transition utilities
+    'transition-base': 'transition-all duration-300 ease-in-out',
+    'transition-fast': 'transition-all duration-150 ease-in-out',
+    'transition-slow': 'transition-all duration-500 ease-in-out',
+    'transition-colors': 'transition-colors duration-300 ease-in-out',
   },
 });
