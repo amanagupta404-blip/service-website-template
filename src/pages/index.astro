@@ -1,5 +1,5 @@
 ---
-
+import TestCounter from '../components/TestCounter.svelte';
 ---
 
 <html lang="en">
@@ -11,6 +11,8 @@
 		<title>Astro</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<h1>Service Website Template</h1>
+		<p>Astro 5.15.3 + Svelte 5.43.2 Integration Test</p>
+		<TestCounter client:load />
 	</body>
 </html>
