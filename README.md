@@ -38,23 +38,27 @@ A modern, high-performance website template built specifically for service-based
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/your-username/service-website-template.git
    cd service-website-template
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Copy environment variables**
+
    ```bash
    cp .env.example .env
    # Edit .env with your actual values (optional for development)
    ```
 
 4. **Start development server**
+
    ```bash
    npm run dev
    ```
@@ -65,15 +69,15 @@ A modern, high-performance website template built specifically for service-based
 
 All commands are run from the root of the project:
 
-| Command         | Action                                           |
-| :-------------- | :----------------------------------------------- |
-| `npm install`   | Install dependencies                             |
-| `npm run dev`   | Start local dev server at `localhost:4321`       |
-| `npm run build` | Build production site to `./dist/`               |
-| `npm run preview` | Preview production build locally               |
-| `npm run format` | Format code with Prettier                       |
-| `npm run check` | Type-check with TypeScript and Astro            |
-| `npm run astro` | Run Astro CLI commands                          |
+| Command           | Action                                     |
+| :---------------- | :----------------------------------------- |
+| `npm install`     | Install dependencies                       |
+| `npm run dev`     | Start local dev server at `localhost:4321` |
+| `npm run build`   | Build production site to `./dist/`         |
+| `npm run preview` | Preview production build locally           |
+| `npm run format`  | Format code with Prettier                  |
+| `npm run check`   | Type-check with TypeScript and Astro       |
+| `npm run astro`   | Run Astro CLI commands                     |
 
 ## 📁 Project Structure
 
@@ -120,13 +124,13 @@ service-website-template/
 
 The template uses a nature-inspired, accessible color scheme:
 
-| Color         | Hex       | Usage                                      |
-| :------------ | :-------- | :----------------------------------------- |
-| Snow          | `#FDFAF6` | Primary background                         |
-| Almond        | `#FAF1E6` | Secondary background                       |
-| Mint Cream    | `#E4EFE7` | Tertiary background                        |
-| Laurel Green  | `#99BC85` | Primary accent (buttons, headlines)        |
-| Dark Gray     | `#333333` | Body text                                  |
+| Color        | Hex       | Usage                               |
+| :----------- | :-------- | :---------------------------------- |
+| Snow         | `#FDFAF6` | Primary background                  |
+| Almond       | `#FAF1E6` | Secondary background                |
+| Mint Cream   | `#E4EFE7` | Tertiary background                 |
+| Laurel Green | `#99BC85` | Primary accent (buttons, headlines) |
+| Dark Gray    | `#333333` | Body text                           |
 
 **Accessibility Note**: All color combinations meet WCAG 2.1 Level AA standards. See `src/styles/design-tokens.css` for compliant combinations.
 
@@ -153,6 +157,7 @@ import '@styles/global.css';
 ```
 
 Available aliases:
+
 - `@components/*` → `src/components/*`
 - `@layouts/*` → `src/layouts/*`
 - `@utils/*` → `src/utils/*`
@@ -216,6 +221,7 @@ See `developmentPlan.md` for detailed implementation checklist.
 5. Deploy!
 
 **Why Cloudflare Pages?**
+
 - Unlimited bandwidth on free tier
 - Global edge network (fastest CDN)
 - Automatic HTTPS and previews

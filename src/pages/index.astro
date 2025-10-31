@@ -1,5 +1,8 @@
 ---
 import TestCounter from '@components/TestCounter.svelte';
+import ColorPalette from '@components/ui/ColorPalette.svelte';
+import '@styles/design-tokens.css';
+import '@styles/global.css';
 ---
 
 <html lang="en">
@@ -8,22 +11,69 @@ import TestCounter from '@components/TestCounter.svelte';
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>Service Website Template - Design System</title>
   </head>
-  <body class="bg-snow p-8">
-    <div class="max-w-4xl mx-auto">
-      <h1 class="text-4xl font-bold text-dark mb-4">Service Website Template</h1>
-      <p class="text-lg text-dark mb-6">Astro 5.15.3 + Svelte 5.43.2 + UnoCSS Integration Test</p>
-
-      <div class="mb-8 p-4 bg-mint-cream rounded-lg">
-        <h2 class="text-2xl font-semibold text-primary mb-2">✅ UnoCSS Test</h2>
-        <p class="text-dark">
-          If this box has a mint-cream background and the colors look correct, UnoCSS is working!
+  <body class="bg-snow">
+    <main class="max-w-6xl mx-auto p-8">
+      <!-- Header -->
+      <header class="mb-12">
+        <h1 class="text-5xl font-bold text-dark mb-4">Service Website Template</h1>
+        <p class="text-xl text-dark mb-2">Design System Showcase</p>
+        <p class="text-base text-dark opacity-70">
+          Astro 5.15.3 + Svelte 5.43.2 + UnoCSS - Phase 2 Implementation
         </p>
-        <button class="btn-primary mt-4">Test Button</button>
-      </div>
+      </header>
 
-      <TestCounter client:load />
-    </div>
+      <!-- Technology Stack Status -->
+      <section class="mb-12 p-6 bg-mint-cream rounded-lg">
+        <h2 class="text-3xl font-semibold text-primary mb-4">✅ Tech Stack Status</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="p-4 bg-white rounded">
+            <h3 class="font-bold text-dark mb-2">Astro 5.15.3</h3>
+            <p class="text-sm text-dark">Meta-framework with partial hydration ✓</p>
+          </div>
+          <div class="p-4 bg-white rounded">
+            <h3 class="font-bold text-dark mb-2">Svelte 5.43.2</h3>
+            <p class="text-sm text-dark">UI components with Runes ✓</p>
+          </div>
+          <div class="p-4 bg-white rounded">
+            <h3 class="font-bold text-dark mb-2">UnoCSS</h3>
+            <p class="text-sm text-dark">Tailwind-compatible utilities ✓</p>
+          </div>
+          <div class="p-4 bg-white rounded">
+            <h3 class="font-bold text-dark mb-2">TypeScript 5.9.3</h3>
+            <p class="text-sm text-dark">Strict mode enabled ✓</p>
+          </div>
+        </div>
+        <button class="btn-primary mt-6">Test Primary Button</button>
+      </section>
+
+      <!-- Color Palette Section -->
+      <section class="mb-12">
+        <h2 class="text-4xl font-bold text-dark mb-6">Color System</h2>
+        <ColorPalette />
+      </section>
+
+      <!-- Svelte 5 Runes Test -->
+      <section class="mb-12 p-6 bg-almond rounded-lg">
+        <h2 class="text-3xl font-semibold text-dark mb-4">Svelte 5 Runes Test</h2>
+        <p class="text-dark mb-4">
+          Testing Svelte 5's new reactive system with $state and $derived:
+        </p>
+        <TestCounter client:load />
+      </section>
+
+      <!-- Phase Status -->
+      <footer class="mt-16 p-6 bg-white rounded-lg border-2 border-primary">
+        <h3 class="text-2xl font-bold text-dark mb-3">Development Progress</h3>
+        <ul class="space-y-2">
+          <li class="text-dark">✅ Phase 1: Project Setup & Configuration - Complete</li>
+          <li class="text-primary font-bold">
+            🔄 Phase 2: Design System Implementation - In Progress
+          </li>
+          <li class="text-dark opacity-50">⏳ Phase 3-10: Upcoming</li>
+        </ul>
+      </footer>
+    </main>
   </body>
 </html>
