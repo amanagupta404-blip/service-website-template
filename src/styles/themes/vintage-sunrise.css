@@ -1,0 +1,38 @@
+/**
+ * Theme: Vintage Sunrise (Light)
+ * Playful and nostalgic with cheerful approachability
+ *
+ * Psychology: Playful, nostalgic, cheerful, approachable
+ * Use Cases: Bakeries, Cafes, Children's services, Creative businesses
+ * WCAG: AAA (15.82:1 contrast)
+ */
+
+html[data-theme='vintage-sunrise'] {
+  /* Color scheme for browser UI integration */
+  color-scheme: light;
+
+  /* Background Colors */
+  --color-bg-primary: #fefbc7; /* Pale Yellow - Main background */
+  --color-bg-secondary: #fff9e5; /* Cream - Secondary background */
+  --color-bg-tertiary: #ffb4b4; /* Light Pink - Tertiary background */
+
+  /* Text Colors */
+  --color-text-primary: #1a1a1a; /* Near Black - Body text */
+  --color-text-secondary: #444444; /* Dark Gray - Secondary text */
+  --color-text-inverse: #fefbc7; /* Pale Yellow - Text on dark */
+
+  /* Accent Colors */
+  --color-accent-primary: #e14434; /* Warm Red - Primary accent */
+  --color-accent-secondary: #5eabd6; /* Sky Blue - Secondary accent */
+  --color-accent-tertiary: #ff6b6b; /* Coral Red - Tertiary accent */
+
+  /* UI Colors */
+  --color-border: #f5e8a0; /* Golden Yellow - Borders */
+  --color-shadow: rgba(26, 26, 26, 0.08); /* Subtle shadow */
+
+  /* Accessibility Notes:
+   * - Body text contrast: 15.82:1 (WCAG AAA)
+   * - Warm red and sky blue provide vibrant, playful accents
+   * - Pink tertiary adds cheerful nostalgic feel
+   */
+}

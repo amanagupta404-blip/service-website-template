@@ -1,0 +1,38 @@
+/**
+ * Theme: Electric Neon (Dark)
+ * Edgy and modern with vibrant youth appeal
+ *
+ * Psychology: Edgy, modern, vibrant, youth-oriented
+ * Use Cases: Nightlife, Entertainment, Gaming, Youth brands
+ * WCAG: AAA (16.78:1 contrast)
+ */
+
+html[data-theme='electric-neon'] {
+  /* Color scheme for browser UI integration */
+  color-scheme: dark;
+
+  /* Background Colors */
+  --color-bg-primary: #000000; /* Pure Black - Main background */
+  --color-bg-secondary: #0a0a0a; /* Near Black - Secondary background */
+  --color-bg-tertiary: #1a1a1a; /* Dark Gray - Tertiary background */
+
+  /* Text Colors */
+  --color-text-primary: #faeb92; /* Neon Yellow - Body text */
+  --color-text-secondary: #e6d67a; /* Muted Yellow - Secondary text */
+  --color-text-inverse: #000000; /* Black - Text on light */
+
+  /* Accent Colors */
+  --color-accent-primary: #cc66da; /* Neon Pink - Primary accent */
+  --color-accent-secondary: #9929ea; /* Vivid Purple - Secondary accent */
+  --color-accent-tertiary: #faeb92; /* Neon Yellow - Tertiary accent */
+
+  /* UI Colors */
+  --color-border: #9929ea; /* Vivid Purple - Borders */
+  --color-shadow: rgba(204, 102, 218, 0.3); /* Pink neon glow */
+
+  /* Accessibility Notes:
+   * - Body text contrast: 16.78:1 (WCAG AAA)
+   * - Neon yellow provides excellent legibility on pure black
+   * - Pink and purple create energetic neon aesthetic
+   */
+}

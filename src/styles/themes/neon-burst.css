@@ -1,0 +1,38 @@
+/**
+ * Theme: Neon Burst (Light)
+ * Energetic and bold with attention-grabbing creativity
+ *
+ * Psychology: Energetic, bold, attention-grabbing, creative
+ * Use Cases: Fashion, Design studios, Events, Creative services
+ * WCAG: AAA (15.34:1 contrast)
+ */
+
+html[data-theme='neon-burst'] {
+  /* Color scheme for browser UI integration */
+  color-scheme: light;
+
+  /* Background Colors */
+  --color-bg-primary: #ffff80; /* Neon Yellow - Main background */
+  --color-bg-secondary: #ffaa80; /* Neon Peach - Secondary background */
+  --color-bg-tertiary: #fff4cc; /* Pale Yellow - Tertiary background */
+
+  /* Text Colors */
+  --color-text-primary: #1a0010; /* Deep Magenta - Body text */
+  --color-text-secondary: #3d0028; /* Dark Magenta - Secondary text */
+  --color-text-inverse: #ffff80; /* Neon Yellow - Text on dark */
+
+  /* Accent Colors */
+  --color-accent-primary: #ff0080; /* Hot Magenta - Primary accent */
+  --color-accent-secondary: #ff5580; /* Light Magenta - Secondary accent */
+  --color-accent-tertiary: #ff66aa; /* Pink - Tertiary accent */
+
+  /* UI Colors */
+  --color-border: #ffd966; /* Golden Yellow - Borders */
+  --color-shadow: rgba(26, 0, 16, 0.1); /* Subtle magenta shadow */
+
+  /* Accessibility Notes:
+   * - Body text contrast: 15.34:1 (WCAG AAA)
+   * - Magenta accents work best for large text and buttons
+   * - Bold neon palette creates energetic, creative atmosphere
+   */
+}

@@ -1,0 +1,147 @@
+/**
+ * Theme Base Structure
+ * Defines semantic CSS custom properties that all themes will populate
+ *
+ * This file establishes the token naming convention and provides fallback values.
+ * Individual theme files override these with theme-specific colors.
+ */
+
+:root {
+  /* ===== COLOR SEMANTIC TOKENS ===== */
+
+  /* Background Colors */
+  --color-bg-primary: #fdfaf6; /* Main page background */
+  --color-bg-secondary: #faf1e6; /* Secondary sections, cards */
+  --color-bg-tertiary: #e4efe7; /* Tertiary elements, highlights */
+
+  /* Text Colors */
+  --color-text-primary: #333333; /* Body text, main content */
+  --color-text-secondary: #555555; /* Secondary text, captions */
+  --color-text-inverse: #fdfaf6; /* Text on dark backgrounds */
+
+  /* Accent Colors */
+  --color-accent-primary: #99bc85; /* Primary CTAs, links, buttons */
+  --color-accent-secondary: #8aad76; /* Secondary accents, hover states */
+  --color-accent-tertiary: #7b9e67; /* Tertiary accents, active states */
+
+  /* UI Colors */
+  --color-border: #d4e4d8; /* Borders, dividers */
+  --color-shadow: rgba(51, 51, 51, 0.08); /* Box shadows, elevation */
+
+  /* ===== LEGACY TOKEN MAPPINGS ===== */
+  /* Map legacy design tokens to new semantic tokens for backward compatibility */
+  --color-primary: var(--color-accent-primary);
+  --color-snow: var(--color-bg-primary);
+  --color-almond: var(--color-bg-secondary);
+  --color-mint-cream: var(--color-bg-tertiary);
+  --color-laurel-green: var(--color-accent-primary);
+  --color-dark-gray: var(--color-text-primary);
+
+  /* ===== THEME TRANSITION ===== */
+  --theme-transition-duration: 0.3s;
+  --theme-transition-timing: ease-in-out;
+}
+
+/* ===== THEME SWITCHING TRANSITIONS ===== */
+/* Smooth color transitions when switching themes */
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: var(--theme-transition-duration);
+  transition-timing-function: var(--theme-transition-timing);
+}
+
+/* Exclude certain properties from theme transitions */
+@media (prefers-reduced-motion: no-preference) {
+  a,
+  button,
+  input,
+  select,
+  textarea {
+    transition-property: background-color, border-color, color, fill, stroke, opacity, transform;
+  }
+}
+
+/* ===== REDUCED MOTION SUPPORT ===== */
+/* Disable theme transitions for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== THEME ATTRIBUTE SELECTOR ===== */
+/* Themes are applied via data-theme attribute on <html> element */
+/* Example: <html data-theme="cosmic-dawn"> */
+
+/* Default theme fallback (Earthy Serenity) */
+html:not([data-theme]),
+html[data-theme='earthy-serenity'] {
+  /* Colors already defined in :root, this ensures explicit fallback */
+  color-scheme: light;
+}
+
+/* ===== UTILITY CLASSES ===== */
+/* Utility classes for accessing theme colors directly */
+
+.bg-primary {
+  background-color: var(--color-bg-primary);
+}
+
+.bg-secondary {
+  background-color: var(--color-bg-secondary);
+}
+
+.bg-tertiary {
+  background-color: var(--color-bg-tertiary);
+}
+
+.text-primary {
+  color: var(--color-text-primary);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.text-inverse {
+  color: var(--color-text-inverse);
+}
+
+.accent-primary {
+  color: var(--color-accent-primary);
+}
+
+.bg-accent-primary {
+  background-color: var(--color-accent-primary);
+}
+
+.border-color {
+  border-color: var(--color-border);
+}
+
+/* ===== DEVELOPMENT NOTES ===== */
+/*
+ * Token Naming Convention:
+ * - Use semantic names (e.g., --color-bg-primary) instead of color names
+ * - Primary = most important/most used
+ * - Secondary = supporting, less emphasis
+ * - Tertiary = accent, least emphasis
+ * - Inverse = contrasting colors (text on dark backgrounds)
+ *
+ * How to Add New Themes:
+ * 1. Create a new CSS file in src/styles/themes/ (e.g., cosmic-dawn.css)
+ * 2. Use [data-theme="theme-id"] selector
+ * 3. Override all color tokens with theme-specific values
+ * 4. Set color-scheme: light or dark for browser UI
+ * 5. Import the theme file in global.css
+ *
+ * Accessibility:
+ * - All themes must meet WCAG 2.1 Level AA contrast requirements
+ * - Text colors must have 4.5:1 contrast with backgrounds (7:1 for AAA)
+ * - Large text (18pt+/24px+) can use 3:1 contrast minimum
+ * - Test all combinations in theme configuration file
+ */

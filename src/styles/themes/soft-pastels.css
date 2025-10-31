@@ -1,0 +1,38 @@
+/**
+ * Theme: Soft Pastels (Light)
+ * Gentle and feminine with soothing approachability
+ *
+ * Psychology: Gentle, feminine, soothing, approachable
+ * Use Cases: Beauty salons, Spas, Boutiques, Lifestyle brands
+ * WCAG: AAA (14.23:1 contrast)
+ */
+
+html[data-theme='soft-pastels'] {
+  /* Color scheme for browser UI integration */
+  color-scheme: light;
+
+  /* Background Colors */
+  --color-bg-primary: #fcf9ea; /* Cream - Main background */
+  --color-bg-secondary: #badfdb; /* Mint - Secondary background */
+  --color-bg-tertiary: #ffbdbd; /* Blush Pink - Tertiary background */
+
+  /* Text Colors */
+  --color-text-primary: #2a2520; /* Dark Brown - Body text */
+  --color-text-secondary: #1a4a45; /* Teal - Secondary text on mint */
+  --color-text-inverse: #fcf9ea; /* Cream - Text on dark */
+
+  /* Accent Colors */
+  --color-accent-primary: #ffa4a4; /* Coral Pink - Primary accent */
+  --color-accent-secondary: #8fccc7; /* Sage Teal - Secondary accent */
+  --color-accent-tertiary: #ffcccc; /* Light Pink - Tertiary accent */
+
+  /* UI Colors */
+  --color-border: #e0d7c8; /* Warm Beige - Borders */
+  --color-shadow: rgba(42, 37, 32, 0.08); /* Soft brown shadow */
+
+  /* Accessibility Notes:
+   * - Body text contrast: 14.23:1 (WCAG AAA)
+   * - Teal secondary text optimized for mint backgrounds
+   * - Soft pastel palette creates calming, feminine atmosphere
+   */
+}

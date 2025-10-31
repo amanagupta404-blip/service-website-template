@@ -1,0 +1,120 @@
+---
+/**
+ * Base Layout
+ * Main layout wrapper for all pages with SEO, theme support, and accessibility
+ *
+ * Props:
+ * - title: Page title
+ * - description: Meta description (optional)
+ * - bodyClass: Additional CSS classes for body element (optional)
+ */
+
+import SkipLink from '@components/layout/SkipLink.astro';
+import '@styles/design-tokens.css';
+import '@styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  bodyClass?: string;
+}
+
+const { title, description, bodyClass = '' } = Astro.props;
+const siteTitle = title ? `${title} | Service Website Template` : 'Service Website Template';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    {description && <meta name="description" content={description} />}
+    <title>{siteTitle}</title>
+
+    <!-- FOUC Prevention: Load theme before content renders -->
+    <script is:inline>
+      /**
+       * Theme initialization script
+       * Runs synchronously before page render to prevent flash of unstyled content
+       *
+       * Priority order:
+       * 1. User's explicit theme choice (localStorage)
+       * 2. System preference (light/dark mode)
+       * 3. Default theme (earthy-serenity)
+       */
+
+      (function () {
+        // Key for localStorage
+        const STORAGE_KEY = 'theme-preference';
+
+        // Get stored theme preference
+        const getStoredTheme = () => {
+          try {
+            return localStorage.getItem(STORAGE_KEY);
+          } catch (e) {
+            return null;
+          }
+        };
+
+        // Detect system color scheme preference
+        const getSystemTheme = () => {
+          if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return 'galactic-night'; // Default dark theme
+          }
+          return 'earthy-serenity'; // Default light theme
+        };
+
+        // Apply theme to document
+        const applyTheme = (themeId) => {
+          document.documentElement.setAttribute('data-theme', themeId);
+
+          // Set color-scheme meta for browser UI
+          const colorScheme = [
+            'galactic-night',
+            'midnight-retro',
+            'electric-neon',
+            'twilight-pastels',
+          ].includes(themeId)
+            ? 'dark'
+            : 'light';
+
+          let metaColorScheme = document.querySelector('meta[name="color-scheme"]');
+          if (!metaColorScheme) {
+            metaColorScheme = document.createElement('meta');
+            metaColorScheme.setAttribute('name', 'color-scheme');
+            document.head.appendChild(metaColorScheme);
+          }
+          metaColorScheme.setAttribute('content', colorScheme);
+        };
+
+        // Initialize theme
+        const storedTheme = getStoredTheme();
+        const themeId = storedTheme || getSystemTheme();
+        applyTheme(themeId);
+
+        // Listen for system theme changes
+        window
+          .matchMedia('(prefers-color-scheme: dark)')
+          .addEventListener('change', (e) => {
+            // Only apply system preference if user hasn't set explicit theme
+            if (!getStoredTheme()) {
+              const systemTheme = e.matches ? 'galactic-night' : 'earthy-serenity';
+              applyTheme(systemTheme);
+            }
+          });
+
+        // Listen for theme changes from other tabs (cross-tab sync)
+        window.addEventListener('storage', (e) => {
+          if (e.key === STORAGE_KEY && e.newValue) {
+            applyTheme(e.newValue);
+          }
+        });
+      })();
+    </script>
+  </head>
+  <body class={bodyClass}>
+    <SkipLink />
+    <slot />
+  </body>
+</html>

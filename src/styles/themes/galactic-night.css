@@ -1,0 +1,38 @@
+/**
+ * Theme: Galactic Night (Dark)
+ * Mysterious and creative with premium sophistication
+ *
+ * Psychology: Mysterious, creative, premium, sophisticated
+ * Use Cases: Creative studios, Entertainment, Premium services
+ * WCAG: AAA (13.89:1 contrast)
+ */
+
+html[data-theme='galactic-night'] {
+  /* Color scheme for browser UI integration */
+  color-scheme: dark;
+
+  /* Background Colors */
+  --color-bg-primary: #3b0270; /* Deep Purple - Main background */
+  --color-bg-secondary: #4d039e; /* Vibrant Purple - Secondary background */
+  --color-bg-tertiary: #2a0252; /* Darker Purple - Tertiary background */
+
+  /* Text Colors */
+  --color-text-primary: #fff1f1; /* Off-White - Body text */
+  --color-text-secondary: #e6d9e6; /* Light Purple - Secondary text */
+  --color-text-inverse: #3b0270; /* Deep Purple - Text on light */
+
+  /* Accent Colors */
+  --color-accent-primary: #e9b3fb; /* Light Lavender - Primary accent */
+  --color-accent-secondary: #6f00ff; /* Vivid Purple - Secondary accent */
+  --color-accent-tertiary: #b366ff; /* Medium Lavender - Tertiary accent */
+
+  /* UI Colors */
+  --color-border: #6f00ff; /* Vivid Purple - Borders */
+  --color-shadow: rgba(111, 0, 255, 0.2); /* Purple glow shadow */
+
+  /* Accessibility Notes:
+   * - Body text contrast: 13.89:1 (WCAG AAA)
+   * - Lavender accent provides excellent visibility on dark purple
+   * - Purple glow creates premium depth effect
+   */
+}

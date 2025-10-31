@@ -16,6 +16,19 @@
 @import '@fontsource/playfair-display/400.css';
 @import '@fontsource/playfair-display/700.css';
 
+/* ===== THEME SYSTEM ===== */
+/* Multi-theme support with 9 themes (5 light, 4 dark) */
+@import './themes/_theme-base.css'; /* Base semantic tokens */
+@import './themes/earthy-serenity.css'; /* Light - Default */
+@import './themes/cosmic-dawn.css'; /* Light - Tech */
+@import './themes/galactic-night.css'; /* Dark - Default */
+@import './themes/vintage-sunrise.css'; /* Light - Playful */
+@import './themes/midnight-retro.css'; /* Dark - Professional */
+@import './themes/electric-neon.css'; /* Dark - Edgy */
+@import './themes/neon-burst.css'; /* Light - Bold */
+@import './themes/soft-pastels.css'; /* Light - Gentle */
+@import './themes/twilight-pastels.css'; /* Dark - Luxurious */
+
 /* ===== BASE RESET ===== */
 * {
   box-sizing: border-box;
