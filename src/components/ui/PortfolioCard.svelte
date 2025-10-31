@@ -35,11 +35,11 @@
 </script>
 
 <Card {href} clickable class="portfolio-card {className}">
-  {#snippet image()}
+  {#snippet cardImage()}
     <img src={projectImage} alt={projectTitle} class="portfolio-image" />
   {/snippet}
 
-  {#snippet title()}
+  {#snippet cardTitle()}
     <div class="portfolio-header">
       <h3 class="portfolio-title">{projectTitle}</h3>
       {#if category}

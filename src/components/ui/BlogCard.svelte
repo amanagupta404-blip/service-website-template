@@ -54,12 +54,12 @@
 
 <Card {href} clickable class="blog-card {className}">
   {#if postImage}
-    {#snippet image()}
+    {#snippet cardImage()}
       <img src={postImage} alt={postTitle} class="blog-image" />
     {/snippet}
   {/if}
 
-  {#snippet title()}
+  {#snippet cardTitle()}
     <div class="blog-header">
       {#if category}
         <span class="blog-category">{category}</span>
@@ -70,7 +70,7 @@
 
   <p class="blog-excerpt">{excerpt}</p>
 
-  {#snippet footer()}
+  {#snippet cardFooter()}
     <div class="blog-meta">
       <div class="meta-item">
         <Icon name="calendar" size="sm" ariaHidden />

@@ -21,18 +21,18 @@ let {
   padding = 'md',
   class: className = '',
   children,
-  image,
-  title,
-  footer,
+  cardImage,
+  cardTitle,
+  cardFooter,
 }: {
   clickable?: boolean;
   href?: string;
   padding?: 'sm' | 'md' | 'lg';
   class?: string;
   children?: any;
-  image?: any;
-  title?: any;
-  footer?: any;
+  cardImage?: any;
+  cardTitle?: any;
+  cardFooter?: any;
 } = $props();
 
 // Determine if card should be clickable
@@ -44,47 +44,47 @@ const cardClasses = `card card-padding-${padding} ${isClickable ? 'card-clickabl
 
 {#if href && isClickable}
   <a {href} class={cardClasses}>
-    {#if image}
+    {#if cardImage}
       <div class="card-image">
-        {@render image()}
+        {@render cardImage()}
       </div>
     {/if}
     <div class="card-content">
-      {#if title}
+      {#if cardTitle}
         <div class="card-title">
-          {@render title()}
+          {@render cardTitle()}
         </div>
       {/if}
       <div class="card-body">
         {@render children?.()}
       </div>
     </div>
-    {#if footer}
+    {#if cardFooter}
       <div class="card-footer">
-        {@render footer()}
+        {@render cardFooter()}
       </div>
     {/if}
   </a>
 {:else}
   <div class={cardClasses}>
-    {#if image}
+    {#if cardImage}
       <div class="card-image">
-        {@render image()}
+        {@render cardImage()}
       </div>
     {/if}
     <div class="card-content">
-      {#if title}
+      {#if cardTitle}
         <div class="card-title">
-          {@render title()}
+          {@render cardTitle()}
         </div>
       {/if}
       <div class="card-body">
         {@render children?.()}
       </div>
     </div>
-    {#if footer}
+    {#if cardFooter}
       <div class="card-footer">
-        {@render footer()}
+        {@render cardFooter()}
       </div>
     {/if}
   </div>

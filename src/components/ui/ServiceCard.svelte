@@ -37,7 +37,7 @@ let {
 </script>
 
 <Card {href} clickable class="service-card {className}">
-  {#snippet title()}
+  {#snippet cardTitle()}
     <div class="service-card-header">
       {#if image}
         <div class="service-image">
