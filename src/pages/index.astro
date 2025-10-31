@@ -14,6 +14,10 @@ import ThemePreview from '@components/ui/ThemePreview.svelte';
 import Icon from '@components/ui/Icon.svelte';
 import Button from '@components/ui/Button.svelte';
 import Card from '@components/ui/Card.svelte';
+import Input from '@components/ui/Input.svelte';
+import Textarea from '@components/ui/Textarea.svelte';
+import Select from '@components/ui/Select.svelte';
+import Checkbox from '@components/ui/Checkbox.svelte';
 ---
 
 <BaseLayout
@@ -122,6 +126,229 @@ import Card from '@components/ui/Card.svelte';
     <!--     <ThemeShowcase /> -->
     <!--   </Container> -->
     <!-- </Section> -->
+
+    <!-- Form Components Test -->
+    <Section backgroundColor="tertiary" paddingY="medium">
+      <Container maxWidth="xl">
+        <h2 class="text-4xl font-bold mb-6">Form Components</h2>
+        <p class="mb-6 text-secondary">
+          Accessible form inputs with error states, validation, and theme support.
+        </p>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Left Column -->
+          <div class="space-y-6">
+            <!-- Input Component -->
+            <div>
+              <h3 class="text-2xl font-semibold mb-4">Input Component</h3>
+              <div class="space-y-4">
+                <Input
+                  id="name"
+                  label="Full Name"
+                  placeholder="Enter your name"
+                  required
+                  client:load
+                />
+                <Input
+                  id="email"
+                  label="Email Address"
+                  type="email"
+                  placeholder="you@example.com"
+                  required
+                  client:load
+                />
+                <Input
+                  id="phone"
+                  label="Phone Number"
+                  type="tel"
+                  placeholder="+1 (555) 000-0000"
+                  client:load
+                />
+                <Input
+                  id="password"
+                  label="Password"
+                  type="password"
+                  placeholder="Enter password"
+                  required
+                  client:load
+                />
+                <Input
+                  id="error-demo"
+                  label="Input with Error"
+                  error="This field is required"
+                  client:load
+                />
+                <Input
+                  id="disabled"
+                  label="Disabled Input"
+                  value="This is disabled"
+                  disabled
+                  client:load
+                />
+              </div>
+            </div>
+
+            <!-- Textarea Component -->
+            <div>
+              <h3 class="text-2xl font-semibold mb-4">Textarea Component</h3>
+              <div class="space-y-4">
+                <Textarea
+                  id="message"
+                  label="Message"
+                  placeholder="Type your message here..."
+                  rows={4}
+                  required
+                  client:load
+                />
+                <Textarea
+                  id="message-error"
+                  label="Textarea with Error"
+                  error="Message must be at least 10 characters"
+                  rows={3}
+                  client:load
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column -->
+          <div class="space-y-6">
+            <!-- Select Component -->
+            <div>
+              <h3 class="text-2xl font-semibold mb-4">Select Component</h3>
+              <div class="space-y-4">
+                <Select
+                  id="country"
+                  label="Country"
+                  placeholder="Select a country"
+                  options={[
+                    { value: 'us', label: 'United States' },
+                    { value: 'uk', label: 'United Kingdom' },
+                    { value: 'ca', label: 'Canada' },
+                    { value: 'au', label: 'Australia' },
+                  ]}
+                  required
+                  client:load
+                />
+                <Select
+                  id="service"
+                  label="Service Type"
+                  placeholder="Choose a service"
+                  options={[
+                    { value: 'web', label: 'Web Development' },
+                    { value: 'mobile', label: 'Mobile Development' },
+                    { value: 'design', label: 'UI/UX Design' },
+                    { value: 'consulting', label: 'Consulting' },
+                  ]}
+                  client:load
+                />
+                <Select
+                  id="select-error"
+                  label="Select with Error"
+                  placeholder="Select an option"
+                  options={[
+                    { value: '1', label: 'Option 1' },
+                    { value: '2', label: 'Option 2' },
+                  ]}
+                  error="Please select an option"
+                  client:load
+                />
+                <Select
+                  id="disabled-select"
+                  label="Disabled Select"
+                  options={[
+                    { value: '1', label: 'Option 1' },
+                  ]}
+                  disabled
+                  client:load
+                />
+              </div>
+            </div>
+
+            <!-- Checkbox Component -->
+            <div>
+              <h3 class="text-2xl font-semibold mb-4">Checkbox Component</h3>
+              <div class="space-y-4">
+                <Checkbox
+                  id="agree"
+                  label="I agree to the terms and conditions"
+                  required
+                  client:load
+                />
+                <Checkbox
+                  id="newsletter"
+                  label="Subscribe to newsletter"
+                  client:load
+                />
+                <Checkbox
+                  id="checkbox-error"
+                  label="Checkbox with Error"
+                  error="You must accept this"
+                  client:load
+                />
+                <Checkbox
+                  id="disabled-checkbox"
+                  label="Disabled Checkbox"
+                  disabled
+                  client:load
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Example Form -->
+        <div class="mt-12 p-6 bg-primary rounded-lg">
+          <h3 class="text-2xl font-semibold mb-6">Complete Form Example</h3>
+          <form class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <Input
+                id="form-name"
+                label="Name"
+                required
+                client:load
+              />
+              <Input
+                id="form-email"
+                label="Email"
+                type="email"
+                required
+                client:load
+              />
+            </div>
+            <Select
+              id="form-subject"
+              label="Subject"
+              placeholder="Select a subject"
+              options={[
+                { value: 'general', label: 'General Inquiry' },
+                { value: 'support', label: 'Support Request' },
+                { value: 'sales', label: 'Sales Question' },
+              ]}
+              required
+              client:load
+            />
+            <Textarea
+              id="form-message"
+              label="Message"
+              rows={5}
+              required
+              client:load
+            />
+            <Checkbox
+              id="form-consent"
+              label="I consent to being contacted"
+              required
+              client:load
+            />
+            <div class="flex gap-4">
+              <Button type="submit" variant="primary">Submit Form</Button>
+              <Button type="button" variant="outline">Cancel</Button>
+            </div>
+          </form>
+        </div>
+      </Container>
+    </Section>
 
     <!-- Card Component Test -->
     <Section backgroundColor="secondary" paddingY="medium">
