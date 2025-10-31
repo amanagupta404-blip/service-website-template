@@ -1,52 +1,55 @@
 <script lang="ts">
-/**
- * BlogCard Component
- * Display blog posts with featured image, metadata, and excerpt
- *
- * Features:
- * - Uses Card component
- * - Featured image display
- * - Date formatting
- * - Optional author, read time, category
- * - Hover effects
- * - Entire card clickable
- * - Theme-aware
- *
- * Phase 4.9: BlogCard Component
- */
+  /**
+   * BlogCard Component
+   * Display blog posts with featured image, metadata, and excerpt
+   *
+   * Features:
+   * - Uses Card component
+   * - Featured image display
+   * - Date formatting
+   * - Optional author, read time, category
+   * - Hover effects
+   * - Entire card clickable
+   * - Theme-aware
+   *
+   * Phase 4.9: BlogCard Component
+   */
 
-import Card from './Card.svelte';
-import Icon from './Icon.svelte';
+  import Card from './Card.svelte';
+  import Icon from './Icon.svelte';
 
-// Props
-let {
-  blogTitle: postTitle,
-  excerpt,
-  image: postImage,
-  date,
-  author,
-  readTime,
-  category,
-  href,
-  class: className = '',
-}: {
-  blogTitle: string;
-  excerpt: string;
-  image?: string;
-  date: string | Date;
-  author?: string;
-  readTime?: string;
-  category?: string;
-  href: string;
-  class?: string;
-} = $props();
+  // Props
+  let {
+    blogTitle: postTitle,
+    excerpt,
+    image: postImage,
+    date,
+    author,
+    readTime,
+    category,
+    href,
+    class: className = '',
+  }: {
+    blogTitle: string;
+    excerpt: string;
+    image?: string;
+    date: string | Date;
+    author?: string;
+    readTime?: string;
+    category?: string;
+    href: string;
+    class?: string;
+  } = $props();
 
-// Format date
-const formattedDate = typeof date === 'string' ? date : date.toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-});
+  // Format date
+  const formattedDate =
+    typeof date === 'string'
+      ? date
+      : date.toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        });
 </script>
 
 <Card {href} clickable class="blog-card {className}">
@@ -55,7 +58,7 @@ const formattedDate = typeof date === 'string' ? date : date.toLocaleDateString(
       <img src={postImage} alt={postTitle} class="blog-image" />
     {/snippet}
   {/if}
-  
+
   {#snippet title()}
     <div class="blog-header">
       {#if category}
@@ -64,9 +67,9 @@ const formattedDate = typeof date === 'string' ? date : date.toLocaleDateString(
       <h3 class="blog-title">{postTitle}</h3>
     </div>
   {/snippet}
-  
+
   <p class="blog-excerpt">{excerpt}</p>
-  
+
   {#snippet footer()}
     <div class="blog-meta">
       <div class="meta-item">
@@ -75,14 +78,14 @@ const formattedDate = typeof date === 'string' ? date : date.toLocaleDateString(
           {formattedDate}
         </time>
       </div>
-      
+
       {#if author}
         <div class="meta-item">
           <Icon name="user" size="sm" ariaHidden />
           <span>{author}</span>
         </div>
       {/if}
-      
+
       {#if readTime}
         <div class="meta-item">
           <Icon name="clock" size="sm" ariaHidden />
@@ -197,4 +200,3 @@ const formattedDate = typeof date === 'string' ? date : date.toLocaleDateString(
     }
   }
 </style>
-

@@ -1,44 +1,44 @@
 <script lang="ts">
-/**
- * PortfolioCard Component
- * Display portfolio/project items with image, title, and description
- *
- * Features:
- * - Uses Card component
- * - Image display
- * - Optional category badge
- * - Hover effects
- * - Entire card clickable
- * - Theme-aware
- *
- * Phase 4.8: PortfolioCard Component
- */
+  /**
+   * PortfolioCard Component
+   * Display portfolio/project items with image, title, and description
+   *
+   * Features:
+   * - Uses Card component
+   * - Image display
+   * - Optional category badge
+   * - Hover effects
+   * - Entire card clickable
+   * - Theme-aware
+   *
+   * Phase 4.8: PortfolioCard Component
+   */
 
-import Card from './Card.svelte';
+  import Card from './Card.svelte';
 
-// Props
-let {
-  portfolioTitle: projectTitle,
-  description,
-  image: projectImage,
-  category,
-  href,
-  class: className = '',
-}: {
-  portfolioTitle: string;
-  description: string;
-  image: string;
-  category?: string;
-  href: string;
-  class?: string;
-} = $props();
+  // Props
+  let {
+    portfolioTitle: projectTitle,
+    description,
+    image: projectImage,
+    category,
+    href,
+    class: className = '',
+  }: {
+    portfolioTitle: string;
+    description: string;
+    image: string;
+    category?: string;
+    href: string;
+    class?: string;
+  } = $props();
 </script>
 
 <Card {href} clickable class="portfolio-card {className}">
   {#snippet image()}
     <img src={projectImage} alt={projectTitle} class="portfolio-image" />
   {/snippet}
-  
+
   {#snippet title()}
     <div class="portfolio-header">
       <h3 class="portfolio-title">{projectTitle}</h3>
@@ -47,7 +47,7 @@ let {
       {/if}
     </div>
   {/snippet}
-  
+
   <p class="portfolio-description">{description}</p>
 </Card>
 
@@ -132,4 +132,3 @@ let {
     }
   }
 </style>
-

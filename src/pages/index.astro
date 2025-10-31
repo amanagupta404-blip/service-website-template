@@ -23,6 +23,7 @@ import ServiceCard from '@components/ui/ServiceCard.svelte';
 import Hero from '@components/sections/Hero.svelte';
 import PortfolioGrid from '@components/ui/PortfolioGrid.svelte';
 import BlogCard from '@components/ui/BlogCard.svelte';
+import CTASection from '@components/sections/CTASection.svelte';
 ---
 
 <BaseLayout
@@ -147,6 +148,22 @@ import BlogCard from '@components/ui/BlogCard.svelte';
     <!--     <ThemeShowcase /> -->
     <!--   </Container> -->
     <!-- </Section> -->
+
+    <!-- CTA Section Component Test -->
+    <CTASection
+      headline="Ready to Get Started?"
+      description="Join thousands of satisfied customers who have transformed their business with our solutions."
+      primaryCTA={{ text: "Start Your Free Trial", href: "#signup" }}
+      secondaryCTA={{ text: "Schedule a Demo", href: "#demo" }}
+      backgroundColor="tertiary"
+    />
+
+    <CTASection
+      headline="Need Help? We're Here for You"
+      description="Our support team is available 24/7 to answer your questions."
+      primaryCTA={{ text: "Contact Support", href: "#support" }}
+      backgroundColor="primary"
+    />
 
     <!-- BlogCard Component Test -->
     <Section backgroundColor="tertiary" paddingY="medium">
