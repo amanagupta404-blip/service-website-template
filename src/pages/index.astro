@@ -3,25 +3,27 @@ import TestCounter from '@components/TestCounter.svelte';
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body class="bg-snow p-8">
-		<div class="max-w-4xl mx-auto">
-			<h1 class="text-4xl font-bold text-dark mb-4">Service Website Template</h1>
-			<p class="text-lg text-dark mb-6">Astro 5.15.3 + Svelte 5.43.2 + UnoCSS Integration Test</p>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body class="bg-snow p-8">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl font-bold text-dark mb-4">Service Website Template</h1>
+      <p class="text-lg text-dark mb-6">Astro 5.15.3 + Svelte 5.43.2 + UnoCSS Integration Test</p>
 
-			<div class="mb-8 p-4 bg-mint-cream rounded-lg">
-				<h2 class="text-2xl font-semibold text-primary mb-2">✅ UnoCSS Test</h2>
-				<p class="text-dark">If this box has a mint-cream background and the colors look correct, UnoCSS is working!</p>
-				<button class="btn-primary mt-4">Test Button</button>
-			</div>
+      <div class="mb-8 p-4 bg-mint-cream rounded-lg">
+        <h2 class="text-2xl font-semibold text-primary mb-2">✅ UnoCSS Test</h2>
+        <p class="text-dark">
+          If this box has a mint-cream background and the colors look correct, UnoCSS is working!
+        </p>
+        <button class="btn-primary mt-4">Test Button</button>
+      </div>
 
-			<TestCounter client:load />
-		</div>
-	</body>
+      <TestCounter client:load />
+    </div>
+  </body>
 </html>

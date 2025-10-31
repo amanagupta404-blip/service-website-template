@@ -6,8 +6,5 @@ import UnoCSS from '@unocss/astro';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [
-    UnoCSS(),
-    svelte()
-  ]
+  integrations: [UnoCSS(), svelte()],
 });

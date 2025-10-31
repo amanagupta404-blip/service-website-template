@@ -12,7 +12,10 @@
   <h2>Svelte 5 Runes Test</h2>
   <p>Count: <strong>{count}</strong></p>
   <p>Doubled: <strong>{doubled}</strong></p>
-  <button onclick={increment} style="padding: 0.5rem 1rem; background: #99BC85; color: white; border: none; border-radius: 4px; cursor: pointer;">
+  <button
+    onclick={increment}
+    style="padding: 0.5rem 1rem; background: #99BC85; color: white; border: none; border-radius: 4px; cursor: pointer;"
+  >
     Increment
   </button>
   <p style="margin-top: 1rem; font-size: 0.875rem; color: #666;">
