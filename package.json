@@ -13,5 +13,10 @@
     "astro": "^5.15.3",
     "svelte": "^5.43.2",
     "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@unocss/astro": "^66.5.4",
+    "@unocss/reset": "^66.5.4",
+    "unocss": "^66.5.4"
   }
 }
