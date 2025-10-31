@@ -1,31 +1,40 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+import Container from '@components/layout/Container.svelte';
+import Section from '@components/layout/Section.svelte';
 import TestCounter from '@components/TestCounter.svelte';
 import ColorPalette from '@components/ui/ColorPalette.svelte';
 import TypographyShowcase from '@components/ui/TypographyShowcase.svelte';
 import ResponsiveDemo from '@components/ui/ResponsiveDemo.svelte';
 import ContainerDemo from '@components/ui/ContainerDemo.svelte';
+import ContainerQueryTest from '@components/ui/ContainerQueryTest.svelte';
 import ThemeShowcase from '@components/ui/ThemeShowcase.svelte';
 import ThemeSwitcher from '@components/ui/ThemeSwitcher.svelte';
 import ThemePreview from '@components/ui/ThemePreview.svelte';
+import Icon from '@components/ui/Icon.svelte';
 ---
 
 <BaseLayout
   title="Design System Showcase"
   description="Service website template design system with multi-theme support"
 >
-  <main id="main-content" class="max-w-6xl mx-auto p-8">
-      <!-- Header -->
-      <header class="mb-12">
-        <h1 class="text-5xl font-bold mb-4">Service Website Template</h1>
-        <p class="text-xl mb-2">Design System Showcase</p>
-        <p class="text-base opacity-70">
-          Astro 5.15.3 + Svelte 5.43.2 + UnoCSS - Multi-Theme System
-        </p>
-      </header>
+  <main id="main-content">
+    <!-- Header -->
+    <Section backgroundColor="primary" paddingY="medium">
+      <Container maxWidth="xl">
+        <header>
+          <h1 class="text-5xl font-bold mb-4">Service Website Template</h1>
+          <p class="text-xl mb-2">Design System Showcase</p>
+          <p class="text-base opacity-70">
+            Astro 5.15.3 + Svelte 5.43.2 + UnoCSS - Multi-Theme System
+          </p>
+        </header>
+      </Container>
+    </Section>
 
-      <!-- Technology Stack Status -->
-      <section class="mb-12 p-6 bg-tertiary rounded-lg">
+    <!-- Technology Stack Status -->
+    <Section backgroundColor="tertiary" paddingY="medium">
+      <Container maxWidth="xl">
         <h2 class="text-3xl font-semibold accent-primary mb-4">✅ Tech Stack Status</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div class="p-4 bg-secondary rounded">
@@ -46,66 +55,202 @@ import ThemePreview from '@components/ui/ThemePreview.svelte';
           </div>
         </div>
         <button class="btn-primary mt-6">Test Primary Button</button>
-      </section>
+      </Container>
+    </Section>
 
-      <!-- Theme Switcher Section -->
-      <section class="mb-12">
+    <!-- Theme Switcher Section -->
+    <Section backgroundColor="primary" paddingY="medium">
+      <Container maxWidth="xl">
         <h2 class="text-4xl font-bold mb-6">Theme Switcher</h2>
         <p class="mb-4 text-secondary">
           Try switching between different themes to see the design system adapt!
         </p>
         <ThemeSwitcher client:load />
-      </section>
+      </Container>
+    </Section>
 
-      <!-- Typography Section -->
-      <section class="mb-12">
+    <!-- Typography Section -->
+    <Section backgroundColor="secondary" paddingY="medium">
+      <Container maxWidth="xl">
         <h2 class="text-4xl font-bold mb-6">Typography System</h2>
         <TypographyShowcase />
-      </section>
+      </Container>
+    </Section>
 
-      <!-- Responsive & Spacing Section -->
-      <section class="mb-12">
+    <!-- Responsive & Spacing Section -->
+    <Section backgroundColor="primary" paddingY="medium">
+      <Container maxWidth="xl">
         <h2 class="text-4xl font-bold mb-6">Responsive Design & Spacing</h2>
         <ResponsiveDemo />
-      </section>
+      </Container>
+    </Section>
 
-      <!-- Container & Layout Section -->
-      <section class="mb-12">
+    <!-- Container & Layout Section -->
+    <Section backgroundColor="secondary" paddingY="medium">
+      <Container maxWidth="xl">
         <h2 class="text-4xl font-bold mb-6">Container & Layout System</h2>
         <ContainerDemo />
-      </section>
+      </Container>
+    </Section>
 
-      <!-- Color Palette Section -->
-      <section class="mb-12">
+    <!-- Container Query Test Section -->
+    <Section backgroundColor="tertiary" paddingY="medium">
+      <Container maxWidth="xl">
+        <h2 class="text-4xl font-bold mb-6">Container Queries</h2>
+        <p class="mb-6 text-secondary">
+          Container queries allow components to respond to their container size instead of the viewport.
+          This makes components truly reusable and adaptable to any context.
+        </p>
+        <ContainerQueryTest client:load />
+      </Container>
+    </Section>
+
+    <!-- Color Palette Section -->
+    <Section backgroundColor="primary" paddingY="medium">
+      <Container maxWidth="xl">
         <h2 class="text-4xl font-bold mb-6">Color System</h2>
         <ColorPalette />
-      </section>
+      </Container>
+    </Section>
 
-      <!-- Theme Showcase Section -->
-      <!-- <section class="mb-12"> -->
-      <!--   <h2 class="text-4xl font-bold text-dark mb-6">Color System</h2> -->
-      <!--   <ThemeShowcase /> -->
-      <!-- </section> -->
+    <!-- Theme Showcase Section -->
+    <!-- <Section backgroundColor="secondary" paddingY="medium"> -->
+    <!--   <Container maxWidth="xl"> -->
+    <!--     <h2 class="text-4xl font-bold text-dark mb-6">Color System</h2> -->
+    <!--     <ThemeShowcase /> -->
+    <!--   </Container> -->
+    <!-- </Section> -->
 
-      <!-- Svelte 5 Runes Test -->
-      <section class="mb-12 p-6 bg-secondary rounded-lg">
+    <!-- Icon Component Test -->
+    <Section backgroundColor="tertiary" paddingY="medium">
+      <Container maxWidth="xl">
+        <h2 class="text-4xl font-bold mb-6">Icon Component</h2>
+        <p class="mb-6 text-secondary">
+          Lucide icons with accessibility support, flexible sizing, and theme awareness.
+        </p>
+
+        <!-- Icon Sizes -->
+        <div class="mb-8">
+          <h3 class="text-2xl font-semibold mb-4">Icon Sizes</h3>
+          <div class="flex items-center gap-6 flex-wrap">
+            <div class="flex items-center gap-2">
+              <Icon name="star" size="sm" />
+              <span class="text-sm">Small (16px)</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <Icon name="star" size="md" />
+              <span class="text-sm">Medium (24px)</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <Icon name="star" size="lg" />
+              <span class="text-sm">Large (32px)</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <Icon name="star" size={48} />
+              <span class="text-sm">Custom (48px)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Icons -->
+        <div class="mb-8">
+          <h3 class="text-2xl font-semibold mb-4">Navigation Icons</h3>
+          <div class="flex items-center gap-4 flex-wrap">
+            <Icon name="menu" ariaLabel="Menu" />
+            <Icon name="close" ariaLabel="Close" />
+            <Icon name="arrow-right" ariaLabel="Arrow right" />
+            <Icon name="arrow-left" ariaLabel="Arrow left" />
+            <Icon name="arrow-up" ariaLabel="Arrow up" />
+            <Icon name="arrow-down" ariaLabel="Arrow down" />
+            <Icon name="chevron-down" ariaLabel="Chevron down" />
+            <Icon name="chevron-up" ariaLabel="Chevron up" />
+            <Icon name="chevron-left" ariaLabel="Chevron left" />
+            <Icon name="chevron-right" ariaLabel="Chevron right" />
+          </div>
+        </div>
+
+        <!-- Contact Icons -->
+        <div class="mb-8">
+          <h3 class="text-2xl font-semibold mb-4">Contact Icons</h3>
+          <div class="flex items-center gap-4 flex-wrap">
+            <Icon name="phone" ariaLabel="Phone" />
+            <Icon name="mail" ariaLabel="Email" />
+            <Icon name="map-pin" ariaLabel="Location" />
+          </div>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="mb-8">
+          <h3 class="text-2xl font-semibold mb-4">Social Media Icons</h3>
+          <div class="flex items-center gap-4 flex-wrap">
+            <Icon name="facebook" ariaLabel="Facebook" />
+            <Icon name="instagram" ariaLabel="Instagram" />
+            <Icon name="twitter" ariaLabel="Twitter" />
+            <Icon name="linkedin" ariaLabel="LinkedIn" />
+            <Icon name="github" ariaLabel="GitHub" />
+          </div>
+        </div>
+
+        <!-- Action Icons -->
+        <div class="mb-8">
+          <h3 class="text-2xl font-semibold mb-4">Action & UI Icons</h3>
+          <div class="flex items-center gap-4 flex-wrap">
+            <Icon name="check" ariaLabel="Check" />
+            <Icon name="search" ariaLabel="Search" />
+            <Icon name="settings" ariaLabel="Settings" />
+            <Icon name="external-link" ariaLabel="External link" />
+            <Icon name="calendar" ariaLabel="Calendar" />
+            <Icon name="clock" ariaLabel="Clock" />
+            <Icon name="user" ariaLabel="User" />
+            <Icon name="star" ariaLabel="Star" />
+            <Icon name="heart" ariaLabel="Heart" />
+            <Icon name="alert-circle" ariaLabel="Alert" />
+            <Icon name="check-circle" ariaLabel="Success" />
+            <Icon name="info" ariaLabel="Info" />
+          </div>
+        </div>
+
+        <!-- Color Customization -->
+        <div class="mb-8">
+          <h3 class="text-2xl font-semibold mb-4">Custom Colors</h3>
+          <div class="flex items-center gap-4 flex-wrap">
+            <Icon name="heart" color="red" ariaLabel="Red heart" />
+            <Icon name="star" color="gold" ariaLabel="Gold star" />
+            <Icon name="check-circle" color="green" ariaLabel="Green check" />
+            <Icon name="alert-circle" color="orange" ariaLabel="Orange alert" />
+            <Icon name="info" color="blue" ariaLabel="Blue info" />
+          </div>
+        </div>
+      </Container>
+    </Section>
+
+    <!-- Svelte 5 Runes Test -->
+    <Section backgroundColor="secondary" paddingY="medium">
+      <Container maxWidth="xl">
         <h2 class="text-3xl font-semibold mb-4">Svelte 5 Runes Test</h2>
         <p class="mb-4">
           Testing Svelte 5's new reactive system with $state and $derived:
         </p>
         <TestCounter client:load />
-      </section>
+      </Container>
+    </Section>
 
-      <!-- Phase Status -->
-      <footer class="mt-16 p-6 bg-secondary rounded-lg border-2 border-color">
-        <h3 class="text-2xl font-bold mb-3">Development Progress</h3>
-        <ul class="space-y-2">
-          <li>✅ Phase 1: Project Setup & Configuration - Complete</li>
-          <li class="accent-primary font-bold">
-            🔄 Phase 2: Design System Implementation - Multi-Theme System Added
-          </li>
-          <li class="opacity-50">⏳ Phase 3-10: Upcoming</li>
-        </ul>
-      </footer>
-    </main>
+    <!-- Phase Status -->
+    <Section backgroundColor="secondary" paddingY="medium">
+      <Container maxWidth="xl">
+        <footer class="p-6 rounded-lg border-2 border-color">
+          <h3 class="text-2xl font-bold mb-3">Development Progress</h3>
+          <ul class="space-y-2">
+            <li>✅ Phase 1: Project Setup & Configuration - Complete</li>
+            <li>✅ Phase 2: Design System Implementation - Multi-Theme System Added</li>
+            <li>✅ Phase 3: Core Layout & Structure - Complete</li>
+            <li class="accent-primary font-bold">
+              🔄 Phase 4: Component Library Development - In Progress
+            </li>
+            <li class="opacity-50">⏳ Phase 5-10: Upcoming</li>
+          </ul>
+        </footer>
+      </Container>
+    </Section>
+  </main>
 </BaseLayout>
