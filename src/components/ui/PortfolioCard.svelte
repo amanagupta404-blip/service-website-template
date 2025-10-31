@@ -18,9 +18,9 @@ import Card from './Card.svelte';
 
 // Props
 let {
-  portfolioTitle,
+  portfolioTitle: projectTitle,
   description,
-  image,
+  image: projectImage,
   category,
   href,
   class: className = '',
@@ -36,12 +36,12 @@ let {
 
 <Card {href} clickable class="portfolio-card {className}">
   {#snippet image()}
-    <img src={image} alt={portfolioTitle} class="portfolio-image" />
+    <img src={projectImage} alt={projectTitle} class="portfolio-image" />
   {/snippet}
   
   {#snippet title()}
     <div class="portfolio-header">
-      <h3 class="portfolio-title">{portfolioTitle}</h3>
+      <h3 class="portfolio-title">{projectTitle}</h3>
       {#if category}
         <span class="portfolio-category">{category}</span>
       {/if}

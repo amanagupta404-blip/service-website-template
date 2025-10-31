@@ -22,6 +22,7 @@ import Testimonial from '@components/ui/Testimonial.svelte';
 import ServiceCard from '@components/ui/ServiceCard.svelte';
 import Hero from '@components/sections/Hero.svelte';
 import PortfolioGrid from '@components/ui/PortfolioGrid.svelte';
+import BlogCard from '@components/ui/BlogCard.svelte';
 ---
 
 <BaseLayout
@@ -146,6 +147,79 @@ import PortfolioGrid from '@components/ui/PortfolioGrid.svelte';
     <!--     <ThemeShowcase /> -->
     <!--   </Container> -->
     <!-- </Section> -->
+
+    <!-- BlogCard Component Test -->
+    <Section backgroundColor="tertiary" paddingY="medium">
+      <Container maxWidth="xl">
+        <h2 class="text-4xl font-bold mb-6">BlogCard Component</h2>
+        <p class="mb-6 text-secondary">
+          Display blog posts with images, metadata, and excerpts.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <BlogCard
+            blogTitle="Getting Started with Modern Web Development"
+            excerpt="Learn the fundamentals of modern web development with this comprehensive guide covering HTML, CSS, JavaScript, and beyond."
+            image="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80"
+            date="2025-10-15"
+            author="Jane Doe"
+            readTime="5 min read"
+            category="Web Development"
+            href="#blog-1"
+          />
+
+          <BlogCard
+            blogTitle="Mastering Responsive Design Patterns"
+            excerpt="Discover proven responsive design patterns that work across all devices and screen sizes for optimal user experience."
+            image="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=800&q=80"
+            date="2025-10-10"
+            author="John Smith"
+            readTime="8 min read"
+            category="Design"
+            href="#blog-2"
+          />
+
+          <BlogCard
+            blogTitle="The Future of JavaScript Frameworks"
+            excerpt="Explore the latest trends and innovations in JavaScript frameworks and what they mean for developers in 2025."
+            date="2025-10-05"
+            author="Sarah Johnson"
+            readTime="6 min read"
+            category="JavaScript"
+            href="#blog-3"
+          />
+
+          <BlogCard
+            blogTitle="Accessibility Best Practices"
+            excerpt="Essential accessibility practices every developer should know to create inclusive web experiences for all users."
+            image="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&q=80"
+            date="2025-09-28"
+            readTime="10 min read"
+            category="Accessibility"
+            href="#blog-4"
+          />
+
+          <BlogCard
+            blogTitle="Building Performant Web Applications"
+            excerpt="Tips and techniques for optimizing web application performance and delivering fast, smooth user experiences."
+            image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"
+            date="2025-09-20"
+            author="Mike Chen"
+            readTime="7 min read"
+            href="#blog-5"
+          />
+
+          <BlogCard
+            blogTitle="CSS Grid vs Flexbox: When to Use Each"
+            excerpt="A practical comparison of CSS Grid and Flexbox layout systems with real-world examples and use cases."
+            date="2025-09-15"
+            readTime="5 min read"
+            category="CSS"
+            href="#blog-6"
+          />
+        </div>
+      </Container>
+    </Section>
 
     <!-- Portfolio Grid Component Test -->
     <Section backgroundColor="primary" paddingY="medium">
