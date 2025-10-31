@@ -13,6 +13,7 @@ import ThemeSwitcher from '@components/ui/ThemeSwitcher.svelte';
 import ThemePreview from '@components/ui/ThemePreview.svelte';
 import Icon from '@components/ui/Icon.svelte';
 import Button from '@components/ui/Button.svelte';
+import Card from '@components/ui/Card.svelte';
 ---
 
 <BaseLayout
@@ -121,6 +122,118 @@ import Button from '@components/ui/Button.svelte';
     <!--     <ThemeShowcase /> -->
     <!--   </Container> -->
     <!-- </Section> -->
+
+    <!-- Card Component Test -->
+    <Section backgroundColor="secondary" paddingY="medium">
+      <Container maxWidth="xl">
+        <h2 class="text-4xl font-bold mb-6">Card Component</h2>
+        <p class="mb-6 text-secondary">
+          Flexible card component with slots, container queries, and clickable variants.
+        </p>
+
+        <!-- Basic Cards -->
+        <div class="mb-8">
+          <h3 class="text-2xl font-semibold mb-4">Basic Cards</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Card>
+              {#snippet title()}
+                <h4>Simple Card</h4>
+              {/snippet}
+              This is a simple card with just a title and body content.
+            </Card>
+
+            <Card padding="sm">
+              {#snippet title()}
+                <h4>Small Padding</h4>
+              {/snippet}
+              This card uses small padding for a more compact layout.
+            </Card>
+
+            <Card padding="lg">
+              {#snippet title()}
+                <h4>Large Padding</h4>
+              {/snippet}
+              This card uses large padding for more breathing room.
+            </Card>
+          </div>
+        </div>
+
+        <!-- Clickable Cards -->
+        <div class="mb-8">
+          <h3 class="text-2xl font-semibold mb-4">Clickable Cards</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Card href="#card-test" clickable>
+              {#snippet title()}
+                <h4>Clickable Card</h4>
+              {/snippet}
+              This entire card is clickable with hover effects. Try hovering over it!
+            </Card>
+
+            <Card href="#card-test">
+              {#snippet title()}
+                <h4>Link Card</h4>
+              {/snippet}
+              Cards with href automatically become clickable links.
+            </Card>
+          </div>
+        </div>
+
+        <!-- Card with Footer -->
+        <div class="mb-8">
+          <h3 class="text-2xl font-semibold mb-4">Cards with Footer</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Card>
+              {#snippet title()}
+                <h4>Card with Footer</h4>
+              {/snippet}
+              This card has a footer section that's visually separated from the content.
+              {#snippet footer()}
+                <Button variant="primary" size="sm">Learn More</Button>
+              {/snippet}
+            </Card>
+
+            <Card>
+              {#snippet title()}
+                <h4>Action Card</h4>
+              {/snippet}
+              Cards can have action buttons in the footer for CTAs.
+              {#snippet footer()}
+                <div class="flex gap-2">
+                  <Button variant="outline" size="sm">Cancel</Button>
+                  <Button variant="primary" size="sm">Confirm</Button>
+                </div>
+              {/snippet}
+            </Card>
+          </div>
+        </div>
+
+        <!-- Card Container Query Demo -->
+        <div class="mb-8">
+          <h3 class="text-2xl font-semibold mb-4">Container Query Responsive</h3>
+          <p class="mb-4 text-sm opacity-70">
+            Cards use container queries to adapt to their container width, not viewport width.
+          </p>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div style="max-width: 350px;">
+              <Card>
+                {#snippet title()}
+                  <h4>Small Container</h4>
+                {/snippet}
+                This card is in a narrow container, so it stays vertical.
+              </Card>
+            </div>
+            <div style="max-width: 700px;">
+              <Card>
+                {#snippet title()}
+                  <h4>Large Container</h4>
+                {/snippet}
+                This card is in a wider container, so it can switch to horizontal layout.
+              </Card>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </Section>
 
     <!-- Button Component Test -->
     <Section backgroundColor="primary" paddingY="medium">
