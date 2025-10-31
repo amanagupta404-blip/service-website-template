@@ -19,6 +19,7 @@ import Textarea from '@components/ui/Textarea.svelte';
 import Select from '@components/ui/Select.svelte';
 import Checkbox from '@components/ui/Checkbox.svelte';
 import Testimonial from '@components/ui/Testimonial.svelte';
+import ServiceCard from '@components/ui/ServiceCard.svelte';
 ---
 
 <BaseLayout
@@ -26,20 +27,20 @@ import Testimonial from '@components/ui/Testimonial.svelte';
   description="Service website template design system with multi-theme support"
 >
   <main id="main-content">
-    <!-- Header -->
+      <!-- Header -->
     <Section backgroundColor="primary" paddingY="medium">
       <Container maxWidth="xl">
         <header>
-          <h1 class="text-5xl font-bold mb-4">Service Website Template</h1>
-          <p class="text-xl mb-2">Design System Showcase</p>
-          <p class="text-base opacity-70">
-            Astro 5.15.3 + Svelte 5.43.2 + UnoCSS - Multi-Theme System
-          </p>
-        </header>
+        <h1 class="text-5xl font-bold mb-4">Service Website Template</h1>
+        <p class="text-xl mb-2">Design System Showcase</p>
+        <p class="text-base opacity-70">
+          Astro 5.15.3 + Svelte 5.43.2 + UnoCSS - Multi-Theme System
+        </p>
+      </header>
       </Container>
     </Section>
 
-    <!-- Technology Stack Status -->
+      <!-- Technology Stack Status -->
     <Section backgroundColor="tertiary" paddingY="medium">
       <Container maxWidth="xl">
         <h2 class="text-3xl font-semibold accent-primary mb-4">✅ Tech Stack Status</h2>
@@ -65,7 +66,7 @@ import Testimonial from '@components/ui/Testimonial.svelte';
       </Container>
     </Section>
 
-    <!-- Theme Switcher Section -->
+      <!-- Theme Switcher Section -->
     <Section backgroundColor="primary" paddingY="medium">
       <Container maxWidth="xl">
         <h2 class="text-4xl font-bold mb-6">Theme Switcher</h2>
@@ -76,7 +77,7 @@ import Testimonial from '@components/ui/Testimonial.svelte';
       </Container>
     </Section>
 
-    <!-- Typography Section -->
+      <!-- Typography Section -->
     <Section backgroundColor="secondary" paddingY="medium">
       <Container maxWidth="xl">
         <h2 class="text-4xl font-bold mb-6">Typography System</h2>
@@ -84,7 +85,7 @@ import Testimonial from '@components/ui/Testimonial.svelte';
       </Container>
     </Section>
 
-    <!-- Responsive & Spacing Section -->
+      <!-- Responsive & Spacing Section -->
     <Section backgroundColor="primary" paddingY="medium">
       <Container maxWidth="xl">
         <h2 class="text-4xl font-bold mb-6">Responsive Design & Spacing</h2>
@@ -92,7 +93,7 @@ import Testimonial from '@components/ui/Testimonial.svelte';
       </Container>
     </Section>
 
-    <!-- Container & Layout Section -->
+      <!-- Container & Layout Section -->
     <Section backgroundColor="secondary" paddingY="medium">
       <Container maxWidth="xl">
         <h2 class="text-4xl font-bold mb-6">Container & Layout System</h2>
@@ -112,7 +113,7 @@ import Testimonial from '@components/ui/Testimonial.svelte';
       </Container>
     </Section>
 
-    <!-- Color Palette Section -->
+      <!-- Color Palette Section -->
     <Section backgroundColor="primary" paddingY="medium">
       <Container maxWidth="xl">
         <h2 class="text-4xl font-bold mb-6">Color System</h2>
@@ -120,13 +121,67 @@ import Testimonial from '@components/ui/Testimonial.svelte';
       </Container>
     </Section>
 
-    <!-- Theme Showcase Section -->
+      <!-- Theme Showcase Section -->
     <!-- <Section backgroundColor="secondary" paddingY="medium"> -->
     <!--   <Container maxWidth="xl"> -->
     <!--     <h2 class="text-4xl font-bold text-dark mb-6">Color System</h2> -->
     <!--     <ThemeShowcase /> -->
     <!--   </Container> -->
     <!-- </Section> -->
+
+    <!-- ServiceCard Component Test -->
+    <Section backgroundColor="secondary" paddingY="medium">
+      <Container maxWidth="xl">
+        <h2 class="text-4xl font-bold mb-6">ServiceCard Component</h2>
+        <p class="mb-6 text-secondary">
+          Display service offerings with icons, hover animations, and responsive layouts.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <ServiceCard
+            title="Web Development"
+            description="Build modern, responsive websites with the latest technologies and best practices."
+            icon="external-link"
+            href="#web-dev"
+          />
+          
+          <ServiceCard
+            title="Mobile Apps"
+            description="Create native and cross-platform mobile applications for iOS and Android."
+            icon="phone"
+            href="#mobile"
+          />
+          
+          <ServiceCard
+            title="UI/UX Design"
+            description="Design beautiful, intuitive user interfaces that delight your customers."
+            icon="heart"
+            href="#design"
+          />
+          
+          <ServiceCard
+            title="Consulting"
+            description="Get expert advice on technology strategy, architecture, and implementation."
+            icon="user"
+            href="#consulting"
+          />
+          
+          <ServiceCard
+            title="Cloud Services"
+            description="Deploy and manage your applications on modern cloud infrastructure."
+            icon="settings"
+            href="#cloud"
+          />
+          
+          <ServiceCard
+            title="Support & Maintenance"
+            description="Keep your applications running smoothly with ongoing support and updates."
+            icon="check-circle"
+            href="#support"
+          />
+        </div>
+      </Container>
+    </Section>
 
     <!-- Testimonial Component Test -->
     <Section backgroundColor="primary" paddingY="medium">
@@ -684,7 +739,7 @@ import Testimonial from '@components/ui/Testimonial.svelte';
       </Container>
     </Section>
 
-    <!-- Svelte 5 Runes Test -->
+      <!-- Svelte 5 Runes Test -->
     <Section backgroundColor="secondary" paddingY="medium">
       <Container maxWidth="xl">
         <h2 class="text-3xl font-semibold mb-4">Svelte 5 Runes Test</h2>
@@ -695,22 +750,22 @@ import Testimonial from '@components/ui/Testimonial.svelte';
       </Container>
     </Section>
 
-    <!-- Phase Status -->
+      <!-- Phase Status -->
     <Section backgroundColor="secondary" paddingY="medium">
       <Container maxWidth="xl">
         <footer class="p-6 rounded-lg border-2 border-color">
-          <h3 class="text-2xl font-bold mb-3">Development Progress</h3>
-          <ul class="space-y-2">
-            <li>✅ Phase 1: Project Setup & Configuration - Complete</li>
+        <h3 class="text-2xl font-bold mb-3">Development Progress</h3>
+        <ul class="space-y-2">
+          <li>✅ Phase 1: Project Setup & Configuration - Complete</li>
             <li>✅ Phase 2: Design System Implementation - Multi-Theme System Added</li>
             <li>✅ Phase 3: Core Layout & Structure - Complete</li>
-            <li class="accent-primary font-bold">
+          <li class="accent-primary font-bold">
               🔄 Phase 4: Component Library Development - In Progress
-            </li>
+          </li>
             <li class="opacity-50">⏳ Phase 5-10: Upcoming</li>
-          </ul>
-        </footer>
+        </ul>
+      </footer>
       </Container>
     </Section>
-  </main>
+    </main>
 </BaseLayout>
