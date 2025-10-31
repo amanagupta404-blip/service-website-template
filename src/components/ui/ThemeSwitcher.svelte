@@ -170,9 +170,7 @@
                 >
                   <div class="theme-preview">
                     <div class="preview-colors">
-                      <span
-                        class="color-swatch"
-                        style="background-color: {theme.colors.bgPrimary}"
+                      <span class="color-swatch" style="background-color: {theme.colors.bgPrimary}"
                       ></span>
                       <span
                         class="color-swatch"
@@ -212,9 +210,7 @@
                 >
                   <div class="theme-preview">
                     <div class="preview-colors">
-                      <span
-                        class="color-swatch"
-                        style="background-color: {theme.colors.bgPrimary}"
+                      <span class="color-swatch" style="background-color: {theme.colors.bgPrimary}"
                       ></span>
                       <span
                         class="color-swatch"

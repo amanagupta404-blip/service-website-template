@@ -1,102 +1,102 @@
 <script lang="ts">
-/**
- * Header.svelte
- * Main site header with responsive navigation
- *
- * Features:
- * - Logo/brand name
- * - Desktop horizontal navigation menu
- * - Mobile menu toggle
- * - Active page indicators
- * - Hover states and transitions
- * - Accessibility (keyboard navigation, ARIA labels)
- * - Sticky header support (optional)
- *
- * Phase 3.3: Header Component
- */
+  /**
+   * Header.svelte
+   * Main site header with responsive navigation
+   *
+   * Features:
+   * - Logo/brand name
+   * - Desktop horizontal navigation menu
+   * - Mobile menu toggle
+   * - Active page indicators
+   * - Hover states and transitions
+   * - Accessibility (keyboard navigation, ARIA labels)
+   * - Sticky header support (optional)
+   *
+   * Phase 3.3: Header Component
+   */
 
-import { onMount } from 'svelte';
-import ThemeSwitcher from '@/components/ui/ThemeSwitcher.svelte';
+  import { onMount } from 'svelte';
+  import ThemeSwitcher from '@/components/ui/ThemeSwitcher.svelte';
 
-// Navigation links configuration
-const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/services', label: 'Services' },
-  { href: '/portfolio', label: 'Portfolio' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/contact', label: 'Contact' },
-];
+  // Navigation links configuration
+  const navLinks = [
+    { href: '/', label: 'Home' },
+    { href: '/about', label: 'About' },
+    { href: '/services', label: 'Services' },
+    { href: '/portfolio', label: 'Portfolio' },
+    { href: '/blog', label: 'Blog' },
+    { href: '/contact', label: 'Contact' },
+  ];
 
-// Props
-let {
-  currentPath = '/',
-  sticky = false,
-}: {
-  currentPath?: string;
-  sticky?: boolean;
-} = $props();
+  // Props
+  let {
+    currentPath = '/',
+    sticky = false,
+  }: {
+    currentPath?: string;
+    sticky?: boolean;
+  } = $props();
 
-// State
-let isMobileMenuOpen = $state(false);
-let scrolled = $state(false);
+  // State
+  let isMobileMenuOpen = $state(false);
+  let scrolled = $state(false);
 
-// Toggle mobile menu
-function toggleMobileMenu() {
-  isMobileMenuOpen = !isMobileMenuOpen;
+  // Toggle mobile menu
+  function toggleMobileMenu() {
+    isMobileMenuOpen = !isMobileMenuOpen;
 
-  // Prevent body scroll when mobile menu is open
-  if (isMobileMenuOpen) {
-    document.body.style.overflow = 'hidden';
-  } else {
+    // Prevent body scroll when mobile menu is open
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }
+
+  // Close mobile menu
+  function closeMobileMenu() {
+    isMobileMenuOpen = false;
     document.body.style.overflow = '';
   }
-}
 
-// Close mobile menu
-function closeMobileMenu() {
-  isMobileMenuOpen = false;
-  document.body.style.overflow = '';
-}
-
-// Check if link is active
-function isActive(href: string): boolean {
-  if (href === '/') {
-    return currentPath === '/';
+  // Check if link is active
+  function isActive(href: string): boolean {
+    if (href === '/') {
+      return currentPath === '/';
+    }
+    return currentPath.startsWith(href);
   }
-  return currentPath.startsWith(href);
-}
 
-// Handle scroll for sticky header styling
-onMount(() => {
-  const handleScroll = () => {
-    scrolled = window.scrollY > 20;
-  };
-
-  window.addEventListener('scroll', handleScroll);
-
-  return () => {
-    window.removeEventListener('scroll', handleScroll);
-    document.body.style.overflow = ''; // Cleanup
-  };
-});
-
-// Close mobile menu on escape key
-$effect(() => {
-  if (isMobileMenuOpen) {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        closeMobileMenu();
-      }
+  // Handle scroll for sticky header styling
+  onMount(() => {
+    const handleScroll = () => {
+      scrolled = window.scrollY > 20;
     };
 
-    document.addEventListener('keydown', handleEscape);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      document.removeEventListener('keydown', handleEscape);
+      window.removeEventListener('scroll', handleScroll);
+      document.body.style.overflow = ''; // Cleanup
     };
-  }
-});
+  });
+
+  // Close mobile menu on escape key
+  $effect(() => {
+    if (isMobileMenuOpen) {
+      const handleEscape = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+          closeMobileMenu();
+        }
+      };
+
+      document.addEventListener('keydown', handleEscape);
+
+      return () => {
+        document.removeEventListener('keydown', handleEscape);
+      };
+    }
+  });
 </script>
 
 <header
@@ -170,11 +170,7 @@ $effect(() => {
 
   <!-- Mobile Navigation -->
   {#if isMobileMenuOpen}
-    <div
-      class="mobile-nav-overlay"
-      onclick={closeMobileMenu}
-      role="presentation"
-    ></div>
+    <div class="mobile-nav-overlay" onclick={closeMobileMenu} role="presentation"></div>
   {/if}
 
   <nav
