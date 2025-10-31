@@ -14,7 +14,7 @@ html[data-theme='cosmic-dawn'] {
   /* Background Colors */
   --color-bg-primary: #e9e3df; /* Warm Gray - Main background */
   --color-bg-secondary: #ffffff; /* White - Secondary background */
-  --color-bg-tertiary: #f5f1ee; /* Light Warm - Tertiary background */
+  --color-bg-tertiary: #ffe8d6; /* Peachy Warm - Tertiary background (more distinct) */
 
   /* Text Colors */
   --color-text-primary: #000000; /* Black - Body text */
@@ -23,11 +23,11 @@ html[data-theme='cosmic-dawn'] {
 
   /* Accent Colors */
   --color-accent-primary: #ff7a30; /* Orange - Primary accent */
-  --color-accent-secondary: #465c88; /* Navy Blue - Secondary accent */
+  --color-accent-secondary: #3d5afe; /* Electric Blue - Secondary accent (modern, vibrant) */
   --color-accent-tertiary: #ff9955; /* Light Orange - Tertiary accent */
 
   /* UI Colors */
-  --color-border: #c9c3bf; /* Medium Gray - Borders */
+  --color-border: #b8b0a8; /* Darker Gray - Borders (better visibility) */
   --color-shadow: rgba(0, 0, 0, 0.1); /* Dark shadow */
 
   /* Accessibility Notes:

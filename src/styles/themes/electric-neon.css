@@ -13,8 +13,8 @@ html[data-theme='electric-neon'] {
 
   /* Background Colors */
   --color-bg-primary: #000000; /* Pure Black - Main background */
-  --color-bg-secondary: #0a0a0a; /* Near Black - Secondary background */
-  --color-bg-tertiary: #1a1a1a; /* Dark Gray - Tertiary background */
+  --color-bg-secondary: #0d0d0d; /* Near Black - Secondary background */
+  --color-bg-tertiary: #1f1f1f; /* Dark Gray - Tertiary background */
 
   /* Text Colors */
   --color-text-primary: #faeb92; /* Neon Yellow - Body text */
@@ -22,13 +22,13 @@ html[data-theme='electric-neon'] {
   --color-text-inverse: #000000; /* Black - Text on light */
 
   /* Accent Colors */
-  --color-accent-primary: #cc66da; /* Neon Pink - Primary accent */
-  --color-accent-secondary: #9929ea; /* Vivid Purple - Secondary accent */
-  --color-accent-tertiary: #faeb92; /* Neon Yellow - Tertiary accent */
+  --color-accent-primary: #ff0080; /* Hot Magenta - Primary accent (BOLD) */
+  --color-accent-secondary: #00f0ff; /* Cyan Neon - Secondary accent (classic neon) */
+  --color-accent-tertiary: #39ff14; /* Neon Green - Tertiary accent (electric) */
 
   /* UI Colors */
-  --color-border: #9929ea; /* Vivid Purple - Borders */
-  --color-shadow: rgba(204, 102, 218, 0.3); /* Pink neon glow */
+  --color-border: #00f0ff; /* Cyan - Borders (electric feel) */
+  --color-shadow: rgba(0, 240, 255, 0.4); /* Cyan glow (neon aesthetic) */
 
   /* Accessibility Notes:
    * - Body text contrast: 16.78:1 (WCAG AAA)

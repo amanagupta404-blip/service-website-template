@@ -14,7 +14,7 @@ html[data-theme='midnight-retro'] {
   /* Background Colors */
   --color-bg-primary: #021526; /* Deep Navy - Main background */
   --color-bg-secondary: #03346e; /* Rich Blue - Secondary background */
-  --color-bg-tertiary: #041d38; /* Dark Navy - Tertiary background */
+  --color-bg-tertiary: #052440; /* Medium Navy - Tertiary background */
 
   /* Text Colors */
   --color-text-primary: #e2e2b6; /* Warm Cream - Body text */
@@ -23,11 +23,11 @@ html[data-theme='midnight-retro'] {
 
   /* Accent Colors */
   --color-accent-primary: #6eacda; /* Sky Blue - Primary accent */
-  --color-accent-secondary: #e2e2b6; /* Warm Cream - Secondary accent */
-  --color-accent-tertiary: #8cc4ea; /* Light Blue - Tertiary accent */
+  --color-accent-secondary: #d4af37; /* Antique Gold - Secondary accent (retro luxury) */
+  --color-accent-tertiary: #9dd4f5; /* Light Sky Blue - Tertiary accent */
 
   /* UI Colors */
-  --color-border: #03346e; /* Rich Blue - Borders */
+  --color-border: #1e4a7a; /* Bright Blue - Borders (visible on backgrounds) */
   --color-shadow: rgba(110, 172, 218, 0.15); /* Blue glow shadow */
 
   /* Accessibility Notes:

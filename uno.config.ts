@@ -8,12 +8,15 @@ export default defineConfig({
   ],
   theme: {
     colors: {
-      // Design system colors
-      primary: '#99BC85',
-      snow: '#FDFAF6',
-      almond: '#FAF1E6',
-      'mint-cream': '#E4EFE7',
-      dark: '#333333',
+      // Theme-aware semantic colors (using CSS custom properties)
+      primary: 'var(--color-accent-primary)',
+      secondary: 'var(--color-accent-secondary)',
+
+      // Legacy color names (kept for backward compatibility but use theme tokens)
+      snow: 'var(--color-bg-primary)',
+      almond: 'var(--color-bg-secondary)',
+      'mint-cream': 'var(--color-bg-tertiary)',
+      dark: 'var(--color-text-primary)',
       white: '#FFFFFF',
     },
     fontFamily: {

@@ -13,7 +13,7 @@ html[data-theme='vintage-sunrise'] {
 
   /* Background Colors */
   --color-bg-primary: #fefbc7; /* Pale Yellow - Main background */
-  --color-bg-secondary: #fff9e5; /* Cream - Secondary background */
+  --color-bg-secondary: #ffe4cc; /* Peach Cream - Secondary background (more distinct) */
   --color-bg-tertiary: #ffb4b4; /* Light Pink - Tertiary background */
 
   /* Text Colors */
@@ -24,10 +24,10 @@ html[data-theme='vintage-sunrise'] {
   /* Accent Colors */
   --color-accent-primary: #e14434; /* Warm Red - Primary accent */
   --color-accent-secondary: #5eabd6; /* Sky Blue - Secondary accent */
-  --color-accent-tertiary: #ff6b6b; /* Coral Red - Tertiary accent */
+  --color-accent-tertiary: #ff8866; /* Warmer Coral - Tertiary accent (better vintage feel) */
 
   /* UI Colors */
-  --color-border: #f5e8a0; /* Golden Yellow - Borders */
+  --color-border: #e6d585; /* Darker Golden - Borders (more visible) */
   --color-shadow: rgba(26, 26, 26, 0.08); /* Subtle shadow */
 
   /* Accessibility Notes:

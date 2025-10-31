@@ -13,8 +13,8 @@ html[data-theme='soft-pastels'] {
 
   /* Background Colors */
   --color-bg-primary: #fcf9ea; /* Cream - Main background */
-  --color-bg-secondary: #badfdb; /* Mint - Secondary background */
-  --color-bg-tertiary: #ffbdbd; /* Blush Pink - Tertiary background */
+  --color-bg-secondary: #b5e5e1; /* Saturated Mint - Secondary background (more distinct) */
+  --color-bg-tertiary: #ffccd5; /* Saturated Blush - Tertiary background (more distinct) */
 
   /* Text Colors */
   --color-text-primary: #2a2520; /* Dark Brown - Body text */
@@ -24,10 +24,10 @@ html[data-theme='soft-pastels'] {
   /* Accent Colors */
   --color-accent-primary: #ffa4a4; /* Coral Pink - Primary accent */
   --color-accent-secondary: #8fccc7; /* Sage Teal - Secondary accent */
-  --color-accent-tertiary: #ffcccc; /* Light Pink - Tertiary accent */
+  --color-accent-tertiary: #c4b5fd; /* Soft Lavender - Tertiary accent (more variety) */
 
   /* UI Colors */
-  --color-border: #e0d7c8; /* Warm Beige - Borders */
+  --color-border: #d5c9ba; /* Darker Beige - Borders (better visibility) */
   --color-shadow: rgba(42, 37, 32, 0.08); /* Soft brown shadow */
 
   /* Accessibility Notes:

@@ -5,6 +5,9 @@ import ColorPalette from '@components/ui/ColorPalette.svelte';
 import TypographyShowcase from '@components/ui/TypographyShowcase.svelte';
 import ResponsiveDemo from '@components/ui/ResponsiveDemo.svelte';
 import ContainerDemo from '@components/ui/ContainerDemo.svelte';
+import ThemeShowcase from '@components/ui/ThemeShowcase.svelte';
+import ThemeSwitcher from '@components/ui/ThemeSwitcher.svelte';
+import ThemePreview from '@components/ui/ThemePreview.svelte';
 ---
 
 <BaseLayout
@@ -14,79 +17,94 @@ import ContainerDemo from '@components/ui/ContainerDemo.svelte';
   <main id="main-content" class="max-w-6xl mx-auto p-8">
       <!-- Header -->
       <header class="mb-12">
-        <h1 class="text-5xl font-bold text-dark mb-4">Service Website Template</h1>
-        <p class="text-xl text-dark mb-2">Design System Showcase</p>
-        <p class="text-base text-dark opacity-70">
-          Astro 5.15.3 + Svelte 5.43.2 + UnoCSS - Phase 2 Implementation
+        <h1 class="text-5xl font-bold mb-4">Service Website Template</h1>
+        <p class="text-xl mb-2">Design System Showcase</p>
+        <p class="text-base opacity-70">
+          Astro 5.15.3 + Svelte 5.43.2 + UnoCSS - Multi-Theme System
         </p>
       </header>
 
       <!-- Technology Stack Status -->
-      <section class="mb-12 p-6 bg-mint-cream rounded-lg">
-        <h2 class="text-3xl font-semibold text-primary mb-4">✅ Tech Stack Status</h2>
+      <section class="mb-12 p-6 bg-tertiary rounded-lg">
+        <h2 class="text-3xl font-semibold accent-primary mb-4">✅ Tech Stack Status</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="p-4 bg-white rounded">
-            <h3 class="font-bold text-dark mb-2">Astro 5.15.3</h3>
-            <p class="text-sm text-dark">Meta-framework with partial hydration ✓</p>
+          <div class="p-4 bg-secondary rounded">
+            <h3 class="font-bold mb-2">Astro 5.15.3</h3>
+            <p class="text-sm">Meta-framework with partial hydration ✓</p>
           </div>
-          <div class="p-4 bg-white rounded">
-            <h3 class="font-bold text-dark mb-2">Svelte 5.43.2</h3>
-            <p class="text-sm text-dark">UI components with Runes ✓</p>
+          <div class="p-4 bg-secondary rounded">
+            <h3 class="font-bold mb-2">Svelte 5.43.2</h3>
+            <p class="text-sm">UI components with Runes ✓</p>
           </div>
-          <div class="p-4 bg-white rounded">
-            <h3 class="font-bold text-dark mb-2">UnoCSS</h3>
-            <p class="text-sm text-dark">Tailwind-compatible utilities ✓</p>
+          <div class="p-4 bg-secondary rounded">
+            <h3 class="font-bold mb-2">UnoCSS</h3>
+            <p class="text-sm">Tailwind-compatible utilities ✓</p>
           </div>
-          <div class="p-4 bg-white rounded">
-            <h3 class="font-bold text-dark mb-2">TypeScript 5.9.3</h3>
-            <p class="text-sm text-dark">Strict mode enabled ✓</p>
+          <div class="p-4 bg-secondary rounded">
+            <h3 class="font-bold mb-2">TypeScript 5.9.3</h3>
+            <p class="text-sm">Strict mode enabled ✓</p>
           </div>
         </div>
         <button class="btn-primary mt-6">Test Primary Button</button>
       </section>
 
+      <!-- Theme Switcher Section -->
+      <section class="mb-12">
+        <h2 class="text-4xl font-bold mb-6">Theme Switcher</h2>
+        <p class="mb-4 text-secondary">
+          Try switching between different themes to see the design system adapt!
+        </p>
+        <ThemeSwitcher client:load />
+      </section>
+
       <!-- Typography Section -->
       <section class="mb-12">
-        <h2 class="text-4xl font-bold text-dark mb-6">Typography System</h2>
+        <h2 class="text-4xl font-bold mb-6">Typography System</h2>
         <TypographyShowcase />
       </section>
 
       <!-- Responsive & Spacing Section -->
       <section class="mb-12">
-        <h2 class="text-4xl font-bold text-dark mb-6">Responsive Design & Spacing</h2>
+        <h2 class="text-4xl font-bold mb-6">Responsive Design & Spacing</h2>
         <ResponsiveDemo />
       </section>
 
       <!-- Container & Layout Section -->
       <section class="mb-12">
-        <h2 class="text-4xl font-bold text-dark mb-6">Container & Layout System</h2>
+        <h2 class="text-4xl font-bold mb-6">Container & Layout System</h2>
         <ContainerDemo />
       </section>
 
       <!-- Color Palette Section -->
       <section class="mb-12">
-        <h2 class="text-4xl font-bold text-dark mb-6">Color System</h2>
+        <h2 class="text-4xl font-bold mb-6">Color System</h2>
         <ColorPalette />
       </section>
 
+      <!-- Theme Showcase Section -->
+      <!-- <section class="mb-12"> -->
+      <!--   <h2 class="text-4xl font-bold text-dark mb-6">Color System</h2> -->
+      <!--   <ThemeShowcase /> -->
+      <!-- </section> -->
+
       <!-- Svelte 5 Runes Test -->
-      <section class="mb-12 p-6 bg-almond rounded-lg">
-        <h2 class="text-3xl font-semibold text-dark mb-4">Svelte 5 Runes Test</h2>
-        <p class="text-dark mb-4">
+      <section class="mb-12 p-6 bg-secondary rounded-lg">
+        <h2 class="text-3xl font-semibold mb-4">Svelte 5 Runes Test</h2>
+        <p class="mb-4">
           Testing Svelte 5's new reactive system with $state and $derived:
         </p>
         <TestCounter client:load />
       </section>
 
       <!-- Phase Status -->
-      <footer class="mt-16 p-6 bg-white rounded-lg border-2 border-primary">
-        <h3 class="text-2xl font-bold text-dark mb-3">Development Progress</h3>
+      <footer class="mt-16 p-6 bg-secondary rounded-lg border-2 border-color">
+        <h3 class="text-2xl font-bold mb-3">Development Progress</h3>
         <ul class="space-y-2">
-          <li class="text-dark">✅ Phase 1: Project Setup & Configuration - Complete</li>
-          <li class="text-primary font-bold">
-            🔄 Phase 2: Design System Implementation - In Progress
+          <li>✅ Phase 1: Project Setup & Configuration - Complete</li>
+          <li class="accent-primary font-bold">
+            🔄 Phase 2: Design System Implementation - Multi-Theme System Added
           </li>
-          <li class="text-dark opacity-50">⏳ Phase 3-10: Upcoming</li>
+          <li class="opacity-50">⏳ Phase 3-10: Upcoming</li>
         </ul>
       </footer>
     </main>
