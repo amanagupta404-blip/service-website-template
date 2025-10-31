@@ -20,6 +20,7 @@ import Select from '@components/ui/Select.svelte';
 import Checkbox from '@components/ui/Checkbox.svelte';
 import Testimonial from '@components/ui/Testimonial.svelte';
 import ServiceCard from '@components/ui/ServiceCard.svelte';
+import Hero from '@components/sections/Hero.svelte';
 ---
 
 <BaseLayout
@@ -27,7 +28,23 @@ import ServiceCard from '@components/ui/ServiceCard.svelte';
   description="Service website template design system with multi-theme support"
 >
   <main id="main-content">
-      <!-- Header -->
+    <!-- Hero Component Test -->
+    <Hero
+      headline="Build Amazing Experiences"
+      subheadline="Create modern, responsive websites with our powerful design system and component library."
+      primaryCTA={{ text: "Get Started", href: "#get-started" }}
+      secondaryCTA={{ text: "Learn More", href: "#learn-more" }}
+    />
+
+    <Hero
+      headline="Your Vision, Our Expertise"
+      subheadline="Transform your ideas into reality with cutting-edge technology and exceptional design."
+      primaryCTA={{ text: "View Portfolio", href: "#portfolio" }}
+      backgroundImage="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1920&q=80"
+      fullHeight={false}
+    />
+
+    <!-- Header -->
     <Section backgroundColor="primary" paddingY="medium">
       <Container maxWidth="xl">
         <header>
