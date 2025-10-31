@@ -60,12 +60,24 @@
   }
 
   /**
+   * Portfolio Image Container
+   */
+  :global(.portfolio-card .card-image) {
+    height: 240px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  /**
    * Portfolio Image
    */
   .portfolio-image {
     width: 100%;
-    height: 240px;
+    height: 100%;
     object-fit: cover;
+    display: block;
     transition: transform var(--duration-normal) var(--ease-in-out);
   }
 
@@ -117,6 +129,23 @@
     color: var(--color-text-primary);
     opacity: 0.8;
     margin: 0;
+  }
+
+  /**
+   * Container Query Overrides: Ensure fixed image height in portfolio cards
+   */
+  @container (min-width: 400px) {
+    :global(.portfolio-card .card-image) {
+      height: 240px;
+      width: 100%;
+    }
+  }
+
+  @container (min-width: 600px) {
+    :global(.portfolio-card .card-image) {
+      height: 240px;
+      width: 100%;
+    }
   }
 
   /**
