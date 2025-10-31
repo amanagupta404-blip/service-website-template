@@ -21,6 +21,7 @@ import Checkbox from '@components/ui/Checkbox.svelte';
 import Testimonial from '@components/ui/Testimonial.svelte';
 import ServiceCard from '@components/ui/ServiceCard.svelte';
 import Hero from '@components/sections/Hero.svelte';
+import PortfolioGrid from '@components/ui/PortfolioGrid.svelte';
 ---
 
 <BaseLayout
@@ -44,7 +45,7 @@ import Hero from '@components/sections/Hero.svelte';
       fullHeight={false}
     />
 
-    <!-- Header -->
+      <!-- Header -->
     <Section backgroundColor="primary" paddingY="medium">
       <Container maxWidth="xl">
         <header>
@@ -145,6 +146,69 @@ import Hero from '@components/sections/Hero.svelte';
     <!--     <ThemeShowcase /> -->
     <!--   </Container> -->
     <!-- </Section> -->
+
+    <!-- Portfolio Grid Component Test -->
+    <Section backgroundColor="primary" paddingY="medium">
+      <Container maxWidth="xl">
+        <h2 class="text-4xl font-bold mb-6">Portfolio Grid & Cards</h2>
+        <p class="mb-6 text-secondary">
+          Display portfolio projects in a responsive grid with hover effects and category badges.
+        </p>
+
+        <PortfolioGrid
+          items={[
+            {
+              id: '1',
+              title: 'E-Commerce Platform',
+              description: 'Modern e-commerce solution with advanced filtering and checkout.',
+              image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80',
+              category: 'Web Development',
+              href: '#project-1',
+            },
+            {
+              id: '2',
+              title: 'Mobile Banking App',
+              description: 'Secure mobile banking application with biometric authentication.',
+              image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80',
+              category: 'Mobile',
+              href: '#project-2',
+            },
+            {
+              id: '3',
+              title: 'Healthcare Dashboard',
+              description: 'Real-time analytics dashboard for healthcare professionals.',
+              image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+              category: 'UI/UX Design',
+              href: '#project-3',
+            },
+            {
+              id: '4',
+              title: 'Social Media Platform',
+              description: 'Community-focused social platform with real-time messaging.',
+              image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80',
+              category: 'Web Development',
+              href: '#project-4',
+            },
+            {
+              id: '5',
+              title: 'Fitness Tracking App',
+              description: 'Comprehensive fitness app with workout plans and nutrition tracking.',
+              image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80',
+              category: 'Mobile',
+              href: '#project-5',
+            },
+            {
+              id: '6',
+              title: 'SaaS Product Design',
+              description: 'Enterprise SaaS platform with intuitive workflow automation.',
+              image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
+              category: 'UI/UX Design',
+              href: '#project-6',
+            },
+          ]}
+        />
+      </Container>
+    </Section>
 
     <!-- ServiceCard Component Test -->
     <Section backgroundColor="secondary" paddingY="medium">
