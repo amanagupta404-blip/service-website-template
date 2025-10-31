@@ -1,0 +1,23 @@
+/**
+ * Global Styles
+ *
+ * Base styles, resets, and global utilities
+ * Will be expanded in Phase 2: Design System Implementation
+ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--color-text-primary, #333333);
+  background-color: var(--color-bg-primary, #FDFAF6);
+}
