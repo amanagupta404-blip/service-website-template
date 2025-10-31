@@ -61,7 +61,17 @@ export default defineConfig({
     'heading-3': 'font-heading font-bold text-xl md:text-3xl',
     'heading-4': 'font-heading font-bold text-lg md:text-2xl',
 
-    // Responsive container utilities
+    // Container utilities
+    'container-sm': 'max-w-[640px] mx-auto px-6 md:px-8 lg:px-12',
+    'container-md': 'max-w-[768px] mx-auto px-6 md:px-8 lg:px-12',
+    'container-lg': 'max-w-[1024px] mx-auto px-6 md:px-8 lg:px-12',
+    'container-xl': 'max-w-[1280px] mx-auto px-6 md:px-8 lg:px-12',
+    'container-2xl': 'max-w-[1400px] mx-auto px-6 md:px-8 lg:px-12',
     'container-padding': 'px-6 md:px-8 lg:px-12',
+
+    // Section utilities
+    'section-sm': 'py-12 md:py-16',
+    'section-md': 'py-16 md:py-20 lg:py-24',
+    'section-lg': 'py-20 md:py-24 lg:py-32',
   },
 });

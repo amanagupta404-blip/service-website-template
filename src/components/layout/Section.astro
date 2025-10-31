@@ -1,0 +1,46 @@
+---
+/**
+ * Section Component
+ *
+ * Semantic section wrapper with consistent vertical spacing.
+ * Used for major page sections (hero, services, testimonials, etc.)
+ *
+ * Props:
+ * - id: string - section ID for anchor links
+ * - class: string - additional CSS classes
+ * - spacing: 'sm' | 'md' | 'lg' (default: 'md') - vertical spacing
+ * - background: 'snow' | 'almond' | 'mint-cream' | 'white' (default: transparent)
+ */
+
+interface Props {
+  id?: string;
+  class?: string;
+  spacing?: 'sm' | 'md' | 'lg';
+  background?: 'snow' | 'almond' | 'mint-cream' | 'white' | 'none';
+}
+
+const { id, class: className = '', spacing = 'md', background = 'none' } = Astro.props;
+
+// Map spacing to padding classes
+const spacingClasses = {
+  sm: 'py-12 md:py-16',
+  md: 'py-16 md:py-20 lg:py-24',
+  lg: 'py-20 md:py-24 lg:py-32',
+};
+
+// Map background to color classes
+const backgroundClasses = {
+  snow: 'bg-snow',
+  almond: 'bg-almond',
+  'mint-cream': 'bg-mint-cream',
+  white: 'bg-white',
+  none: '',
+};
+
+const sectionClasses =
+  `${spacingClasses[spacing]} ${backgroundClasses[background]} ${className}`.trim();
+---
+
+<section id={id} class={sectionClasses}>
+  <slot />
+</section>

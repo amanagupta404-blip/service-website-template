@@ -77,6 +77,18 @@
   --breakpoint-xl: 1280px;
   --breakpoint-2xl: 1536px;
 
+  /* ===== CONTAINER & LAYOUT ===== */
+  /* Container max-widths */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1400px;
+
+  /* Section padding */
+  --section-padding-y: var(--space-16); /* 64px vertical */
+  --section-padding-x: var(--space-6); /* 24px horizontal */
+
   /* ===== ANIMATION ===== */
   --ease-in: cubic-bezier(0.4, 0, 1, 1);
   --ease-out: cubic-bezier(0, 0, 0.2, 1);
