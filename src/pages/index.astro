@@ -18,6 +18,7 @@ import Input from '@components/ui/Input.svelte';
 import Textarea from '@components/ui/Textarea.svelte';
 import Select from '@components/ui/Select.svelte';
 import Checkbox from '@components/ui/Checkbox.svelte';
+import Testimonial from '@components/ui/Testimonial.svelte';
 ---
 
 <BaseLayout
@@ -126,6 +127,51 @@ import Checkbox from '@components/ui/Checkbox.svelte';
     <!--     <ThemeShowcase /> -->
     <!--   </Container> -->
     <!-- </Section> -->
+
+    <!-- Testimonial Component Test -->
+    <Section backgroundColor="primary" paddingY="medium">
+      <Container maxWidth="xl">
+        <h2 class="text-4xl font-bold mb-6">Testimonial Component</h2>
+        <p class="mb-6 text-secondary">
+          Display client testimonials with quotes, ratings, and author information.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Testimonial with rating and photo -->
+          <Testimonial
+            quote="This service exceeded all our expectations. The team was professional, responsive, and delivered exceptional results on time and within budget."
+            author="Sarah Johnson"
+            role="CEO, TechStart Inc."
+            photo="https://i.pravatar.cc/150?img=1"
+            rating={5}
+          />
+
+          <!-- Testimonial without photo -->
+          <Testimonial
+            quote="Working with this team was an absolute pleasure. They understood our vision and brought it to life better than we could have imagined."
+            author="Michael Chen"
+            role="Product Manager, InnovateCo"
+            rating={5}
+          />
+
+          <!-- Testimonial with partial rating -->
+          <Testimonial
+            quote="Great experience overall. The project was completed professionally and the communication throughout was excellent."
+            author="Emily Rodriguez"
+            role="Marketing Director"
+            photo="https://i.pravatar.cc/150?img=5"
+            rating={4}
+          />
+
+          <!-- Testimonial without rating -->
+          <Testimonial
+            quote="I highly recommend their services. The attention to detail and commitment to quality is outstanding."
+            author="David Park"
+            role="Founder, StartupLab"
+          />
+        </div>
+      </Container>
+    </Section>
 
     <!-- Form Components Test -->
     <Section backgroundColor="tertiary" paddingY="medium">
