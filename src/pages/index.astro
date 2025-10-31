@@ -4,6 +4,7 @@ import ColorPalette from '@components/ui/ColorPalette.svelte';
 import TypographyShowcase from '@components/ui/TypographyShowcase.svelte';
 import ResponsiveDemo from '@components/ui/ResponsiveDemo.svelte';
 import ContainerDemo from '@components/ui/ContainerDemo.svelte';
+import SkipLink from '@components/layout/SkipLink.astro';
 import '@styles/design-tokens.css';
 import '@styles/global.css';
 ---
@@ -17,7 +18,8 @@ import '@styles/global.css';
     <title>Service Website Template - Design System</title>
   </head>
   <body class="bg-snow">
-    <main class="max-w-6xl mx-auto p-8">
+    <SkipLink />
+    <main id="main-content" class="max-w-6xl mx-auto p-8">
       <!-- Header -->
       <header class="mb-12">
         <h1 class="text-5xl font-bold text-dark mb-4">Service Website Template</h1>
