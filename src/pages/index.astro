@@ -12,6 +12,7 @@ import ThemeShowcase from '@components/ui/ThemeShowcase.svelte';
 import ThemeSwitcher from '@components/ui/ThemeSwitcher.svelte';
 import ThemePreview from '@components/ui/ThemePreview.svelte';
 import Icon from '@components/ui/Icon.svelte';
+import Button from '@components/ui/Button.svelte';
 ---
 
 <BaseLayout
@@ -120,6 +121,79 @@ import Icon from '@components/ui/Icon.svelte';
     <!--     <ThemeShowcase /> -->
     <!--   </Container> -->
     <!-- </Section> -->
+
+    <!-- Button Component Test -->
+    <Section backgroundColor="primary" paddingY="medium">
+      <Container maxWidth="xl">
+        <h2 class="text-4xl font-bold mb-6">Button Component</h2>
+        <p class="mb-6 text-secondary">
+          Versatile button component with multiple variants, sizes, and states.
+        </p>
+
+        <!-- Button Variants -->
+        <div class="mb-8">
+          <h3 class="text-2xl font-semibold mb-4">Button Variants</h3>
+          <div class="flex items-center gap-4 flex-wrap">
+            <Button variant="primary">Primary Button</Button>
+            <Button variant="secondary">Secondary Button</Button>
+            <Button variant="outline">Outline Button</Button>
+            <Button variant="ghost">Ghost Button</Button>
+          </div>
+        </div>
+
+        <!-- Button Sizes -->
+        <div class="mb-8">
+          <h3 class="text-2xl font-semibold mb-4">Button Sizes</h3>
+          <div class="flex items-center gap-4 flex-wrap">
+            <Button variant="primary" size="sm">Small Button</Button>
+            <Button variant="primary" size="md">Medium Button</Button>
+            <Button variant="primary" size="lg">Large Button</Button>
+          </div>
+        </div>
+
+        <!-- Button States -->
+        <div class="mb-8">
+          <h3 class="text-2xl font-semibold mb-4">Button States</h3>
+          <div class="flex items-center gap-4 flex-wrap">
+            <Button variant="primary">Normal</Button>
+            <Button variant="primary" disabled>Disabled</Button>
+            <Button variant="primary" loading>Loading</Button>
+          </div>
+        </div>
+
+        <!-- Button as Link -->
+        <div class="mb-8">
+          <h3 class="text-2xl font-semibold mb-4">Button as Link</h3>
+          <div class="flex items-center gap-4 flex-wrap">
+            <Button variant="primary" href="#button-test">Link Button</Button>
+            <Button variant="outline" href="#button-test">Outline Link</Button>
+          </div>
+        </div>
+
+        <!-- Buttons with Icons -->
+        <div class="mb-8">
+          <h3 class="text-2xl font-semibold mb-4">Buttons with Icons</h3>
+          <div class="flex items-center gap-4 flex-wrap">
+            <Button variant="primary">
+              <Icon name="check" size="sm" ariaHidden />
+              Success
+            </Button>
+            <Button variant="secondary">
+              <Icon name="arrow-right" size="sm" ariaHidden />
+              Next
+            </Button>
+            <Button variant="outline">
+              <Icon name="external-link" size="sm" ariaHidden />
+              External
+            </Button>
+            <Button variant="ghost">
+              <Icon name="settings" size="sm" ariaHidden />
+              Settings
+            </Button>
+          </div>
+        </div>
+      </Container>
+    </Section>
 
     <!-- Icon Component Test -->
     <Section backgroundColor="tertiary" paddingY="medium">
