@@ -1,0 +1,276 @@
+---
+/**
+ * Contact Page
+ * Contact form and business information
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Container from '@components/layout/Container.svelte';
+import Section from '@components/layout/Section.svelte';
+import ContactForm from '@components/ui/ContactForm.svelte';
+import Icon from '@components/ui/Icon.svelte';
+---
+
+<BaseLayout
+  title="Contact Us"
+  description="Get in touch with our team. We're here to answer questions, discuss your project, and help you get started."
+>
+  <main id="main-content">
+    <!-- Page Header -->
+    <Section backgroundColor="primary" paddingY="large">
+      <Container maxWidth="xl">
+        <div class="text-center max-w-3xl mx-auto">
+          <h1 class="text-5xl md:text-6xl font-bold mb-6">
+            Get In Touch
+          </h1>
+          <p class="text-xl md:text-2xl text-secondary leading-relaxed">
+            Have a project in mind? Questions about our services? We'd love to hear from you. Fill out the form below or reach out directly.
+          </p>
+        </div>
+      </Container>
+    </Section>
+
+    <!-- Contact Form + Info Section -->
+    <Section backgroundColor="secondary" paddingY="large">
+      <Container maxWidth="xl">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <!-- Contact Form (2/3 width) -->
+          <div class="lg:col-span-2">
+            <div class="bg-bg-primary p-8 rounded-lg shadow-lg">
+              <h2 class="text-3xl font-bold mb-6">Send Us a Message</h2>
+              <ContactForm client:load />
+            </div>
+          </div>
+
+          <!-- Contact Information (1/3 width) -->
+          <div class="space-y-8">
+            <!-- Office Address -->
+            <div class="bg-bg-primary p-6 rounded-lg shadow-lg">
+              <div class="flex items-start gap-4 mb-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-accent-primary rounded-full flex items-center justify-center">
+                  <Icon name="map-pin" size="md" ariaHidden client:load />
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold mb-2">Visit Our Office</h3>
+                  <address class="text-secondary not-italic leading-relaxed">
+                    123 Main Street<br />
+                    Suite 400<br />
+                    San Francisco, CA 94102<br />
+                    United States
+                  </address>
+                </div>
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="bg-bg-primary p-6 rounded-lg shadow-lg">
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-accent-primary rounded-full flex items-center justify-center">
+                  <Icon name="phone" size="md" ariaHidden client:load />
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold mb-2">Call Us</h3>
+                  <a href="tel:+15551234567" class="text-accent text-lg hover:underline">
+                    (555) 123-4567
+                  </a>
+                  <p class="text-sm text-secondary mt-2">
+                    Mon-Fri: 9am - 6pm PST
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="bg-bg-primary p-6 rounded-lg shadow-lg">
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-accent-primary rounded-full flex items-center justify-center">
+                  <Icon name="mail" size="md" ariaHidden client:load />
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold mb-2">Email Us</h3>
+                  <a href="mailto:hello@serviceco.com" class="text-accent text-lg hover:underline break-all">
+                    hello@serviceco.com
+                  </a>
+                  <p class="text-sm text-secondary mt-2">
+                    We'll respond within 24 hours
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Business Hours -->
+            <div class="bg-bg-primary p-6 rounded-lg shadow-lg">
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-12 h-12 bg-accent-primary rounded-full flex items-center justify-center">
+                  <Icon name="clock" size="md" ariaHidden client:load />
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold mb-3">Business Hours</h3>
+                  <div class="space-y-2 text-secondary">
+                    <div class="flex justify-between">
+                      <span>Monday - Friday:</span>
+                      <span class="font-semibold">9am - 6pm</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span>Saturday:</span>
+                      <span class="font-semibold">10am - 4pm</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span>Sunday:</span>
+                      <span class="font-semibold">Closed</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="bg-bg-primary p-6 rounded-lg shadow-lg">
+              <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+              <div class="flex gap-4">
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-12 h-12 bg-bg-secondary rounded-full flex items-center justify-center hover:bg-accent-primary hover:text-bg-primary transition-colors"
+                  aria-label="Follow us on Twitter"
+                >
+                  <Icon name="twitter" size="md" ariaHidden client:load />
+                </a>
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-12 h-12 bg-bg-secondary rounded-full flex items-center justify-center hover:bg-accent-primary hover:text-bg-primary transition-colors"
+                  aria-label="Follow us on Facebook"
+                >
+                  <Icon name="facebook" size="md" ariaHidden client:load />
+                </a>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-12 h-12 bg-bg-secondary rounded-full flex items-center justify-center hover:bg-accent-primary hover:text-bg-primary transition-colors"
+                  aria-label="Connect on LinkedIn"
+                >
+                  <Icon name="linkedin" size="md" ariaHidden client:load />
+                </a>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-12 h-12 bg-bg-secondary rounded-full flex items-center justify-center hover:bg-accent-primary hover:text-bg-primary transition-colors"
+                  aria-label="Follow us on Instagram"
+                >
+                  <Icon name="instagram" size="md" ariaHidden client:load />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </Section>
+
+    <!-- Map Section -->
+    <Section backgroundColor="tertiary" paddingY="none">
+      <div class="w-full h-96">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019279181193!2d-122.41941708468186!3d37.77492977975903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808c5f4b90b7%3A0xf8f4c3e1f3f8f3f8!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1234567890"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Our office location on Google Maps"
+        ></iframe>
+      </div>
+    </Section>
+
+    <!-- FAQ Section -->
+    <Section backgroundColor="primary" paddingY="large">
+      <Container maxWidth="xl">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h2>
+          <p class="text-xl text-secondary max-w-2xl mx-auto">
+            Quick answers to common questions. Don't see yours? Contact us!
+          </p>
+        </div>
+
+        <div class="max-w-3xl mx-auto space-y-6">
+          <details class="bg-bg-secondary p-6 rounded-lg">
+            <summary class="text-xl font-bold cursor-pointer hover:text-accent">
+              What's your typical project timeline?
+            </summary>
+            <p class="mt-4 text-secondary leading-relaxed">
+              Project timelines vary based on scope and complexity. A simple website might take 4-6 weeks, while a complex web application could take 3-6 months. We'll provide a detailed timeline during the discovery phase.
+            </p>
+          </details>
+
+          <details class="bg-bg-secondary p-6 rounded-lg">
+            <summary class="text-xl font-bold cursor-pointer hover:text-accent">
+              Do you offer ongoing support and maintenance?
+            </summary>
+            <p class="mt-4 text-secondary leading-relaxed">
+              Yes! We offer comprehensive support and maintenance packages to keep your applications running smoothly. This includes security updates, bug fixes, performance monitoring, and feature enhancements.
+            </p>
+          </details>
+
+          <details class="bg-bg-secondary p-6 rounded-lg">
+            <summary class="text-xl font-bold cursor-pointer hover:text-accent">
+              What's your payment structure?
+            </summary>
+            <p class="mt-4 text-secondary leading-relaxed">
+              We typically structure payments as: 30% upfront to begin work, 40% at the midpoint milestone, and 30% upon project completion. For larger projects, we can discuss custom payment schedules.
+            </p>
+          </details>
+
+          <details class="bg-bg-secondary p-6 rounded-lg">
+            <summary class="text-xl font-bold cursor-pointer hover:text-accent">
+              Can you work with our existing team?
+            </summary>
+            <p class="mt-4 text-secondary leading-relaxed">
+              Absolutely! We're experienced at collaborating with in-house teams, external agencies, and stakeholders. We adapt our workflow to integrate seamlessly with your existing processes.
+            </p>
+          </details>
+
+          <details class="bg-bg-secondary p-6 rounded-lg">
+            <summary class="text-xl font-bold cursor-pointer hover:text-accent">
+              Do you sign NDAs?
+            </summary>
+            <p class="mt-4 text-secondary leading-relaxed">
+              Yes, we're happy to sign non-disclosure agreements to protect your confidential information. We take data security and intellectual property very seriously.
+            </p>
+          </details>
+        </div>
+      </Container>
+    </Section>
+  </main>
+</BaseLayout>
+
+<style>
+  /* FAQ details styling */
+  details summary {
+    list-style: none;
+  }
+
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details[open] summary {
+    color: var(--color-accent-primary);
+  }
+
+  details summary::after {
+    content: '+';
+    float: right;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: transform 0.2s;
+  }
+
+  details[open] summary::after {
+    transform: rotate(45deg);
+  }
+</style>
