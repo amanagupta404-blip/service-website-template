@@ -606,3 +606,101 @@ import Checkbox from '@components/ui/Checkbox.svelte';
     {/* END COMMENTED SHOWCASE SECTIONS */}
   </main>
 </BaseLayout>
+
+<script>
+  /**
+   * Scroll-Triggered Animations (Phase 6.3)
+   * GSAP ScrollTrigger animations for home page elements
+   */
+
+  import { staggerGrid, fadeInOnScroll, slideInFromLeft, slideInFromRight, countUp, parallaxScroll } from '@utils/gsap';
+
+  // Wait for DOM to be ready
+  document.addEventListener('DOMContentLoaded', () => {
+    // Parallax effect on hero background
+    const heroSection = document.querySelector('.hero') as HTMLElement;
+    if (heroSection && heroSection.style.backgroundImage) {
+      // Apply parallax scroll to hero background
+      parallaxScroll(heroSection, {
+        yPercent: 50,
+        backgroundPosition: true,
+        start: 'top top',
+        end: 'bottom top',
+      });
+    }
+    // Animate section headings with fade in
+    const headings = document.querySelectorAll('h2');
+    headings.forEach((heading) => {
+      fadeInOnScroll(heading as HTMLElement, { y: 20, duration: 0.6 });
+    });
+
+    // Animate service cards with stagger
+    const serviceCards = document.querySelectorAll('#services .grid > div');
+    if (serviceCards.length > 0) {
+      staggerGrid(Array.from(serviceCards) as HTMLElement[], {
+        trigger: '#services .grid',
+        stagger: 0.15,
+        y: 40,
+        duration: 0.7,
+      });
+    }
+
+    // Animate about section - slide in from opposite sides
+    const aboutImage = document.querySelector('#about-snapshot .order-2') as HTMLElement;
+    const aboutContent = document.querySelector('#about-snapshot .order-1') as HTMLElement;
+
+    if (aboutImage) {
+      slideInFromLeft(aboutImage, { x: -40, duration: 0.8 });
+    }
+
+    if (aboutContent) {
+      slideInFromRight(aboutContent, { x: 40, duration: 0.8 });
+    }
+
+    // Animate stat numbers with count-up
+    const statNumbers = document.querySelectorAll('#about-snapshot .text-4xl.font-bold.text-accent');
+    statNumbers.forEach((stat) => {
+      const text = stat.textContent || '';
+      const match = text.match(/(\d+)/);
+      if (match) {
+        const value = parseInt(match[1]);
+        const hasPlusSign = text.includes('+');
+        const hasPercentSign = text.includes('%');
+
+        countUp(stat as HTMLElement, value, {
+          duration: 2.5,
+          decimals: 0,
+          suffix: hasPlusSign ? '+' : hasPercentSign ? '%' : '',
+        });
+      }
+    });
+
+    // Animate portfolio grid with stagger
+    const portfolioItems = document.querySelectorAll('#portfolio .portfolio-grid > div, #portfolio .portfolio-grid > a');
+    if (portfolioItems.length > 0) {
+      staggerGrid(Array.from(portfolioItems) as HTMLElement[], {
+        trigger: '#portfolio',
+        stagger: 0.12,
+        y: 50,
+        duration: 0.8,
+      });
+    }
+
+    // Animate testimonials with stagger
+    const testimonials = document.querySelectorAll('#testimonials .grid > div');
+    if (testimonials.length > 0) {
+      staggerGrid(Array.from(testimonials) as HTMLElement[], {
+        trigger: '#testimonials .grid',
+        stagger: 0.2,
+        y: 40,
+        duration: 0.7,
+      });
+    }
+
+    // Animate CTA section with fade in
+    const ctaSection = document.querySelector('#cta') as HTMLElement;
+    if (ctaSection) {
+      fadeInOnScroll(ctaSection, { y: 30, duration: 0.8 });
+    }
+  });
+</script>

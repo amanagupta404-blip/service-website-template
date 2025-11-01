@@ -196,6 +196,7 @@ export function parallaxScroll(
     end?: string;
     yPercent?: number;
     scale?: number;
+    backgroundPosition?: boolean;
   } = {}
 ) {
   if (prefersReducedMotion()) return;
@@ -206,6 +207,7 @@ export function parallaxScroll(
     end = 'bottom top',
     yPercent = 30,
     scale,
+    backgroundPosition = false,
   } = options;
 
   const animation: gsap.TweenVars = {
@@ -215,9 +217,15 @@ export function parallaxScroll(
       end,
       scrub: true,
     },
-    yPercent,
     ease: 'none',
   };
+
+  if (backgroundPosition) {
+    // Animate background position for parallax effect on background images
+    animation.backgroundPosition = `50% ${yPercent}%`;
+  } else {
+    animation.yPercent = yPercent;
+  }
 
   if (scale) {
     animation.scale = scale;
