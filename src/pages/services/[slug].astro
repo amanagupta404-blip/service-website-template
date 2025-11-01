@@ -14,9 +14,11 @@ import RelatedServices from '@components/ui/RelatedServices.svelte';
 import CTASection from '@components/sections/CTASection.svelte';
 import Hero from '@components/sections/Hero.svelte';
 
-// Service data
-const services = {
-  'web-development': {
+// Generate static paths for all services
+export function getStaticPaths() {
+  // Service data - defined here for getStaticPaths access
+  const services = {
+    'web-development': {
     title: 'Web Development',
     description: 'Build modern, high-performance websites and web applications that drive business results.',
     longDescription: 'Our web development services combine cutting-edge technologies with proven best practices to create fast, secure, and scalable web solutions. Whether you need a simple landing page or a complex web application, we deliver exceptional results that exceed expectations.',
@@ -240,21 +242,18 @@ const services = {
       { name: 'Technical Consulting', description: 'Get expert UX advice', icon: 'user', href: '/services/consulting' },
     ],
   },
-};
+  };
 
-// Generate static paths for all services
-export function getStaticPaths() {
+  // Return paths and props for each service
   return Object.keys(services).map((slug) => ({
     params: { slug },
+    props: { service: services[slug as keyof typeof services] },
   }));
 }
 
+// Get service data from props
 const { slug } = Astro.params;
-const service = services[slug as keyof typeof services];
-
-if (!service) {
-  return Astro.redirect('/404');
-}
+const { service } = Astro.props;
 
 // Breadcrumb items
 const breadcrumbItems = [
