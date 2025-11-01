@@ -9,6 +9,7 @@
  * - bodyClass: Additional CSS classes for body element (optional)
  */
 
+import { ViewTransitions } from 'astro:transitions';
 import SkipLink from '@components/layout/SkipLink.astro';
 import Header from '@/components/layout/Header.svelte';
 import Footer from '@/components/layout/Footer.svelte';
@@ -34,6 +35,9 @@ const siteTitle = title ? `${title} | Service Website Template` : 'Service Websi
     <meta name="generator" content={Astro.generator} />
     {description && <meta name="description" content={description} />}
     <title>{siteTitle}</title>
+
+    <!-- Page Transitions (Phase 6.5) -->
+    <ViewTransitions />
 
     <!-- FOUC Prevention: Load theme before content renders -->
     <script is:inline>
