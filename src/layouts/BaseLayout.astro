@@ -10,6 +10,8 @@
  */
 
 import SkipLink from '@components/layout/SkipLink.astro';
+import Header from '@/components/layout/Header.svelte';
+import Footer from '@/components/layout/Footer.svelte';
 import '@styles/design-tokens.css';
 import '@styles/global.css';
 
@@ -115,6 +117,40 @@ const siteTitle = title ? `${title} | Service Website Template` : 'Service Websi
   </head>
   <body class={bodyClass}>
     <SkipLink />
-    <slot />
+
+    <!-- Site Grid Structure (Phase 3.2) -->
+    <div class="site-grid">
+      <!-- Header with Navigation (Phase 3.3 + 3.4) -->
+      <Header currentPath={Astro.url.pathname} sticky={true} client:load />
+
+      <!-- Main Content Area -->
+      <main id="main-content" role="main" tabindex="-1">
+        <slot />
+      </main>
+
+      <!-- Footer (Phase 3.5) -->
+      <Footer />
+    </div>
   </body>
 </html>
+
+<style>
+  /**
+   * CSS Grid Site Structure (Phase 3.2)
+   * 3-row grid: header (auto), main (1fr - expands), footer (auto)
+   * Ensures footer sticks to bottom even on short pages
+   */
+  .site-grid {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+  }
+
+  /**
+   * Main content area
+   * tabindex="-1" allows programmatic focus for skip link
+   */
+  main:focus {
+    outline: none;
+  }
+</style>
