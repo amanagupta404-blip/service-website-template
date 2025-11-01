@@ -1,0 +1,247 @@
+---
+/**
+ * Individual Portfolio Project Pages (Dynamic Route)
+ * Detailed project pages with images, description, and metadata
+ */
+
+import { getCollection } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Container from '@components/layout/Container.svelte';
+import Section from '@components/layout/Section.svelte';
+import Breadcrumbs from '@components/ui/Breadcrumbs.svelte';
+import ImageGallery from '@components/ui/ImageGallery.svelte';
+import ProjectDetails from '@components/ui/ProjectDetails.svelte';
+import CTASection from '@components/sections/CTASection.svelte';
+import Button from '@components/ui/Button.svelte';
+
+// Generate static paths for all portfolio projects
+export async function getStaticPaths() {
+  const projects = await getCollection('portfolio');
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await project.render();
+
+// Transform images for ImageGallery component
+const galleryImages = project.data.images.map((src, index) => ({
+  src,
+  alt: `${project.data.title} - Image ${index + 1}`,
+}));
+
+// Breadcrumb items
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Portfolio', href: '/portfolio' },
+  { label: project.data.title, href: `/portfolio/${project.slug}` },
+];
+---
+
+<BaseLayout
+  title={project.data.title}
+  description={project.data.description}
+>
+  <main id="main-content">
+    <!-- Breadcrumbs -->
+    <Section backgroundColor="primary" paddingY="small">
+      <Container maxWidth="xl">
+        <Breadcrumbs items={breadcrumbItems} client:load />
+      </Container>
+    </Section>
+
+    <!-- Project Header -->
+    <Section backgroundColor="primary" paddingY="large">
+      <Container maxWidth="xl">
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="inline-block px-4 py-2 bg-accent-primary text-bg-primary rounded-full font-semibold mb-4">
+            {project.data.category}
+          </div>
+          <h1 class="text-5xl md:text-6xl font-bold mb-6">
+            {project.data.title}
+          </h1>
+          <p class="text-xl md:text-2xl text-secondary leading-relaxed">
+            {project.data.description}
+          </p>
+        </div>
+      </Container>
+    </Section>
+
+    <!-- Hero Image -->
+    <Section backgroundColor="secondary" paddingY="medium">
+      <Container maxWidth="xl">
+        <div class="rounded-xl overflow-hidden shadow-2xl">
+          <img
+            src={project.data.images[0]}
+            alt={project.data.title}
+            class="w-full h-auto"
+            loading="eager"
+          />
+        </div>
+      </Container>
+    </Section>
+
+    <!-- Project Details Sidebar + Content -->
+    <Section backgroundColor="primary" paddingY="large">
+      <Container maxWidth="xl">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <!-- Main Content (2/3 width) -->
+          <div class="lg:col-span-2">
+            <article class="prose prose-lg max-w-none">
+              <Content />
+            </article>
+          </div>
+
+          <!-- Project Details Sidebar (1/3 width) -->
+          <div class="lg:col-span-1">
+            <div class="sticky top-8">
+              <ProjectDetails
+                client={project.data.client}
+                date={project.data.date.toISOString().split('T')[0]}
+                category={project.data.category}
+                tags={project.data.tags}
+                projectUrl={project.data.projectUrl}
+                client:load
+              />
+            </div>
+          </div>
+        </div>
+      </Container>
+    </Section>
+
+    <!-- Image Gallery -->
+    {project.data.images.length > 1 && (
+      <Section backgroundColor="secondary" paddingY="large">
+        <Container maxWidth="xl">
+          <h2 class="text-4xl font-bold mb-8 text-center">Project Gallery</h2>
+          <ImageGallery
+            images={galleryImages}
+            columns={3}
+            client:load
+          />
+        </Container>
+      </Section>
+    )}
+
+    <!-- Back to Portfolio -->
+    <Section backgroundColor="tertiary" paddingY="large">
+      <Container maxWidth="xl">
+        <div class="text-center">
+          <h2 class="text-3xl font-bold mb-4">Interested in Our Work?</h2>
+          <p class="text-xl text-secondary mb-8">
+            Explore more projects or get in touch to discuss your own.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button href="/portfolio" variant="outline" size="lg" client:load>
+              View All Projects
+            </Button>
+            <Button href="/contact" variant="primary" size="lg" client:load>
+              Start Your Project
+            </Button>
+          </div>
+        </div>
+      </Container>
+    </Section>
+
+    <!-- CTA Section -->
+    <CTASection
+      headline="Have a Project in Mind?"
+      description="Let's create something amazing together. Our team is ready to bring your vision to life."
+      primaryCTA={{ text: "Get Started", href: "/contact" }}
+      secondaryCTA={{ text: "Our Services", href: "/services" }}
+      backgroundColor="primary"
+      client:load
+    />
+  </main>
+</BaseLayout>
+
+<style>
+  /* Prose styling for markdown content */
+  .prose {
+    color: var(--color-text-primary);
+  }
+
+  .prose :global(h1),
+  .prose :global(h2),
+  .prose :global(h3),
+  .prose :global(h4),
+  .prose :global(h5),
+  .prose :global(h6) {
+    color: var(--color-text-primary);
+    font-weight: bold;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    line-height: 1.3;
+  }
+
+  .prose :global(h2) {
+    font-size: 2rem;
+    margin-top: 2.5em;
+  }
+
+  .prose :global(h3) {
+    font-size: 1.5rem;
+  }
+
+  .prose :global(p) {
+    margin-bottom: 1.5em;
+    line-height: 1.8;
+  }
+
+  .prose :global(a) {
+    color: var(--color-accent-primary);
+    text-decoration: underline;
+    font-weight: 600;
+  }
+
+  .prose :global(a:hover) {
+    opacity: 0.8;
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin: 1.5em 0;
+    padding-left: 1.5em;
+  }
+
+  .prose :global(li) {
+    margin-bottom: 0.5em;
+    line-height: 1.7;
+  }
+
+  .prose :global(code) {
+    background: var(--color-bg-secondary);
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-family: 'Courier New', monospace;
+  }
+
+  .prose :global(pre) {
+    background: var(--color-bg-secondary);
+    padding: 1.5em;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 2em 0;
+  }
+
+  .prose :global(pre code) {
+    background: none;
+    padding: 0;
+  }
+
+  .prose :global(blockquote) {
+    border-left: 4px solid var(--color-accent-primary);
+    padding-left: 1.5em;
+    margin: 2em 0;
+    font-style: italic;
+    color: var(--color-text-secondary);
+  }
+
+  .prose :global(strong) {
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+</style>

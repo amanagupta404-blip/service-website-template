@@ -1,0 +1,258 @@
+---
+/**
+ * Portfolio Index Page
+ * Display all portfolio projects with category filtering
+ */
+
+import { getCollection } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Container from '@components/layout/Container.svelte';
+import Section from '@components/layout/Section.svelte';
+import PortfolioGrid from '@components/ui/PortfolioGrid.svelte';
+
+// Get all portfolio items, sorted by date (newest first)
+const allProjects = await getCollection('portfolio');
+const sortedProjects = allProjects.sort((a, b) =>
+  b.data.date.getTime() - a.data.date.getTime()
+);
+
+// Transform for PortfolioGrid component
+const portfolioItems = sortedProjects.map(project => ({
+  id: project.slug,
+  title: project.data.title,
+  description: project.data.description,
+  image: project.data.images[0], // Use first image as thumbnail
+  category: project.data.category,
+  href: `/portfolio/${project.slug}`,
+}));
+
+// Get unique categories for filtering
+const allCategories = [...new Set(allProjects.map(project => project.data.category))];
+---
+
+<BaseLayout
+  title="Portfolio"
+  description="Explore our portfolio of successful projects. From web applications to mobile apps, see how we've helped businesses achieve their goals."
+>
+  <main id="main-content">
+    <!-- Page Header -->
+    <Section backgroundColor="primary" paddingY="large">
+      <Container maxWidth="xl">
+        <div class="text-center max-w-3xl mx-auto">
+          <h1 class="text-5xl md:text-6xl font-bold mb-6">
+            Our Portfolio
+          </h1>
+          <p class="text-xl md:text-2xl text-secondary leading-relaxed">
+            Explore our successful projects across web development, mobile apps, and UI/UX design. Each project showcases our commitment to quality and innovation.
+          </p>
+        </div>
+      </Container>
+    </Section>
+
+    <!-- Category Filter Section -->
+    <Section backgroundColor="secondary" paddingY="medium">
+      <Container maxWidth="xl">
+        <div class="text-center">
+          <h2 class="text-2xl font-bold mb-4">Filter by Category</h2>
+          <div class="flex flex-wrap justify-center gap-3">
+            <button
+              class="category-filter-button active"
+              data-category="all"
+              type="button"
+            >
+              All Projects
+            </button>
+            {allCategories.map((category) => (
+              <button
+                class="category-filter-button"
+                data-category={category}
+                type="button"
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+        </div>
+      </Container>
+    </Section>
+
+    <!-- Portfolio Grid -->
+    <Section backgroundColor="primary" paddingY="large">
+      <Container maxWidth="xl">
+        <div class="portfolio-container">
+          {sortedProjects.map((project) => (
+            <div class="portfolio-item" data-category={project.data.category}>
+              <PortfolioGrid
+                items={[{
+                  id: project.slug,
+                  title: project.data.title,
+                  description: project.data.description,
+                  image: project.data.images[0],
+                  category: project.data.category,
+                  href: `/portfolio/${project.slug}`,
+                }]}
+                client:load
+              />
+            </div>
+          ))}
+        </div>
+
+        <!-- No results message -->
+        <div id="no-results" class="text-center py-12 hidden">
+          <p class="text-xl text-secondary">
+            No projects found for this category. Try selecting a different filter.
+          </p>
+        </div>
+      </Container>
+    </Section>
+
+    <!-- Stats Section -->
+    <Section backgroundColor="tertiary" paddingY="large">
+      <Container maxWidth="xl">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold mb-4">Our Impact</h2>
+          <p class="text-xl text-secondary max-w-2xl mx-auto">
+            Real results from real projects across industries.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="text-5xl font-bold text-accent mb-2">500+</div>
+            <div class="text-secondary">Projects Completed</div>
+          </div>
+          <div class="text-center">
+            <div class="text-5xl font-bold text-accent mb-2">98%</div>
+            <div class="text-secondary">Client Satisfaction</div>
+          </div>
+          <div class="text-center">
+            <div class="text-5xl font-bold text-accent mb-2">15</div>
+            <div class="text-secondary">Industries Served</div>
+          </div>
+          <div class="text-center">
+            <div class="text-5xl font-bold text-accent mb-2">50+</div>
+            <div class="text-secondary">Awards Won</div>
+          </div>
+        </div>
+      </Container>
+    </Section>
+
+    <!-- CTA Section -->
+    <Section backgroundColor="primary" paddingY="large">
+      <Container maxWidth="xl">
+        <div class="text-center max-w-2xl mx-auto">
+          <h2 class="text-4xl font-bold mb-4">Start Your Project</h2>
+          <p class="text-xl text-secondary mb-8">
+            Ready to bring your vision to life? Let's discuss how we can help you achieve your goals.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="/contact"
+              class="inline-block px-8 py-4 bg-accent-primary text-bg-primary font-semibold rounded-lg hover:opacity-90 transition-opacity text-lg"
+            >
+              Get Started
+            </a>
+            <a
+              href="/services"
+              class="inline-block px-8 py-4 bg-transparent border-2 border-accent-primary text-accent-primary font-semibold rounded-lg hover:bg-accent-primary hover:text-bg-primary transition-colors text-lg"
+            >
+              View Services
+            </a>
+          </div>
+        </div>
+      </Container>
+    </Section>
+  </main>
+</BaseLayout>
+
+<style>
+  .category-filter-button {
+    padding: 0.75rem 1.5rem;
+    background: var(--color-bg-secondary);
+    color: var(--color-text-primary);
+    border: 2px solid transparent;
+    border-radius: 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .category-filter-button:hover {
+    background: var(--color-accent-primary);
+    color: var(--color-bg-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .category-filter-button.active {
+    background: var(--color-accent-primary);
+    color: var(--color-bg-primary);
+    border-color: var(--color-accent-primary);
+  }
+
+  .portfolio-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .portfolio-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .portfolio-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .portfolio-item {
+    transition: opacity 0.3s ease;
+  }
+
+  .portfolio-item.hidden {
+    display: none;
+  }
+</style>
+
+<script>
+  // Client-side category filtering
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.category-filter-button');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    const noResults = document.getElementById('no-results');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const selectedCategory = button.getAttribute('data-category');
+
+        // Update active button
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        // Filter items
+        let visibleCount = 0;
+        portfolioItems.forEach(item => {
+          const itemCategory = item.getAttribute('data-category');
+
+          if (selectedCategory === 'all' || itemCategory === selectedCategory) {
+            item.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+
+        // Show/hide no results message
+        if (visibleCount === 0) {
+          noResults?.classList.remove('hidden');
+        } else {
+          noResults?.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>
