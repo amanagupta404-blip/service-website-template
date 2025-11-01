@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Circle background -->
+  <circle cx="100" cy="100" r="90" stroke="currentColor" stroke-width="4" class="logo-circle"/>
+
+  <!-- Letter S - main brand element (multiple paths for animation) -->
+  <path d="M 80 60 Q 60 60 60 80 Q 60 95 75 100"
+        stroke="currentColor"
+        stroke-width="8"
+        stroke-linecap="round"
+        class="logo-path logo-path-1"/>
+
+  <path d="M 75 100 Q 90 105 90 120 Q 90 135 75 140"
+        stroke="currentColor"
+        stroke-width="8"
+        stroke-linecap="round"
+        class="logo-path logo-path-2"/>
+
+  <path d="M 75 140 Q 60 140 60 120"
+        stroke="currentColor"
+        stroke-width="8"
+        stroke-linecap="round"
+        class="logo-path logo-path-3"/>
+
+  <!-- Letter C - secondary element -->
+  <path d="M 140 80 Q 120 60 100 80 Q 90 95 90 110 Q 90 125 100 135 Q 110 145 125 140"
+        stroke="currentColor"
+        stroke-width="8"
+        stroke-linecap="round"
+        class="logo-path logo-path-4"/>
+
+  <!-- Decorative dots (will scale in) -->
+  <circle cx="140" cy="60" r="4" fill="currentColor" class="logo-dot logo-dot-1"/>
+  <circle cx="60" cy="140" r="4" fill="currentColor" class="logo-dot logo-dot-2"/>
+  <circle cx="140" cy="140" r="4" fill="currentColor" class="logo-dot logo-dot-3"/>
+</svg>
