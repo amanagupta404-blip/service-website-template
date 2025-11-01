@@ -95,6 +95,54 @@ import Checkbox from '@components/ui/Checkbox.svelte';
       </Container>
     </Section>
 
+    <!-- About Snapshot Section -->
+    <Section backgroundColor="tertiary" paddingY="large" id="about-snapshot">
+      <Container maxWidth="xl">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <!-- Image Column -->
+          <div class="order-2 lg:order-1">
+            <img
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
+              alt="Our team collaborating on innovative solutions"
+              class="rounded-lg shadow-lg w-full h-auto"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- Content Column -->
+          <div class="order-1 lg:order-2">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">
+              Building Digital Experiences That Matter
+            </h2>
+            <p class="text-xl text-secondary mb-6 leading-relaxed">
+              We're a team of passionate developers, designers, and strategists dedicated to creating exceptional digital solutions. With over a decade of experience, we've helped businesses of all sizes achieve their goals through innovative technology.
+            </p>
+            <div class="grid grid-cols-2 gap-6 mb-8">
+              <div>
+                <div class="text-4xl font-bold text-accent mb-2">10+</div>
+                <div class="text-secondary">Years Experience</div>
+              </div>
+              <div>
+                <div class="text-4xl font-bold text-accent mb-2">500+</div>
+                <div class="text-secondary">Projects Delivered</div>
+              </div>
+              <div>
+                <div class="text-4xl font-bold text-accent mb-2">50+</div>
+                <div class="text-secondary">Team Members</div>
+              </div>
+              <div>
+                <div class="text-4xl font-bold text-accent mb-2">98%</div>
+                <div class="text-secondary">Client Satisfaction</div>
+              </div>
+            </div>
+            <Button href="/about" variant="primary" size="lg">
+              Learn More About Us
+            </Button>
+          </div>
+        </div>
+      </Container>
+    </Section>
+
     <!-- Portfolio Section -->
     <Section backgroundColor="secondary" paddingY="large" id="portfolio">
       <Container maxWidth="xl">
