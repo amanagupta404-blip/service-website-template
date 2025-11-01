@@ -1,0 +1,160 @@
+---
+/**
+ * Services Overview Page
+ * Grid of all services offered
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Container from '@components/layout/Container.svelte';
+import Section from '@components/layout/Section.svelte';
+import ServiceCard from '@components/ui/ServiceCard.svelte';
+import CTASection from '@components/sections/CTASection.svelte';
+---
+
+<BaseLayout
+  title="Our Services"
+  description="Comprehensive digital solutions including web development, mobile apps, UI/UX design, consulting, cloud services, and ongoing support."
+>
+  <main id="main-content">
+    <!-- Page Header -->
+    <Section backgroundColor="primary" paddingY="large">
+      <Container maxWidth="xl">
+        <div class="text-center max-w-3xl mx-auto">
+          <h1 class="text-5xl md:text-6xl font-bold mb-6">
+            Our Services
+          </h1>
+          <p class="text-xl md:text-2xl text-secondary leading-relaxed">
+            Comprehensive digital solutions tailored to your business needs. From initial concept to ongoing support, we're your partner in digital transformation.
+          </p>
+        </div>
+      </Container>
+    </Section>
+
+    <!-- Services Grid -->
+    <Section backgroundColor="secondary" paddingY="large">
+      <Container maxWidth="xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <ServiceCard
+            title="Web Development"
+            description="Build modern, responsive websites with the latest technologies and best practices. From landing pages to complex web applications, we deliver fast, secure, and scalable solutions optimized for performance and user experience."
+            icon="external-link"
+            href="/services/web-development"
+            client:load
+          />
+
+          <ServiceCard
+            title="Mobile Applications"
+            description="Create native and cross-platform mobile applications for iOS and Android. We build intuitive, performant apps that engage users and drive business results, from concept to App Store deployment."
+            icon="phone"
+            href="/services/mobile-apps"
+            client:load
+          />
+
+          <ServiceCard
+            title="UI/UX Design"
+            description="Design beautiful, intuitive user interfaces that delight customers and drive engagement. Our user-centered design process ensures your product is both aesthetically pleasing and highly functional."
+            icon="heart"
+            href="/services/design"
+            client:load
+          />
+
+          <ServiceCard
+            title="Technical Consulting"
+            description="Get expert advice on technology strategy, architecture, and implementation. We help you make informed decisions about tools, frameworks, and approaches that align with your business goals."
+            icon="user"
+            href="/services/consulting"
+            client:load
+          />
+
+          <ServiceCard
+            title="Cloud Services"
+            description="Deploy and manage applications on modern cloud infrastructure with scalability, security, and reliability. We specialize in AWS, Azure, and Google Cloud, implementing best practices for cost optimization."
+            icon="settings"
+            href="/services/cloud"
+            client:load
+          />
+
+          <ServiceCard
+            title="Support & Maintenance"
+            description="Keep your applications running smoothly with ongoing support, updates, and performance optimization. We provide proactive monitoring, security patches, and feature enhancements to ensure long-term success."
+            icon="check-circle"
+            href="/services/support"
+            client:load
+          />
+        </div>
+      </Container>
+    </Section>
+
+    <!-- Why Choose Us Section -->
+    <Section backgroundColor="tertiary" paddingY="large">
+      <Container maxWidth="xl">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">Why Choose Us</h2>
+          <p class="text-xl text-secondary max-w-2xl mx-auto">
+            We bring expertise, dedication, and a proven track record to every project.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="text-center p-6">
+            <div class="text-5xl font-bold text-accent mb-3">10+</div>
+            <h3 class="text-xl font-bold mb-2">Years of Experience</h3>
+            <p class="text-secondary">
+              Over a decade of delivering successful digital solutions across industries.
+            </p>
+          </div>
+
+          <div class="text-center p-6">
+            <div class="text-5xl font-bold text-accent mb-3">500+</div>
+            <h3 class="text-xl font-bold mb-2">Projects Completed</h3>
+            <p class="text-secondary">
+              Hundreds of satisfied clients with successful projects delivered on time and budget.
+            </p>
+          </div>
+
+          <div class="text-center p-6">
+            <div class="text-5xl font-bold text-accent mb-3">98%</div>
+            <h3 class="text-xl font-bold mb-2">Client Satisfaction</h3>
+            <p class="text-secondary">
+              Nearly all our clients are satisfied and many return for additional projects.
+            </p>
+          </div>
+
+          <div class="text-center p-6">
+            <div class="text-5xl font-bold text-accent mb-3">50+</div>
+            <h3 class="text-xl font-bold mb-2">Expert Team Members</h3>
+            <p class="text-secondary">
+              Talented developers, designers, and strategists dedicated to your success.
+            </p>
+          </div>
+
+          <div class="text-center p-6">
+            <div class="text-5xl font-bold text-accent mb-3">24/7</div>
+            <h3 class="text-xl font-bold mb-2">Support Available</h3>
+            <p class="text-secondary">
+              Round-the-clock support ensures your applications stay online and performant.
+            </p>
+          </div>
+
+          <div class="text-center p-6">
+            <div class="text-5xl font-bold text-accent mb-3">100%</div>
+            <h3 class="text-xl font-bold mb-2">Commitment to Quality</h3>
+            <p class="text-secondary">
+              We don't compromise on code quality, security, or user experience.
+            </p>
+          </div>
+        </div>
+      </Container>
+    </Section>
+
+    <!-- CTA Section -->
+    <CTASection
+      headline="Ready to Start Your Project?"
+      description="Let's discuss your needs and create a custom solution that drives results. Our team is ready to help you succeed."
+      primaryCTA={{ text: "Get Started", href: "/contact" }}
+      secondaryCTA={{ text: "View Our Work", href: "/portfolio" }}
+      backgroundColor="primary"
+      client:load
+    />
+  </main>
+</BaseLayout>
