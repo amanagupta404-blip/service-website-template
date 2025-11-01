@@ -1,0 +1,219 @@
+---
+/**
+ * About Page
+ * Company story, mission, values, and team introduction
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Container from '@components/layout/Container.svelte';
+import Section from '@components/layout/Section.svelte';
+import TeamMemberCard from '@components/ui/TeamMemberCard.svelte';
+import ValueCard from '@components/ui/ValueCard.svelte';
+import CTASection from '@components/sections/CTASection.svelte';
+---
+
+<BaseLayout
+  title="About Us"
+  description="Learn about our mission, values, and the passionate team behind our innovative digital solutions."
+>
+  <main id="main-content">
+    <!-- Hero/Header Section -->
+    <Section backgroundColor="primary" paddingY="large">
+      <Container maxWidth="xl">
+        <div class="text-center max-w-3xl mx-auto">
+          <h1 class="text-5xl md:text-6xl font-bold mb-6">
+            About Our Company
+          </h1>
+          <p class="text-xl md:text-2xl text-secondary leading-relaxed">
+            We're on a mission to transform businesses through innovative technology and exceptional design. Our team brings together creativity, expertise, and a passion for solving complex challenges.
+          </p>
+        </div>
+      </Container>
+    </Section>
+
+    <!-- Story Section -->
+    <Section backgroundColor="secondary" paddingY="large">
+      <Container maxWidth="xl">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+          <!-- Image -->
+          <div>
+            <img
+              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
+              alt="Company founder and team"
+              class="rounded-lg shadow-xl w-full h-auto"
+              loading="eager"
+            />
+          </div>
+
+          <!-- Story Content -->
+          <div>
+            <h2 class="text-4xl font-bold mb-6">Our Story</h2>
+            <div class="space-y-4 text-lg text-secondary leading-relaxed">
+              <p>
+                Founded in 2015, our journey began with a simple belief: technology should empower businesses, not complicate them. What started as a small team of three developers has grown into a diverse group of 50+ talented professionals.
+              </p>
+              <p>
+                Over the past decade, we've had the privilege of working with hundreds of clients—from innovative startups to established enterprises. Each project has taught us something new and strengthened our commitment to excellence.
+              </p>
+              <p>
+                Today, we're proud to be recognized as a leading digital solutions provider, known for our technical expertise, creative thinking, and unwavering dedication to client success. But we're most proud of the lasting relationships we've built along the way.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mission Statement -->
+        <div class="bg-accent-primary text-bg-primary rounded-2xl p-8 md:p-12 text-center">
+          <h3 class="text-3xl font-bold mb-4">Our Mission</h3>
+          <p class="text-xl md:text-2xl leading-relaxed max-w-4xl mx-auto">
+            To empower businesses with innovative digital solutions that drive growth, enhance user experiences, and create lasting value. We believe in building technology that makes a difference.
+          </p>
+        </div>
+      </Container>
+    </Section>
+
+    <!-- Values Section -->
+    <Section backgroundColor="tertiary" paddingY="large">
+      <Container maxWidth="xl">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">Our Core Values</h2>
+          <p class="text-xl text-secondary max-w-2xl mx-auto">
+            These principles guide everything we do, from how we work with clients to how we build our team.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <ValueCard
+            icon="heart"
+            title="Client-First Mindset"
+            description="Your success is our success. We prioritize understanding your needs and delivering solutions that exceed expectations."
+            client:load
+          />
+
+          <ValueCard
+            icon="zap"
+            title="Innovation & Excellence"
+            description="We stay ahead of industry trends and leverage cutting-edge technologies to deliver best-in-class solutions."
+            client:load
+          />
+
+          <ValueCard
+            icon="users"
+            title="Collaboration & Transparency"
+            description="We believe in open communication and working closely with clients as true partners throughout every project."
+            client:load
+          />
+
+          <ValueCard
+            icon="shield"
+            title="Quality & Reliability"
+            description="We maintain the highest standards in code quality, security, and performance. Your trust is our foundation."
+            client:load
+          />
+
+          <ValueCard
+            icon="trending-up"
+            title="Continuous Growth"
+            description="We're committed to learning, improving, and evolving. Our team constantly develops new skills to better serve you."
+            client:load
+          />
+
+          <ValueCard
+            icon="award"
+            title="Integrity & Honesty"
+            description="We operate with transparency, honesty, and ethical practices in every aspect of our business."
+            client:load
+          />
+        </div>
+      </Container>
+    </Section>
+
+    <!-- Team Section -->
+    <Section backgroundColor="primary" paddingY="large">
+      <Container maxWidth="xl">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">Meet Our Team</h2>
+          <p class="text-xl text-secondary max-w-2xl mx-auto">
+            Talented professionals passionate about creating exceptional digital experiences.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <TeamMemberCard
+            name="Sarah Johnson"
+            role="CEO & Founder"
+            photo="https://i.pravatar.cc/400?img=1"
+            bio="Visionary leader with 15+ years in tech. Passionate about innovation and building great teams."
+            client:load
+          />
+
+          <TeamMemberCard
+            name="Michael Chen"
+            role="CTO"
+            photo="https://i.pravatar.cc/400?img=13"
+            bio="Technical expert specializing in scalable architecture and modern development practices."
+            client:load
+          />
+
+          <TeamMemberCard
+            name="Emily Rodriguez"
+            role="Design Director"
+            photo="https://i.pravatar.cc/400?img=5"
+            bio="Award-winning designer focused on creating beautiful, accessible user experiences."
+            client:load
+          />
+
+          <TeamMemberCard
+            name="David Park"
+            role="Lead Developer"
+            photo="https://i.pravatar.cc/400?img=12"
+            bio="Full-stack expert with deep knowledge of React, Node.js, and cloud infrastructure."
+            client:load
+          />
+
+          <TeamMemberCard
+            name="Jessica Williams"
+            role="Product Manager"
+            photo="https://i.pravatar.cc/400?img=9"
+            bio="Strategic thinker who bridges business goals with technical implementation."
+            client:load
+          />
+
+          <TeamMemberCard
+            name="Alex Kumar"
+            role="DevOps Engineer"
+            photo="https://i.pravatar.cc/400?img=15"
+            bio="Infrastructure specialist ensuring our systems are fast, reliable, and secure."
+            client:load
+          />
+
+          <TeamMemberCard
+            name="Lisa Anderson"
+            role="UX Researcher"
+            photo="https://i.pravatar.cc/400?img=10"
+            bio="User advocate who ensures our designs solve real problems for real people."
+            client:load
+          />
+
+          <TeamMemberCard
+            name="Ryan Thompson"
+            role="Marketing Lead"
+            photo="https://i.pravatar.cc/400?img=14"
+            bio="Creative marketer helping clients reach their audience and grow their brand."
+            client:load
+          />
+        </div>
+      </Container>
+    </Section>
+
+    <!-- CTA Section -->
+    <CTASection
+      headline="Ready to Work Together?"
+      description="Let's discuss how we can help bring your vision to life. Our team is ready to start building something amazing with you."
+      primaryCTA={{ text: "Start Your Project", href: "/contact" }}
+      secondaryCTA={{ text: "View Our Work", href: "/portfolio" }}
+      backgroundColor="tertiary"
+      client:load
+    />
+  </main>
+</BaseLayout>
