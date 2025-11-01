@@ -1,0 +1,363 @@
+---
+/**
+ * Individual Service Pages (Dynamic Route)
+ * Detailed pages for each service offering
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Container from '@components/layout/Container.svelte';
+import Section from '@components/layout/Section.svelte';
+import Breadcrumbs from '@components/ui/Breadcrumbs.svelte';
+import FeatureList from '@components/ui/FeatureList.svelte';
+import PricingCard from '@components/ui/PricingCard.svelte';
+import RelatedServices from '@components/ui/RelatedServices.svelte';
+import CTASection from '@components/sections/CTASection.svelte';
+import Hero from '@components/sections/Hero.svelte';
+
+// Service data
+const services = {
+  'web-development': {
+    title: 'Web Development',
+    description: 'Build modern, high-performance websites and web applications that drive business results.',
+    longDescription: 'Our web development services combine cutting-edge technologies with proven best practices to create fast, secure, and scalable web solutions. Whether you need a simple landing page or a complex web application, we deliver exceptional results that exceed expectations.',
+    icon: 'external-link',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80',
+    benefits: [
+      'Lightning-fast performance with optimized load times',
+      'Responsive design that works on all devices',
+      'SEO-optimized for maximum visibility',
+      'Secure, maintainable codebase',
+      'Scalable architecture for future growth',
+      'Integration with third-party services and APIs',
+      'Analytics and tracking implementation',
+    ],
+    features: [
+      'Custom web application development',
+      'E-commerce platforms and online stores',
+      'Content management systems (CMS)',
+      'Progressive Web Apps (PWAs)',
+      'Single Page Applications (SPAs)',
+      'API development and integration',
+      'Database design and optimization',
+      'Performance optimization and monitoring',
+    ],
+    pricing: [
+      {
+        tier: 'Starter',
+        price: '$5,000',
+        period: 'one-time',
+        features: [
+          '5-page responsive website',
+          'Mobile-friendly design',
+          'Contact form integration',
+          'Basic SEO optimization',
+          '30 days of support',
+        ],
+      },
+      {
+        tier: 'Professional',
+        price: '$15,000',
+        period: 'one-time',
+        features: [
+          'Custom web application',
+          'Up to 15 pages',
+          'Advanced functionality',
+          'CMS integration',
+          'E-commerce capabilities',
+          'Analytics setup',
+          '90 days of support',
+        ],
+        popular: true,
+      },
+      {
+        tier: 'Enterprise',
+        price: 'Custom',
+        period: 'quote',
+        features: [
+          'Complex web application',
+          'Unlimited pages',
+          'Custom integrations',
+          'API development',
+          'Advanced security features',
+          'Dedicated project manager',
+          '1 year of support',
+        ],
+      },
+    ],
+    related: [
+      { name: 'Mobile Applications', description: 'Extend your web presence to mobile', icon: 'phone', href: '/services/mobile-apps' },
+      { name: 'UI/UX Design', description: 'Create beautiful user experiences', icon: 'heart', href: '/services/design' },
+      { name: 'Cloud Services', description: 'Deploy on scalable infrastructure', icon: 'settings', href: '/services/cloud' },
+    ],
+  },
+  'mobile-apps': {
+    title: 'Mobile Applications',
+    description: 'Create powerful iOS and Android apps that engage users and drive business growth.',
+    longDescription: 'We build native and cross-platform mobile applications that deliver exceptional user experiences. From concept to App Store launch, our team handles every aspect of mobile app development with expertise and care.',
+    icon: 'phone',
+    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1920&q=80',
+    benefits: [
+      'Native performance and smooth animations',
+      'Intuitive, user-friendly interfaces',
+      'Offline functionality and data synchronization',
+      'Push notifications and real-time updates',
+      'Secure authentication and data protection',
+      'App Store optimization and launch support',
+      'Ongoing maintenance and updates',
+    ],
+    features: [
+      'Native iOS app development (Swift)',
+      'Native Android app development (Kotlin)',
+      'Cross-platform development (React Native)',
+      'Backend API integration',
+      'Cloud storage and databases',
+      'Payment gateway integration',
+      'Location-based services',
+      'Camera and media functionality',
+    ],
+    pricing: [
+      {
+        tier: 'Basic App',
+        price: '$10,000',
+        period: 'one-time',
+        features: [
+          'Single platform (iOS or Android)',
+          'Up to 5 core features',
+          'Basic UI/UX design',
+          'Backend API integration',
+          'App Store submission',
+          '60 days of support',
+        ],
+      },
+      {
+        tier: 'Full-Featured',
+        price: '$30,000',
+        period: 'one-time',
+        features: [
+          'Both iOS and Android',
+          'Up to 15 core features',
+          'Custom UI/UX design',
+          'Backend development included',
+          'Push notifications',
+          'Analytics integration',
+          '6 months of support',
+        ],
+        popular: true,
+      },
+      {
+        tier: 'Enterprise App',
+        price: 'Custom',
+        period: 'quote',
+        features: [
+          'Complex multi-platform app',
+          'Unlimited features',
+          'Advanced integrations',
+          'Real-time capabilities',
+          'Enterprise security',
+          'Dedicated team',
+          '1 year of support',
+        ],
+      },
+    ],
+    related: [
+      { name: 'Web Development', description: 'Complement with a web presence', icon: 'external-link', href: '/services/web-development' },
+      { name: 'UI/UX Design', description: 'Design beautiful app interfaces', icon: 'heart', href: '/services/design' },
+      { name: 'Support & Maintenance', description: 'Keep your app running smoothly', icon: 'check-circle', href: '/services/support' },
+    ],
+  },
+  'design': {
+    title: 'UI/UX Design',
+    description: 'Design beautiful, intuitive experiences that users love and that drive business results.',
+    longDescription: 'Our design team creates user-centered interfaces that are both aesthetically pleasing and highly functional. Through research, prototyping, and testing, we ensure your product delivers exceptional user experiences.',
+    icon: 'heart',
+    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1920&q=80',
+    benefits: [
+      'User research and persona development',
+      'Intuitive navigation and information architecture',
+      'Responsive designs for all screen sizes',
+      'Accessibility compliance (WCAG 2.1)',
+      'Design systems for consistency',
+      'Interactive prototypes for testing',
+      'Ongoing design support and iteration',
+    ],
+    features: [
+      'User research and competitive analysis',
+      'Wireframing and information architecture',
+      'High-fidelity mockups and prototypes',
+      'Design system creation',
+      'Usability testing and iteration',
+      'Branding and visual identity',
+      'Motion design and micro-interactions',
+      'Handoff and developer collaboration',
+    ],
+    pricing: [
+      {
+        tier: 'Design Sprint',
+        price: '$3,000',
+        period: 'per week',
+        features: [
+          '1-week intensive design process',
+          'User research',
+          'Wireframes and mockups',
+          'Interactive prototype',
+          'Usability testing',
+          'Design recommendations',
+        ],
+      },
+      {
+        tier: 'Full Project',
+        price: '$12,000',
+        period: 'one-time',
+        features: [
+          'Complete UI/UX design',
+          'Multiple rounds of iteration',
+          'Design system creation',
+          'High-fidelity prototypes',
+          'User testing',
+          'Developer handoff',
+          'Design documentation',
+        ],
+        popular: true,
+      },
+      {
+        tier: 'Ongoing Retainer',
+        price: '$5,000',
+        period: 'per month',
+        features: [
+          'Continuous design support',
+          'Dedicated designer',
+          'Weekly design reviews',
+          'Unlimited revisions',
+          'Priority turnaround',
+          'Flexible scope',
+          'Cancel anytime',
+        ],
+      },
+    ],
+    related: [
+      { name: 'Web Development', description: 'Bring designs to life on the web', icon: 'external-link', href: '/services/web-development' },
+      { name: 'Mobile Applications', description: 'Design amazing mobile experiences', icon: 'phone', href: '/services/mobile-apps' },
+      { name: 'Technical Consulting', description: 'Get expert UX advice', icon: 'user', href: '/services/consulting' },
+    ],
+  },
+};
+
+// Generate static paths for all services
+export function getStaticPaths() {
+  return Object.keys(services).map((slug) => ({
+    params: { slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const service = services[slug as keyof typeof services];
+
+if (!service) {
+  return Astro.redirect('/404');
+}
+
+// Breadcrumb items
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: service.title, href: `/services/${slug}` },
+];
+---
+
+<BaseLayout
+  title={service.title}
+  description={service.description}
+>
+  <main id="main-content">
+    <!-- Hero Section -->
+    <Hero
+      headline={service.title}
+      subheadline={service.description}
+      primaryCTA={{ text: "Get Started", href: "/contact" }}
+      secondaryCTA={{ text: "View Pricing", href: `#pricing` }}
+      backgroundImage={service.image}
+      client:load
+    />
+
+    <!-- Breadcrumbs -->
+    <Section backgroundColor="primary" paddingY="small">
+      <Container maxWidth="xl">
+        <Breadcrumbs items={breadcrumbItems} client:load />
+      </Container>
+    </Section>
+
+    <!-- Service Description -->
+    <Section backgroundColor="primary" paddingY="large">
+      <Container maxWidth="xl">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-4xl font-bold mb-6">What We Offer</h2>
+          <p class="text-xl text-secondary leading-relaxed mb-12">
+            {service.longDescription}
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+              <h3 class="text-2xl font-bold mb-6">Key Benefits</h3>
+              <FeatureList features={service.benefits} variant="list" icon="check" client:load />
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold mb-6">What's Included</h3>
+              <FeatureList features={service.features} variant="list" icon="star" client:load />
+            </div>
+          </div>
+        </div>
+      </Container>
+    </Section>
+
+    <!-- Pricing Section -->
+    <Section backgroundColor="secondary" paddingY="large" id="pricing">
+      <Container maxWidth="xl">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">Pricing Plans</h2>
+          <p class="text-xl text-secondary max-w-2xl mx-auto">
+            Flexible pricing options to fit your budget and project needs.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {service.pricing.map((plan) => (
+            <PricingCard
+              tier={plan.tier}
+              price={plan.price}
+              period={plan.period}
+              features={plan.features}
+              ctaText="Get Started"
+              ctaHref="/contact"
+              popular={plan.popular || false}
+              client:load
+            />
+          ))}
+        </div>
+
+        <div class="text-center mt-12">
+          <p class="text-secondary mb-4">
+            Need a custom solution? <a href="/contact" class="text-accent font-semibold hover:underline">Contact us</a> for a personalized quote.
+          </p>
+        </div>
+      </Container>
+    </Section>
+
+    <!-- Related Services -->
+    <Section backgroundColor="tertiary" paddingY="large">
+      <Container maxWidth="xl">
+        <RelatedServices services={service.related} title="Related Services" client:load />
+      </Container>
+    </Section>
+
+    <!-- CTA Section -->
+    <CTASection
+      headline="Ready to Get Started?"
+      description="Let's discuss your project and create a solution that drives results. Schedule a free consultation today."
+      primaryCTA={{ text: "Contact Us", href: "/contact" }}
+      secondaryCTA={{ text: "View Portfolio", href: "/portfolio" }}
+      backgroundColor="primary"
+      client:load
+    />
+  </main>
+</BaseLayout>
