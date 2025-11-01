@@ -1,0 +1,186 @@
+---
+/**
+ * Booking Page (Placeholder for Cal.com Integration - Phase 7)
+ * This page will integrate Cal.com for appointment scheduling
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Container from '@components/layout/Container.svelte';
+import Section from '@components/layout/Section.svelte';
+import Icon from '@components/ui/Icon.svelte';
+import Button from '@components/ui/Button.svelte';
+---
+
+<BaseLayout
+  title="Book an Appointment"
+  description="Schedule a consultation with our team. We're here to discuss your project and answer your questions."
+>
+  <main id="main-content">
+    <!-- Page Header -->
+    <Section backgroundColor="primary" paddingY="large">
+      <Container maxWidth="xl">
+        <div class="text-center max-w-3xl mx-auto">
+          <h1 class="text-5xl md:text-6xl font-bold mb-6">
+            Book a Consultation
+          </h1>
+          <p class="text-xl md:text-2xl text-secondary leading-relaxed">
+            Schedule a free consultation to discuss your project, ask questions, and learn how we can help you achieve your goals.
+          </p>
+        </div>
+      </Container>
+    </Section>
+
+    <!-- Placeholder Content -->
+    <Section backgroundColor="secondary" paddingY="large">
+      <Container maxWidth="xl">
+        <div class="max-w-2xl mx-auto text-center">
+          <div class="bg-bg-primary p-12 rounded-xl shadow-lg">
+            <div class="w-24 h-24 bg-accent-primary rounded-full flex items-center justify-center mx-auto mb-6">
+              <Icon name="calendar" size="lg" ariaHidden client:load />
+            </div>
+
+            <h2 class="text-3xl font-bold mb-4">Cal.com Integration Coming Soon</h2>
+            <p class="text-lg text-secondary mb-8">
+              Our appointment booking system will be integrated in Phase 7. In the meantime, you can reach out to us directly to schedule a consultation.
+            </p>
+
+            <div class="space-y-4 mb-8">
+              <div class="flex items-center justify-center gap-3 text-lg">
+                <Icon name="clock" size="md" ariaHidden client:load />
+                <span><strong>Typical consultation:</strong> 30-60 minutes</span>
+              </div>
+              <div class="flex items-center justify-center gap-3 text-lg">
+                <Icon name="video" size="md" ariaHidden client:load />
+                <span><strong>Format:</strong> Video call or in-person</span>
+              </div>
+              <div class="flex items-center justify-center gap-3 text-lg">
+                <Icon name="dollar-sign" size="md" ariaHidden client:load />
+                <span><strong>Cost:</strong> Free, no obligation</span>
+              </div>
+            </div>
+
+            <div class="border-t-2 border-color pt-8">
+              <h3 class="text-xl font-bold mb-4">For Now, Contact Us Directly:</h3>
+              <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button href="/contact" variant="primary" size="lg" client:load>
+                  Contact Us
+                </Button>
+                <Button href="mailto:hello@serviceco.com" variant="outline" size="lg" client:load>
+                  Email Us
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </Section>
+
+    <!-- What to Expect Section -->
+    <Section backgroundColor="tertiary" paddingY="large">
+      <Container maxWidth="xl">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold mb-4">What to Expect in Your Consultation</h2>
+          <p class="text-xl text-secondary max-w-2xl mx-auto">
+            Here's how we'll make the most of our time together.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div class="text-center p-6">
+            <div class="w-16 h-16 bg-accent-primary rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-3xl font-bold text-bg-primary">1</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Discovery</h3>
+            <p class="text-secondary">
+              We'll learn about your business, goals, and challenges to understand how we can help.
+            </p>
+          </div>
+
+          <div class="text-center p-6">
+            <div class="w-16 h-16 bg-accent-primary rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-3xl font-bold text-bg-primary">2</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Strategy</h3>
+            <p class="text-secondary">
+              We'll discuss potential solutions, timelines, and approaches tailored to your needs.
+            </p>
+          </div>
+
+          <div class="text-center p-6">
+            <div class="w-16 h-16 bg-accent-primary rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-3xl font-bold text-bg-primary">3</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Next Steps</h3>
+            <p class="text-secondary">
+              If it's a good fit, we'll outline the next steps and provide a detailed proposal.
+            </p>
+          </div>
+        </div>
+      </Container>
+    </Section>
+
+    <!-- FAQ Section -->
+    <Section backgroundColor="primary" paddingY="large">
+      <Container maxWidth="xl">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-4xl font-bold mb-8 text-center">Common Questions</h2>
+
+          <div class="space-y-4">
+            <details class="bg-bg-secondary p-6 rounded-lg">
+              <summary class="text-xl font-bold cursor-pointer hover:text-accent">
+                Do I need to prepare anything before the consultation?
+              </summary>
+              <p class="mt-4 text-secondary">
+                Not necessarily, but having a general idea of your goals, budget, and timeline can help us provide more specific guidance.
+              </p>
+            </details>
+
+            <details class="bg-bg-secondary p-6 rounded-lg">
+              <summary class="text-xl font-bold cursor-pointer hover:text-accent">
+                Is the consultation really free?
+              </summary>
+              <p class="mt-4 text-secondary">
+                Yes, absolutely! There's no cost and no obligation. We want to understand your needs and see if we're a good fit.
+              </p>
+            </details>
+
+            <details class="bg-bg-secondary p-6 rounded-lg">
+              <summary class="text-xl font-bold cursor-pointer hover:text-accent">
+                How quickly can we get started after the consultation?
+              </summary>
+              <p class="mt-4 text-secondary">
+                Depending on our availability and your needs, we can typically start within 1-2 weeks of finalizing the agreement.
+              </p>
+            </details>
+          </div>
+        </div>
+      </Container>
+    </Section>
+  </main>
+</BaseLayout>
+
+<style>
+  details summary {
+    list-style: none;
+  }
+
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details[open] summary {
+    color: var(--color-accent-primary);
+  }
+
+  details summary::after {
+    content: '+';
+    float: right;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: transform 0.2s;
+  }
+
+  details[open] summary::after {
+    transform: rotate(45deg);
+  }
+</style>

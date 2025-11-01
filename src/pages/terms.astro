@@ -1,0 +1,186 @@
+---
+/**
+ * Terms of Service Page
+ * Standard terms of service (template - customize for your business)
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Container from '@components/layout/Container.svelte';
+import Section from '@components/layout/Section.svelte';
+
+const lastUpdated = '2025-10-31';
+---
+
+<BaseLayout
+  title="Terms of Service"
+  description="Terms and conditions for using our services."
+>
+  <main id="main-content">
+    <Section backgroundColor="primary" paddingY="large">
+      <Container maxWidth="lg">
+        <div class="prose prose-lg max-w-none">
+          <h1>Terms of Service</h1>
+          <p class="text-secondary"><strong>Last Updated:</strong> {lastUpdated}</p>
+
+          <p>
+            These Terms of Service ("Terms") govern your use of our website and services. By accessing or using our services, you agree to be bound by these Terms.
+          </p>
+
+          <h2>1. Services</h2>
+          <p>
+            Service Co. provides digital solutions including web development, mobile applications, UI/UX design, technical consulting, cloud services, and ongoing support and maintenance.
+          </p>
+
+          <h2>2. Use of Services</h2>
+          <h3>Eligibility</h3>
+          <p>
+            You must be at least 18 years old and have the authority to enter into these Terms on behalf of yourself or your organization.
+          </p>
+
+          <h3>Acceptable Use</h3>
+          <p>You agree not to:</p>
+          <ul>
+            <li>Use our services for any illegal or unauthorized purpose</li>
+            <li>Violate any laws in your jurisdiction</li>
+            <li>Transmit any malicious code or viruses</li>
+            <li>Interfere with or disrupt the services</li>
+            <li>Attempt to gain unauthorized access to our systems</li>
+          </ul>
+
+          <h2>3. Project Agreements</h2>
+          <p>
+            Specific terms for individual projects will be outlined in separate project agreements or statements of work. These Terms serve as the general framework for our relationship.
+          </p>
+
+          <h2>4. Payment Terms</h2>
+          <h3>Pricing</h3>
+          <p>
+            Prices for our services are as specified in project proposals or service agreements. All prices are in USD unless otherwise stated.
+          </p>
+
+          <h3>Payment Schedule</h3>
+          <p>
+            Payment terms vary by project and will be outlined in your project agreement. Typical payment structures include:
+          </p>
+          <ul>
+            <li>30% upfront deposit</li>
+            <li>40% at project midpoint</li>
+            <li>30% upon completion</li>
+          </ul>
+
+          <h3>Late Payments</h3>
+          <p>
+            Late payments may incur fees and could result in suspension of services until payment is received.
+          </p>
+
+          <h2>5. Intellectual Property</h2>
+          <h3>Our IP</h3>
+          <p>
+            All intellectual property in our services, website, and materials remains our property unless explicitly transferred.
+          </p>
+
+          <h3>Client IP</h3>
+          <p>
+            Upon full payment, clients typically receive ownership of custom work created specifically for them, as outlined in the project agreement.
+          </p>
+
+          <h3>Pre-existing IP</h3>
+          <p>
+            We retain ownership of any pre-existing code, frameworks, or materials used in projects, with appropriate licenses granted to clients.
+          </p>
+
+          <h2>6. Warranties and Disclaimers</h2>
+          <p>
+            We strive to provide high-quality services but cannot guarantee that services will be uninterrupted, error-free, or meet all your requirements.
+          </p>
+          <p>
+            SERVICES ARE PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+          </p>
+
+          <h2>7. Limitation of Liability</h2>
+          <p>
+            TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES.
+          </p>
+
+          <h2>8. Confidentiality</h2>
+          <p>
+            Both parties agree to maintain the confidentiality of any proprietary or confidential information shared during the course of our relationship.
+          </p>
+
+          <h2>9. Termination</h2>
+          <p>
+            Either party may terminate a project agreement according to the terms specified in that agreement. These Terms remain in effect for any ongoing relationship.
+          </p>
+
+          <h2>10. Changes to Terms</h2>
+          <p>
+            We reserve the right to modify these Terms at any time. We will notify users of any material changes. Continued use of services after changes constitutes acceptance.
+          </p>
+
+          <h2>11. Governing Law</h2>
+          <p>
+            These Terms are governed by the laws of the State of California, United States, without regard to conflict of law principles.
+          </p>
+
+          <h2>12. Dispute Resolution</h2>
+          <p>
+            Any disputes arising from these Terms or our services shall be resolved through binding arbitration in accordance with the rules of the American Arbitration Association.
+          </p>
+
+          <h2>13. Severability</h2>
+          <p>
+            If any provision of these Terms is found to be unenforceable, the remaining provisions will continue in full effect.
+          </p>
+
+          <h2>14. Contact Us</h2>
+          <p>
+            Questions about these Terms? Contact us:
+          </p>
+          <ul>
+            <li><strong>Email:</strong> legal@serviceco.com</li>
+            <li><strong>Address:</strong> 123 Main Street, Suite 400, San Francisco, CA 94102</li>
+          </ul>
+        </div>
+      </Container>
+    </Section>
+  </main>
+</BaseLayout>
+
+<style>
+  .prose {
+    color: var(--color-text-primary);
+  }
+
+  .prose h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose h2 {
+    font-size: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    color: var(--color-text-primary);
+  }
+
+  .prose h3 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+
+  .prose ul {
+    margin: 1.5rem 0;
+    padding-left: 2rem;
+  }
+
+  .prose li {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+  }
+</style>

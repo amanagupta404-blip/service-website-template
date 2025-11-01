@@ -1,0 +1,89 @@
+---
+/**
+ * 404 Error Page
+ * Custom error page for not found resources
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Container from '@components/layout/Container.svelte';
+import Section from '@components/layout/Section.svelte';
+import Button from '@components/ui/Button.svelte';
+import Icon from '@components/ui/Icon.svelte';
+---
+
+<BaseLayout
+  title="404 - Page Not Found"
+  description="The page you're looking for doesn't exist."
+>
+  <main id="main-content">
+    <Section backgroundColor="primary" paddingY="large">
+      <Container maxWidth="xl">
+        <div class="text-center max-w-2xl mx-auto">
+          <!-- Large 404 Icon/Number -->
+          <div class="mb-8">
+            <div class="w-32 h-32 bg-accent-primary rounded-full flex items-center justify-center mx-auto mb-6">
+              <Icon name="alert-circle" size="lg" ariaHidden client:load />
+            </div>
+            <h1 class="text-9xl font-bold text-accent mb-4">404</h1>
+          </div>
+
+          <!-- Error Message -->
+          <h2 class="text-4xl md:text-5xl font-bold mb-6">
+            Page Not Found
+          </h2>
+          <p class="text-xl md:text-2xl text-secondary leading-relaxed mb-12">
+            Oops! The page you're looking for doesn't exist. It might have been moved, deleted, or the URL might be incorrect.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <Button href="/" variant="primary" size="lg" client:load>
+              Go Home
+            </Button>
+            <Button href="/contact" variant="outline" size="lg" client:load>
+              Contact Support
+            </Button>
+          </div>
+
+          <!-- Helpful Links -->
+          <div class="border-t-2 border-color pt-12">
+            <h3 class="text-2xl font-bold mb-6">Try These Popular Pages</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+              <a href="/services" class="flex items-center gap-3 p-4 bg-bg-secondary rounded-lg hover:bg-accent-primary hover:text-bg-primary transition-colors">
+                <Icon name="external-link" size="md" ariaHidden client:load />
+                <div>
+                  <div class="font-semibold">Services</div>
+                  <div class="text-sm opacity-80">View our offerings</div>
+                </div>
+              </a>
+
+              <a href="/portfolio" class="flex items-center gap-3 p-4 bg-bg-secondary rounded-lg hover:bg-accent-primary hover:text-bg-primary transition-colors">
+                <Icon name="folder" size="md" ariaHidden client:load />
+                <div>
+                  <div class="font-semibold">Portfolio</div>
+                  <div class="text-sm opacity-80">See our work</div>
+                </div>
+              </a>
+
+              <a href="/blog" class="flex items-center gap-3 p-4 bg-bg-secondary rounded-lg hover:bg-accent-primary hover:text-bg-primary transition-colors">
+                <Icon name="book" size="md" ariaHidden client:load />
+                <div>
+                  <div class="font-semibold">Blog</div>
+                  <div class="text-sm opacity-80">Read insights</div>
+                </div>
+              </a>
+
+              <a href="/about" class="flex items-center gap-3 p-4 bg-bg-secondary rounded-lg hover:bg-accent-primary hover:text-bg-primary transition-colors">
+                <Icon name="users" size="md" ariaHidden client:load />
+                <div>
+                  <div class="font-semibold">About Us</div>
+                  <div class="text-sm opacity-80">Our story</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </Section>
+  </main>
+</BaseLayout>

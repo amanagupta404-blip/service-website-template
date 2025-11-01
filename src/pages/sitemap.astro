@@ -1,0 +1,82 @@
+---
+/**
+ * HTML Sitemap Page
+ * List of all pages for easy navigation
+ */
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Container from '@components/layout/Container.svelte';
+import Section from '@components/layout/Section.svelte';
+---
+
+<BaseLayout
+  title="Sitemap"
+  description="Complete list of all pages on our website for easy navigation."
+>
+  <main id="main-content">
+    <Section backgroundColor="primary" paddingY="large">
+      <Container maxWidth="xl">
+        <h1 class="text-5xl font-bold mb-8 text-center">Sitemap</h1>
+        <p class="text-xl text-secondary text-center mb-12 max-w-2xl mx-auto">
+          Complete listing of all pages on our website for easy navigation and discovery.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+          <!-- Main Pages -->
+          <div>
+            <h2 class="text-2xl font-bold mb-4 pb-2 border-b-2 border-accent-primary">Main Pages</h2>
+            <ul class="space-y-2">
+              <li><a href="/" class="text-accent hover:underline">Home</a></li>
+              <li><a href="/about" class="text-accent hover:underline">About Us</a></li>
+              <li><a href="/contact" class="text-accent hover:underline">Contact</a></li>
+              <li><a href="/booking" class="text-accent hover:underline">Book Appointment</a></li>
+            </ul>
+          </div>
+
+          <!-- Services -->
+          <div>
+            <h2 class="text-2xl font-bold mb-4 pb-2 border-b-2 border-accent-primary">Services</h2>
+            <ul class="space-y-2">
+              <li><a href="/services" class="text-accent hover:underline">Services Overview</a></li>
+              <li><a href="/services/web-development" class="text-accent hover:underline">Web Development</a></li>
+              <li><a href="/services/mobile-apps" class="text-accent hover:underline">Mobile Applications</a></li>
+              <li><a href="/services/design" class="text-accent hover:underline">UI/UX Design</a></li>
+            </ul>
+          </div>
+
+          <!-- Portfolio -->
+          <div>
+            <h2 class="text-2xl font-bold mb-4 pb-2 border-accent-primary">Portfolio</h2>
+            <ul class="space-y-2">
+              <li><a href="/portfolio" class="text-accent hover:underline">Portfolio Overview</a></li>
+              <li><a href="/portfolio/ecommerce-platform" class="text-accent hover:underline">E-Commerce Platform</a></li>
+              <li><a href="/portfolio/banking-app" class="text-accent hover:underline">Mobile Banking App</a></li>
+              <li><a href="/portfolio/healthcare-dashboard" class="text-accent hover:underline">Healthcare Dashboard</a></li>
+            </ul>
+          </div>
+
+          <!-- Blog -->
+          <div>
+            <h2 class="text-2xl font-bold mb-4 pb-2 border-b-2 border-accent-primary">Blog</h2>
+            <ul class="space-y-2">
+              <li><a href="/blog" class="text-accent hover:underline">Blog Home</a></li>
+              <li><a href="/blog/modern-web-development" class="text-accent hover:underline">Modern Web Development</a></li>
+              <li><a href="/blog/responsive-design" class="text-accent hover:underline">Responsive Design Patterns</a></li>
+              <li><a href="/blog/javascript-frameworks" class="text-accent hover:underline">JavaScript Frameworks 2025</a></li>
+            </ul>
+          </div>
+
+          <!-- Legal -->
+          <div>
+            <h2 class="text-2xl font-bold mb-4 pb-2 border-b-2 border-accent-primary">Legal</h2>
+            <ul class="space-y-2">
+              <li><a href="/privacy" class="text-accent hover:underline">Privacy Policy</a></li>
+              <li><a href="/terms" class="text-accent hover:underline">Terms of Service</a></li>
+              <li><a href="/sitemap" class="text-accent hover:underline">Sitemap</a></li>
+            </ul>
+          </div>
+        </div>
+      </Container>
+    </Section>
+  </main>
+</BaseLayout>
