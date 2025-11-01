@@ -307,3 +307,216 @@ li {
 .transition-opacity {
   transition: opacity var(--duration-normal) var(--ease-in-out);
 }
+
+/* ===== MICRO-INTERACTIONS (Phase 6.4) ===== */
+
+/**
+ * Link Hover Animations
+ * Underline sweep effect for text links
+ */
+a:not(.button):not([class*="btn"]) {
+  position: relative;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:not(.button):not([class*="btn"])::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-accent-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+a:not(.button):not([class*="btn"]):hover::after,
+a:not(.button):not([class*="btn"]):focus::after {
+  transform: scaleX(1);
+}
+
+/**
+ * Card Hover Effects
+ * Lift effect with shadow enhancement
+ */
+.card,
+[class*="card"],
+.portfolio-item,
+.service-card,
+.blog-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.card:hover,
+[class*="card"]:hover,
+.portfolio-item:hover,
+.service-card:hover,
+.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.1),
+    0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Prevent hover on touch devices (can be jarring) */
+@media (hover: none) {
+  .card:hover,
+  [class*="card"]:hover,
+  .portfolio-item:hover,
+  .service-card:hover,
+  .blog-card:hover {
+    transform: none;
+  }
+}
+
+/**
+ * Button Hover Enhancements
+ * Subtle scale and brightness increase
+ */
+button,
+.button,
+[type="button"],
+[type="submit"],
+[role="button"] {
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  will-change: transform;
+}
+
+button:hover:not(:disabled),
+.button:hover:not(:disabled),
+[type="button"]:hover:not(:disabled),
+[type="submit"]:hover:not(:disabled),
+[role="button"]:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button:active:not(:disabled),
+.button:active:not(:disabled),
+[type="button"]:active:not(:disabled),
+[type="submit"]:active:not(:disabled),
+[role="button"]:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/**
+ * Form Input Focus Animations
+ * Border color and shadow transition
+ */
+input:not([type="checkbox"]):not([type="radio"]),
+textarea,
+select {
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+input:not([type="checkbox"]):not([type="radio"]):focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-accent-primary);
+  box-shadow:
+    0 0 0 3px rgba(var(--color-accent-primary-rgb, 153, 188, 133), 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+/* Focus visible for keyboard navigation */
+input:not([type="checkbox"]):not([type="radio"]):focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-accent-primary);
+  outline-offset: 2px;
+}
+
+/**
+ * Checkbox and Radio Animations
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  transition: all 0.2s ease;
+}
+
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+  transform: scale(1.1);
+  animation: checkBounce 0.3s ease;
+}
+
+@keyframes checkBounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+/**
+ * Image Hover Zoom
+ * Subtle zoom effect for images in cards
+ */
+.card img,
+[class*="card"] img,
+.portfolio-item img {
+  transition: transform 0.5s ease;
+  will-change: transform;
+}
+
+.card:hover img,
+[class*="card"]:hover img,
+.portfolio-item:hover img {
+  transform: scale(1.05);
+}
+
+/**
+ * Icon Spin on Hover
+ * For icons that indicate action
+ */
+.icon-spin-hover {
+  transition: transform 0.3s ease;
+}
+
+.icon-spin-hover:hover {
+  transform: rotate(15deg);
+}
+
+/**
+ * Smooth Scroll Behavior
+ */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
