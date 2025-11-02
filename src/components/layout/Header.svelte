@@ -262,8 +262,8 @@
   .logo {
     display: flex;
     align-items: center;
+    align-self: center;
     flex-shrink: 0;
-    padding-bottom: 3px;
   }
 
   .logo-link {
@@ -298,6 +298,7 @@
 
   .logo-text {
     display: flex;
+    justify-content: center;
     align-items: center;
     font-family: var(--font-body) !important; /* Use Inter instead of Playfair for baseline alignment */
     font-weight: 700;
@@ -315,6 +316,7 @@
     .desktop-nav {
       display: flex;
       align-items: center;
+      align-self: center;
       flex: 1;
     }
   }
@@ -330,7 +332,7 @@
   .nav-item {
     display: flex;
     align-items: center;
-    margin: 0;
+    margin: 0;    
   }
 
   .nav-link {
@@ -370,6 +372,7 @@
   .header-actions {
     display: flex;
     align-items: center;
+    align-self: center;
     gap: var(--space-4);
   }
 
@@ -383,7 +386,6 @@
     .theme-switcher-wrapper {
       display: flex;
       align-items: center;
-      padding-bottom: 3px;
     }
   }
 
