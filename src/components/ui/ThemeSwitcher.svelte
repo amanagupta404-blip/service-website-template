@@ -256,7 +256,8 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.5rem 1rem;
+    height: 44px;
+    padding: 0 1rem;
     background-color: var(--color-bg-secondary);
     border: 1px solid var(--color-border);
     border-radius: 0.5rem;
