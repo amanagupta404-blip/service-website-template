@@ -293,16 +293,21 @@
   }
 
   .nav-item {
+    display: flex;
+    align-items: center;
     margin: 0;
   }
 
   .nav-link {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: var(--space-2) var(--space-4);
     color: var(--color-text-primary);
     text-decoration: none;
     font-weight: 500;
     font-size: var(--text-base);
+    line-height: 1;
     border-radius: 4px;
     transition: all var(--duration-fast) var(--ease-in-out);
   }
