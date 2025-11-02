@@ -263,6 +263,7 @@
     display: flex;
     align-items: center;
     flex-shrink: 0;
+    padding-bottom: 3px;
   }
 
   .logo-link {
@@ -382,6 +383,7 @@
     .theme-switcher-wrapper {
       display: flex;
       align-items: center;
+      padding-bottom: 3px;
     }
   }
 
