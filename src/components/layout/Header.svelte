@@ -274,7 +274,8 @@
 
   @media (min-width: 768px) {
     .desktop-nav {
-      display: block;
+      display: flex;
+      align-items: center;
       flex: 1;
     }
   }
@@ -335,7 +336,8 @@
 
   @media (min-width: 768px) {
     .theme-switcher-wrapper {
-      display: block;
+      display: flex;
+      align-items: center;
     }
   }
 
