@@ -232,6 +232,8 @@
    * Logo / Brand
    */
   .logo {
+    display: flex;
+    align-items: center;
     flex-shrink: 0;
   }
 
@@ -243,6 +245,7 @@
     color: var(--color-text-primary);
     font-weight: 700;
     font-size: var(--text-lg);
+    line-height: 1;
     transition: opacity var(--duration-fast) var(--ease-in-out);
   }
 
@@ -263,6 +266,7 @@
 
   .logo-text {
     font-family: var(--font-heading);
+    line-height: 1;
   }
 
   /**
