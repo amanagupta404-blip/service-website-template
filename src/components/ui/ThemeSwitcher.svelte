@@ -264,6 +264,7 @@
     color: var(--color-text-primary);
     font-size: 0.875rem;
     font-weight: 500;
+    line-height: 1;
     cursor: pointer;
     transition: all 0.2s ease;
   }
@@ -279,17 +280,25 @@
   }
 
   .theme-icon {
-    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
     line-height: 1;
   }
 
   .theme-name {
+    display: flex;
+    align-items: center;
     min-width: 120px;
     text-align: left;
+    line-height: 1;
   }
 
   .dropdown-arrow {
+    display: flex;
+    align-items: center;
     font-size: 0.75rem;
+    line-height: 1;
     transition: transform 0.2s ease;
   }
 

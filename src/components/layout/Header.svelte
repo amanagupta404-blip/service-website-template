@@ -261,11 +261,15 @@
   }
 
   .logo-icon {
+    display: block;
     width: 32px;
     height: 32px;
+    flex-shrink: 0;
   }
 
   .logo-text {
+    display: flex;
+    align-items: center;
     font-family: var(--font-heading);
     line-height: 1;
   }
