@@ -234,12 +234,14 @@
   .logo {
     display: flex;
     align-items: center;
+    height: 100%;
     flex-shrink: 0;
   }
 
   .logo-link {
     display: flex;
     align-items: center;
+    height: 100%;
     gap: var(--space-3);
     text-decoration: none;
     color: var(--color-text-primary);
@@ -280,6 +282,7 @@
     .desktop-nav {
       display: flex;
       align-items: center;
+      height: 100%;
       flex: 1;
     }
   }
@@ -288,6 +291,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100%;
     gap: var(--space-2);
     list-style: none;
   }
@@ -334,6 +338,7 @@
   .header-actions {
     display: flex;
     align-items: center;
+    height: 100%;
     gap: var(--space-4);
   }
 
@@ -347,6 +352,7 @@
     .theme-switcher-wrapper {
       display: flex;
       align-items: center;
+      height: 100%;
     }
   }
 
