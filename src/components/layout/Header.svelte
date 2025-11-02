@@ -197,6 +197,34 @@
 
 <style>
   /**
+   * Global Style Isolation
+   * Neutralize global CSS that interferes with header alignment
+   */
+
+  /* Remove stacking context from will-change on all header elements */
+  .header *,
+  .header *::before,
+  .header *::after {
+    will-change: auto !important;
+  }
+
+  /* Remove global link underline pseudo-elements */
+  .header a::after {
+    display: none !important;
+  }
+
+  /* Neutralize button transforms and will-change */
+  .header button {
+    will-change: auto !important;
+    transform: none !important;
+  }
+
+  /* Remove positioning context from logo link */
+  .logo-link {
+    position: static !important;
+  }
+
+  /**
    * Header Styles
    */
   .header {
@@ -270,7 +298,8 @@
   .logo-text {
     display: flex;
     align-items: center;
-    font-family: var(--font-heading);
+    font-family: var(--font-body) !important; /* Use Inter instead of Playfair for baseline alignment */
+    font-weight: 700;
     line-height: 1;
   }
 
